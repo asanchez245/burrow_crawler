@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -382039047979977968, guid: 466b2e7ff1c81ae4080181f46671adcb, type: 3}
+      propertyPath: orbType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1025039208846458205, guid: 466b2e7ff1c81ae4080181f46671adcb, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
       value: 0

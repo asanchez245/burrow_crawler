@@ -2,22 +2,22 @@ using UnityEngine;
 
 public class TESTZONE : MonoBehaviour
 {
-    public ManaOrb manaGenerator;
+    public ManaOrbGenerator manaGenerator;
     public void Emmit10NeutralMana()
     {
-        ManaPoolController.Instance.SpawnManaOrbs(ManaPoolController.Instance.transform.position, ManaOrb.OrbType.NeutralMana, 10);
+        manaGenerator.EmitExactParticles(10, ManaOrbGenerator.OrbType.NeutralMana);
     }
     public void Emmit10RedMana()
     {
-        ManaPoolController.Instance.SpawnManaOrbs(ManaPoolController.Instance.transform.position, ManaOrb.OrbType.RedMana, 10);
+        manaGenerator.EmitExactParticles(10, ManaOrbGenerator.OrbType.RedMana);
     }
 
     public void Emmit10BlueMana()
     {
-        ManaPoolController.Instance.SpawnManaOrbs(ManaPoolController.Instance.transform.position, ManaOrb.OrbType.BlueMana, 10);
+        manaGenerator.EmitExactParticles(10, ManaOrbGenerator.OrbType.BlueMana);
     }
-    public void Emmit10GreenMana()
+    public void Emmit10YellowMana()
     {
-        ManaPoolController.Instance.SpawnManaOrbs(ManaPoolController.Instance.transform.position, ManaOrb.OrbType.GreenMana, 10);
+        manaGenerator.EmitExactParticles(10, ManaOrbGenerator.OrbType.YellowMana);
     }
 }
