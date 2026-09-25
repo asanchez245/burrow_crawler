@@ -2250,7 +2250,7 @@ GameObject:
   - component: {fileID: 1751272426}
   - component: {fileID: 1751272425}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: ____ Combat Canvas _____
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2581,6 +2581,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3837312916575256188, guid: 1d11f42827d48a84e8bbd141b976e56f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3837312916575256188, guid: 1d11f42827d48a84e8bbd141b976e56f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3837312916575256188, guid: 1d11f42827d48a84e8bbd141b976e56f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3837312916575256188, guid: 1d11f42827d48a84e8bbd141b976e56f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037240693945801901, guid: 1d11f42827d48a84e8bbd141b976e56f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 222.5194
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037240693945801901, guid: 1d11f42827d48a84e8bbd141b976e56f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000012204
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037240693945801901, guid: 1d11f42827d48a84e8bbd141b976e56f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6250230386275572970, guid: 1d11f42827d48a84e8bbd141b976e56f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6250230386275572970, guid: 1d11f42827d48a84e8bbd141b976e56f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6250230386275572970, guid: 1d11f42827d48a84e8bbd141b976e56f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6250230386275572970, guid: 1d11f42827d48a84e8bbd141b976e56f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6315391825708090376, guid: 1d11f42827d48a84e8bbd141b976e56f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2601,6 +2645,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character_Combat
       objectReference: {fileID: 0}
+    - target: {fileID: 7005200589783343682, guid: 1d11f42827d48a84e8bbd141b976e56f, type: 3}
+      propertyPath: _characterData
+      value: 
+      objectReference: {fileID: 11400000, guid: 958898638a4ce014095a29663cab1232, type: 2}
     - target: {fileID: 7821054175580116527, guid: 1d11f42827d48a84e8bbd141b976e56f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

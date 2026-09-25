@@ -730,6 +730,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3138496511482062734}
   - component: {fileID: 7613496085259003317}
+  - component: {fileID: 7005200589783343682}
+  - component: {fileID: 8726618882784549400}
+  - component: {fileID: 4376883045388524695}
   m_Layer: 5
   m_Name: Character_Combat
   m_TagString: Untagged
@@ -767,6 +770,43 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6660059007609395198}
   m_CullTransparentMesh: 1
+--- !u!114 &7005200589783343682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6660059007609395198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 767ca0612c148834eaee6e246ca67918, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterController
+  _characterData: {fileID: 0}
+--- !u!114 &8726618882784549400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6660059007609395198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59eb9c6ea72bca5418e4282fd1e0876b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterInfo
+--- !u!114 &4376883045388524695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6660059007609395198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c52f8964049a974aa994e9d169c5b3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterVisuals
 --- !u!1 &7792205278444311360
 GameObject:
   m_ObjectHideFlags: 0
