@@ -307,7 +307,7 @@ GameObject:
   - component: {fileID: 2269738862958767771}
   - component: {fileID: 2061142447649168215}
   m_Layer: 5
-  m_Name: Armor
+  m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
