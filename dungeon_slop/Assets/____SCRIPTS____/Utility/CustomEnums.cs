@@ -15,14 +15,6 @@ public enum PlayType
     Heal,
     Utility
 }
-public enum AbilityTag
-{
-    Neutral = 0,
-    Esoteric = 1,
-    GunPowder = 2,
-    Steel = 3,
-    Heal = 4,
-}
 
 public enum TurnState
 {
@@ -30,32 +22,10 @@ public enum TurnState
     playerTurn,
     enemyTurn,
 }
-public enum SpeedCheckType
+public enum OrbType
 {
-    Faster,
-    Equal,
-    Slower
-}
-
-public enum EntityAnims
-{
-    Idle,
-    Spawn,
-    Attack,
-    Hurt,
-    Death
-}
-public enum EntityState 
-{
-    neutral,
-    aggressive,
-    defensive,
-    supportive
-}
-
-public enum PlayerState
-{
-    none,
-    combat,
-    map,
+    NeutralMana,
+    YellowMana,
+    BlueMana,
+    RedMana,
 }

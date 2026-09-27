@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterInfo : MonoBehaviour
@@ -9,6 +9,8 @@ public class CharacterInfo : MonoBehaviour
 
     public int _maxShield { get; private set; }
     public int _currentShield { get; private set; }
+
+    public List<CharacterManaGeneration> _manaGenerationPerTurn {  get; private set; } = new ();
 
     public int GetMaxHealth() {  return _maxHealth; }
     public int GetCurrentHealth() { return _currentHealth; }
@@ -25,7 +27,8 @@ public class CharacterInfo : MonoBehaviour
     internal void InitializeCharacterInfo(CharacterData chData)
     {
         SetMaxHealth(chData.health);
-        SetMaxShield(chData.health); 
+        SetMaxShield(chData.shield);
+        _manaGenerationPerTurn.AddRange(chData.manaGenerationPerTurn);
     }
 
 }

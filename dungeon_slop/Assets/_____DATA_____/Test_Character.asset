@@ -16,3 +16,8 @@ MonoBehaviour:
   characterDescription: la descripcion del payo de testeo
   health: 12
   shield: 6
+  manaGenerationPerTurn:
+  - manaType: 0
+    manaQuantity: 2
+  - manaType: 1
+    manaQuantity: 1
