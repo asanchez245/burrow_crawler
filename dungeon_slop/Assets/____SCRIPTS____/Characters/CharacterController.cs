@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-    CharacterInfo _info;
+    public CharacterInfo _info { get; private set; }
     CharacterVisuals _visuals;
 
     [SerializeField] CharacterData _characterData;

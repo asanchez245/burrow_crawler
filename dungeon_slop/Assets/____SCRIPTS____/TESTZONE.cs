@@ -8,22 +8,22 @@ public class TESTZONE : MonoBehaviour
 
     public void EmmitNeutralMana(int amount)
     {
-        ManaPoolController.Instance.SpawnAndEmit(OrbType.NeutralMana, spawnPoint.position, amount);
+        ManaPoolController.Instance.GenerateMana(OrbType.NeutralMana, spawnPoint.position, amount);
     }
 
     public void EmmitRedMana(int amount)
     {
-        ManaPoolController.Instance.SpawnAndEmit(OrbType.RedMana, spawnPoint.position, amount);
+        ManaPoolController.Instance.GenerateMana(OrbType.RedMana, spawnPoint.position, amount);
     }
 
     public void EmmitBlueMana(int amount)
     {
-        ManaPoolController.Instance.SpawnAndEmit(OrbType.BlueMana, spawnPoint.position, amount);
+        ManaPoolController.Instance.GenerateMana(OrbType.BlueMana, spawnPoint.position, amount);
     }
 
     public void EmmitYellowMana(int amount)
     {
-        ManaPoolController.Instance.SpawnAndEmit(OrbType.YellowMana, spawnPoint.position, amount);
+        ManaPoolController.Instance.GenerateMana(OrbType.YellowMana, spawnPoint.position, amount);
     }
 
     public void UseNeutralMana(int amount)

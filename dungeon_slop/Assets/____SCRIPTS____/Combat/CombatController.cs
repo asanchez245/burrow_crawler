@@ -1,4 +1,4 @@
-using DG.Tweening;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class CombatController : MonoBehaviour
@@ -19,35 +19,45 @@ public class CombatController : MonoBehaviour
         if (_info != null) _info.InitializeCombatInfo(_combatData);
         _visuals = new CombatVisuals();
         if (_visuals != null) _visuals.InitializeCombatVisuals(_combatData);
-
-
-
+    }
+    private void Start()
+    {
+        BoardController.Instance.Initialize();
+        StartCombat();
+    }
+    [Button("End Turn",ButtonSizes.Gigantic),GUIColor(1, 0.2f, 0)]
+    public void EndTurn()
+    {
+        if(TurnState.playerTurn == _info.GetCurrentTurnState())
+        {
+            SetEnemyTurn();
+        }
+        else if (TurnState.enemyTurn == _info.GetCurrentTurnState())
+        {
+            SetPlayerTurn();
+        }
+        Sequencer.Instance.TriggerSequence();
     }
 
+
+    public void SetPlayerTurn()
+    { 
+        _info.SetCurrentTurnState(TurnState.playerTurn);
+        Sequencer.Instance.AddSequence(_visuals.SetTurnVisuals(TurnState.playerTurn));
+        Sequencer.Instance.AddSequence(BoardController.Instance.GenerateManaTurn());
+        // generar mana cada character
+        //activar control player
+    }
+    public void SetEnemyTurn()
+    {
+        _info.SetCurrentTurnState(TurnState.enemyTurn);
+        Sequencer.Instance.AddSequence(_visuals.SetTurnVisuals(TurnState.enemyTurn));
+    }
     public void StartCombat()
     {
         //intro combate
         SetPlayerTurn();
-
-
-
-        Sequencer.Instance.TriggerSequence();
     }
-
-    public void EndTurn()
-    {
-        //desactivar control player
-        SetEnemyTurn();
-        //enemigos añaden sus secuencias de ataque
-
-
-        Sequencer.Instance.TriggerSequence();
-    }
-
-
-    public void SetPlayerTurn() { _info.SetCurrentTurnState(TurnState.playerTurn); Sequencer.Instance.AddSequence(_visuals.SetTurnVisuals(TurnState.playerTurn)); }
-    public void SetEnemyTurn() { _info.SetCurrentTurnState(TurnState.enemyTurn); Sequencer.Instance.AddSequence(_visuals.SetTurnVisuals(TurnState.enemyTurn)); }
-
     public void EndCombat()
     {
         //outro sequence

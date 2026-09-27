@@ -10,6 +10,8 @@ public class CharacterInfo : MonoBehaviour
     public int _maxShield { get; private set; }
     public int _currentShield { get; private set; }
 
+    public Transform _chartacterPosition; /*{ get; private set; }*/
+
     public List<CharacterManaGeneration> _manaGenerationPerTurn {  get; private set; } = new ();
 
     public int GetMaxHealth() {  return _maxHealth; }

@@ -21,7 +21,7 @@ public class ManaPoolController : MonoSingleton<ManaPoolController>
         }
     }
 
-    public void SpawnAndEmit(OrbType orbType, Vector3 spawnPosition, int count)
+    public void GenerateMana(OrbType orbType, Vector3 spawnPosition, int count)
     {
         if (!poolInfo.prefabDict.TryGetValue(orbType, out ParticleSystem prefab) || prefab == null)
         {

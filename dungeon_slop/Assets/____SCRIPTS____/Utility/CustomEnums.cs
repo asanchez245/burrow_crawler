@@ -7,7 +7,6 @@ public enum AbilityTiers
     Rare, 
     Epic 
 }
-
 public enum PlayType
 {
     Attack,
@@ -15,7 +14,6 @@ public enum PlayType
     Heal,
     Utility
 }
-
 public enum TurnState
 {
     state_none = -1, 
