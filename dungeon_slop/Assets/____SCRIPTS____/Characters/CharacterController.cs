@@ -5,7 +5,7 @@ public class CharacterController : MonoBehaviour
     public CharacterInfo _info { get; private set; }
     CharacterVisuals _visuals;
 
-    [SerializeField] CharacterData _characterData;
+    public CharacterData characterData;
 
     private void Awake()
     {
@@ -15,9 +15,9 @@ public class CharacterController : MonoBehaviour
     public void InitializeCharacter()
     {
         _info = GetComponent<CharacterInfo>();
-        if (_info != null) _info.InitializeCharacterInfo(_characterData);
+        if (_info != null) _info.InitializeCharacterInfo(characterData);
         _visuals = new CharacterVisuals();
-        if (_visuals != null) _visuals.InitializeCharacterVisuals(_characterData);
+        if (_visuals != null) _visuals.InitializeCharacterVisuals(characterData);
     }
 
     #region Character Stats Management

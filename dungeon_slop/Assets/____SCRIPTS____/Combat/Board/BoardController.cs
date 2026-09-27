@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class BoardController : MonoSingleton<BoardController>
@@ -12,6 +13,11 @@ public class BoardController : MonoSingleton<BoardController>
         if (boardInfo != null) boardInfo.Initialize();
         boardVisuals = GetComponent<BoardVisuals>();
         if (boardVisuals != null) boardVisuals.Initialize();
+    }
+
+    public CharacterController GetCharacter()
+    {
+        return boardInfo.characters[0];
     }
 
     public IEnumerator GenerateManaTurn()

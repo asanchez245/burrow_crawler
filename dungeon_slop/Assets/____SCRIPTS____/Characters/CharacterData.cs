@@ -6,6 +6,9 @@ public class CharacterData : ScriptableObject
 {
     public string characterName;
 
+    public Sprite characterSprite;
+    public Sprite characterPortrait;
+
     [TextArea(3, 10)]
     public string characterDescription;
 

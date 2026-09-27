@@ -17,14 +17,18 @@ public class CombatController : MonoBehaviour
     {
         _info = GetComponent<CombatInfo>();
         if (_info != null) _info.InitializeCombatInfo(_combatData);
-        _visuals = new CombatVisuals();
+        _visuals = GetComponent<CombatVisuals>();
         if (_visuals != null) _visuals.InitializeCombatVisuals(_combatData);
     }
     private void Start()
     {
         BoardController.Instance.Initialize();
+        
         StartCombat();
     }
+
+    public void SetCharacterVisualsInInfo(CharacterData chData) { _visuals.SetSelectedCharacterInfo(chData); }
+
     [Button("End Turn",ButtonSizes.Gigantic),GUIColor(1, 0.2f, 0)]
     public void EndTurn()
     {
@@ -56,6 +60,7 @@ public class CombatController : MonoBehaviour
     public void StartCombat()
     {
         //intro combate
+        SetCharacterVisualsInInfo(BoardController.Instance.GetCharacter().characterData);
         SetPlayerTurn();
     }
     public void EndCombat()

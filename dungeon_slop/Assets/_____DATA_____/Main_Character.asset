@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da815bf575076d8469aae1801e4eaba2, type: 3}
-  m_Name: Test_Character
+  m_Name: Main_Character
   m_EditorClassIdentifier: Assembly-CSharp::CharacterData
-  characterName: Payo Testeo
+  characterName: Main Payo
+  characterSprite: {fileID: 21300000, guid: f7a67cdeab852014ca9f68c97b32741c, type: 3}
+  characterPortrait: {fileID: 21300000, guid: f7a67cdeab852014ca9f68c97b32741c, type: 3}
   characterDescription: la descripcion del payo de testeo
   health: 12
   shield: 6
