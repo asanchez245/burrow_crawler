@@ -14,7 +14,7 @@ public class ManaPoolController : MonoSingleton<ManaPoolController>
         visuals.Initialize();
     }
 
-    public void GenerateMana(OrbType orbType, Vector3 spawnPosition, int count)
+    public void GenerateMana(ManaType orbType, Vector3 spawnPosition, int count)
     {
         ParticleSystem prefab = visuals.GetParticleSystemForType(orbType);
 
@@ -28,12 +28,12 @@ public class ManaPoolController : MonoSingleton<ManaPoolController>
         emitter.Initialize(orbType, count, this);
     }
 
-    public void OnOrbCollected(OrbType type)
+    public void OnOrbCollected(ManaType type)
     {
         poolInfo.AddMana(type, 1);
         visuals.AddMana(type);
     }
-    public bool OnOrbUsed(OrbType type, int amount)
+    public bool OnOrbUsed(ManaType type, int amount)
     {
         if (poolInfo.GetCurrentManaCount(type) < amount)
         {
@@ -48,6 +48,6 @@ public class ManaPoolController : MonoSingleton<ManaPoolController>
 [System.Serializable]
 public class ManaParticleSystemMapping
 {
-    public OrbType orbType;
+    public ManaType orbType;
     public ParticleSystem particleSystemPrefab;
 }

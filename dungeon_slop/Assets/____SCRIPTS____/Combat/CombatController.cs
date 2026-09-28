@@ -1,16 +1,18 @@
 using Sirenix.OdinInspector;
+using TMPro;
 using System.Collections;
 using UnityEngine;
 
-public class CombatController : MonoBehaviour
+public class CombatController : MonoSingleton<CombatController>
 {
     CombatInfo _info;
     CombatVisuals _visuals;
     public EnemyController[] enemies;
     [SerializeField] CombatData _combatData;
 
-    private void Awake()
+    public  override void Awake()
     {
+        base.Awake();
         InitializeCombat();
     }
 
@@ -90,4 +92,9 @@ public class CombatController : MonoBehaviour
             yield return new WaitForSeconds(_info.enemyActionDelay);
         }
     }
+
+    #region Info Desc.
+    public TextMeshProUGUI GetInfoName() { return _visuals.infoName; }
+    public TextMeshProUGUI GetInfoDesc() { return _visuals.infoDescription; }
+    #endregion
 }

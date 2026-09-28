@@ -12,7 +12,11 @@ public class CharacterInfo : MonoBehaviour
 
     public Transform _chartacterPosition; /*{ get; private set; }*/
 
+    [Header("Mana Generation")]
     public List<CharacterManaGeneration> _manaGenerationPerTurn {  get; private set; } = new ();
+
+    [Header("Abilities")]
+    public List<AbilityController> _characterAbilities = new();
 
     public int GetMaxHealth() {  return _maxHealth; }
     public int GetCurrentHealth() { return _currentHealth; }
@@ -37,5 +41,7 @@ public class CharacterInfo : MonoBehaviour
         //que gestione la party fuera de combate, mientras que se la max
         SetCurrentHealth(chData.health);
     }
+
+
 
 }

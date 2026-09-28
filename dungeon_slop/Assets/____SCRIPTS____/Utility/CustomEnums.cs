@@ -20,7 +20,7 @@ public enum TurnState
     playerTurn,
     enemyTurn,
 }
-public enum OrbType
+public enum ManaType
 {
     NeutralMana,
     YellowMana,
