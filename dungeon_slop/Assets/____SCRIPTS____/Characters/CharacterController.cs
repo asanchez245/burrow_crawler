@@ -16,8 +16,9 @@ public class CharacterController : MonoBehaviour
     {
         _info = GetComponent<CharacterInfo>();
         if (_info != null) _info.InitializeCharacterInfo(characterData);
-        _visuals = new CharacterVisuals();
-        if (_visuals != null) _visuals.InitializeCharacterVisuals(characterData);
+        _visuals = GetComponent<CharacterVisuals>();
+        if (_visuals != null) _visuals.InitializeCharacterVisuals(characterData, this);
+
     }
 
     #region Character Stats Management
@@ -33,8 +34,10 @@ public class CharacterController : MonoBehaviour
             healthAmount = amount;
         }
         _info.SetCurrentHealth(healthAmount);
+        _visuals.UpdateHealthText(healthAmount);
     }
     public void SetMaxHealth(int amount) { _info.SetMaxHealth(amount); }
+    public int GetCurrentHealth() {  return _info.GetCurrentHealth(); }
 
     public void ModifyCharacterShield(int amount, bool isFixed)
     {
@@ -48,8 +51,10 @@ public class CharacterController : MonoBehaviour
             shieldAmount = amount;
         }
         _info.SetCurrentShield(shieldAmount);
+        _visuals?.UpdateShieldText(shieldAmount);
     }
     public void SetMaxShield(int amount) { _info.SetMaxShield(amount); }
+    public int GetCurrentShield() {  return _info.GetCurrentShield(); }
 
 
 

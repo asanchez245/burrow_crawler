@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +7,9 @@ public class CharacterData : ScriptableObject
 {
     public string characterName;
 
+    [Image]
     public Sprite characterSprite;
+    [Image]
     public Sprite characterPortrait;
 
     [TextArea(3, 10)]
