@@ -13,20 +13,16 @@ public class ManaPoolController : MonoSingleton<ManaPoolController>
         visuals = GetComponent<ManaPoolVisuals>();
         visuals.Initialize();
     }
-    private void Start()
-    {
-        foreach (var mapping in visuals.manaParticleSystems)
-        {
-            poolInfo.SetParticleSystemPrefab(mapping.orbType, mapping.particleSystemPrefab);
-        }
-    }
 
     public void GenerateMana(OrbType orbType, Vector3 spawnPosition, int count)
     {
-        if (!poolInfo.prefabDict.TryGetValue(orbType, out ParticleSystem prefab) || prefab == null)
+        ParticleSystem prefab = visuals.GetParticleSystemForType(orbType);
+
+        if (prefab == null)
         {
             return;
         }
+
         ParticleSystem instantiatedPS = Instantiate(prefab, spawnPosition, Quaternion.identity);
         ManaParticleEmitter emitter = instantiatedPS.gameObject.AddComponent<ManaParticleEmitter>();
         emitter.Initialize(orbType, count, this);
@@ -35,7 +31,7 @@ public class ManaPoolController : MonoSingleton<ManaPoolController>
     public void OnOrbCollected(OrbType type)
     {
         poolInfo.AddMana(type, 1);
-        visuals.UpdateManaVisuals(type, poolInfo.GetCurrentManaCount(type));
+        visuals.AddMana(type);
     }
     public bool OnOrbUsed(OrbType type, int amount)
     {
@@ -44,19 +40,8 @@ public class ManaPoolController : MonoSingleton<ManaPoolController>
             return false;
         }
         poolInfo.RemoveMana(type, amount);
-        visuals.UpdateManaVisuals(type, poolInfo.GetCurrentManaCount(type));
+        visuals.RemoveMana(type);
         return true;
-    }
-    public Transform GetTargetForType(OrbType type)
-    {
-        switch (type)
-        {
-            case OrbType.NeutralMana: return visuals.neutralManaTarget;
-            case OrbType.YellowMana: return visuals.yellowManaTarget;
-            case OrbType.BlueMana: return visuals.blueManaTarget;
-            case OrbType.RedMana: return visuals.redManaTarget;
-            default: return visuals.neutralManaTarget;
-        }
     }
 }
 

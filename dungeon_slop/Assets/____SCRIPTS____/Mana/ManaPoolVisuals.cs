@@ -5,26 +5,13 @@ using TMPro;
 
 public class ManaPoolVisuals : MonoBehaviour
 {
-    [Header("UI Containers / Targets")]
-    public Transform neutralManaTarget;
-    public Transform yellowManaTarget;
-    public Transform blueManaTarget;
-    public Transform redManaTarget;
+    [Header("UI Containers")]
+    public Transform manaHorizontalContainer;
+    public Transform orbsTarget;
+    public GameObject orbPrefab;
 
-    [Header("Holders")]
-    public Transform neutralManaHolder;
-    public Transform yellowManaHolder;
-    public Transform blueManaHolder;
-    public Transform redManaHolder;
-
-    [Header("Mana Lists")]
-    private List<GameObject> neutralManas = new();
-    private List<GameObject> yellowManas = new();
-    private List<GameObject> blueManas = new();
-    private List<GameObject> redManas = new();
-
-    [Header("Mana Prefabs")]
-    public List<ManaParticleSystemMapping> manaParticleSystems = new List<ManaParticleSystemMapping>();
+    [Header("Orb Mappings")]
+    public List<OrbParticleSystem> orbParticleSystems = new();
 
     [Header("Orbs Parameters")]
     public float baseSpeed = 5f;
@@ -32,52 +19,126 @@ public class ManaPoolVisuals : MonoBehaviour
     public float minDistance = 0.5f;
     public float maxFloatDelay = 1.0f;
 
-    public void Initialize()
+    [System.Serializable]
+    public class OrbParticleSystem
     {
-        GetImageObjectsFromHolder(neutralManaHolder, neutralManas);
-        GetImageObjectsFromHolder(yellowManaHolder, yellowManas);
-        GetImageObjectsFromHolder(blueManaHolder, blueManas);
-        GetImageObjectsFromHolder(redManaHolder, redManas);
+        public OrbType type;
+        public ParticleSystem particleSystem;
+        public Sprite orbSprite;
+
+        public OrbParticleSystem(ParticleSystem ps, OrbType orbType, Sprite sprite)
+        {
+            particleSystem = ps;
+            type = orbType;
+            orbSprite = sprite;
+        }
     }
 
-    public void UpdateManaVisuals(OrbType type, int currentManaAmount)
+    public void Initialize()
     {
-        List<GameObject> targetList = GetListForType(type);
-        if (targetList == null || targetList.Count == 0) return;
-
-        int totalSlots = targetList.Count;
-
-        for (int i = 0; i < totalSlots; i++)
+        foreach (Transform child in manaHorizontalContainer)
         {
-            GameObject manaObject = targetList[i];
-            if (manaObject == null) continue;
-
-            bool shouldBeActive = currentManaAmount > i;
-
-            if (manaObject.activeSelf != shouldBeActive)
-            {
-                manaObject.SetActive(shouldBeActive);
-            }
+            Destroy(child.gameObject);
         }
+    }
 
-        GameObject bottomSlot = targetList[0];
-        if (bottomSlot != null)
+    public void AddMana(OrbType type)
+    {
+        Sprite sprite = GetSpriteForType(type);
+        if (sprite == null) return;
+
+        int currentCount = ManaPoolController.Instance.poolInfo.GetCurrentManaCount(type);
+
+        if (currentCount < 4)
         {
-            if (currentManaAmount > totalSlots)
+            GameObject newInstance = Instantiate(orbPrefab, manaHorizontalContainer);
+            newInstance.GetComponent<Image>().sprite = sprite;
+            ToggleOrbText(newInstance, false, string.Empty);
+        }
+        else if (currentCount == 4)
+        {
+            RemoveAllOrbsOfSprite(sprite);
+
+            GameObject newInstance = Instantiate(orbPrefab, manaHorizontalContainer);
+            newInstance.GetComponent<Image>().sprite = sprite;
+            ToggleOrbText(newInstance, true, currentCount.ToString());
+        }
+        else
+        {
+            GameObject groupedOrb = FindOrbBySprite(sprite);
+
+            if (groupedOrb != null)
             {
-                int extraMana = currentManaAmount - totalSlots;
-                SetTextActiveAndValue(bottomSlot, true, $"x{extraMana}");
+                ToggleOrbText(groupedOrb, true, currentCount.ToString());
             }
             else
             {
-                SetTextActiveAndValue(bottomSlot, false, string.Empty);
+                GameObject newInstance = Instantiate(orbPrefab, manaHorizontalContainer);
+                newInstance.GetComponent<Image>().sprite = sprite;
+                ToggleOrbText(newInstance, true, currentCount.ToString());
+            }
+        }
+
+        SortOrbsInContainer();
+    }
+
+    public void RemoveMana(OrbType type)
+    {
+        Sprite sprite = GetSpriteForType(type);
+        if (sprite == null) return;
+
+        int currentCount = ManaPoolController.Instance.poolInfo.GetCurrentManaCount(type);
+
+        if (currentCount >= 4)
+        {
+            GameObject groupedOrb = FindOrbBySprite(sprite);
+            if (groupedOrb != null)
+            {
+                ToggleOrbText(groupedOrb, true, currentCount.ToString());
+            }
+        }
+        else if (currentCount == 3)
+        {
+            RemoveAllOrbsOfSprite(sprite);
+
+            for (int i = 0; i < 3; i++)
+            {
+                GameObject newInstance = Instantiate(orbPrefab, manaHorizontalContainer);
+                newInstance.GetComponent<Image>().sprite = sprite;
+                ToggleOrbText(newInstance, false, string.Empty);
+            }
+        }
+        else
+        {
+            GameObject lastOrb = FindOrbBySprite(sprite);
+            if (lastOrb != null)
+            {
+                lastOrb.transform.SetParent(null);
+                Destroy(lastOrb);
+            }
+        }
+
+        SortOrbsInContainer();
+    }
+
+    private void RemoveAllOrbsOfSprite(Sprite sprite)
+    {
+        for (int i = manaHorizontalContainer.childCount - 1; i >= 0; i--)
+        {
+            Transform child = manaHorizontalContainer.GetChild(i);
+            Image image = child.GetComponent<Image>();
+
+            if (image != null && image.sprite == sprite)
+            {
+                child.SetParent(null);
+                Destroy(child.gameObject);
             }
         }
     }
 
-    private void SetTextActiveAndValue(GameObject slotObject, bool active, string textValue)
+    private void ToggleOrbText(GameObject orbInstance, bool active, string textValue)
     {
-        TextMeshProUGUI tmpText = slotObject.GetComponentInChildren<TextMeshProUGUI>(true);
+        TextMeshProUGUI tmpText = orbInstance.GetComponentInChildren<TextMeshProUGUI>(true);
         if (tmpText != null)
         {
             tmpText.text = textValue;
@@ -85,7 +146,7 @@ public class ManaPoolVisuals : MonoBehaviour
             return;
         }
 
-        Text legacyText = slotObject.GetComponentInChildren<Text>(true);
+        Text legacyText = orbInstance.GetComponentInChildren<Text>(true);
         if (legacyText != null)
         {
             legacyText.text = textValue;
@@ -93,40 +154,71 @@ public class ManaPoolVisuals : MonoBehaviour
         }
     }
 
-    public void UpdateAllManaVisuals(int neutral, int yellow, int blue, int red)
+    private GameObject FindOrbBySprite(Sprite sprite)
     {
-        UpdateManaVisuals(OrbType.NeutralMana, neutral);
-        UpdateManaVisuals(OrbType.YellowMana, yellow);
-        UpdateManaVisuals(OrbType.BlueMana, blue);
-        UpdateManaVisuals(OrbType.RedMana, red);
+        foreach (Transform child in manaHorizontalContainer)
+        {
+            if (child.parent != manaHorizontalContainer) continue;
+
+            Image image = child.GetComponent<Image>();
+            if (image != null && image.sprite == sprite)
+            {
+                return child.gameObject;
+            }
+        }
+        return null;
     }
 
-    public void GetImageObjectsFromHolder(Transform holder, List<GameObject> imageObjectsList)
+    public void SortOrbsInContainer()
     {
-        if (imageObjectsList == null) return;
-        imageObjectsList.Clear();
-
-        if (holder == null) return;
-
-        Image[] images = holder.GetComponentsInChildren<Image>(true);
-
-        foreach (Image img in images)
+        List<Transform> children = new List<Transform>();
+        foreach (Transform child in manaHorizontalContainer)
         {
-            imageObjectsList.Add(img.gameObject);
+            if (child.parent == manaHorizontalContainer)
+            {
+                children.Add(child);
+            }
         }
-
-        imageObjectsList.Reverse();
+        children.Sort((a, b) => GetOrbValue(b).CompareTo(GetOrbValue(a)));
+        for (int i = 0; i < children.Count; i++)
+        {
+            children[i].SetSiblingIndex(i);
+        }
     }
 
-    private List<GameObject> GetListForType(OrbType type)
+    private int GetOrbValue(Transform orbTransform)
     {
-        switch (type)
+        Image img = orbTransform.GetComponent<Image>();
+        if (img != null && img.sprite != null)
         {
-            case OrbType.NeutralMana: return neutralManas;
-            case OrbType.YellowMana: return yellowManas;
-            case OrbType.BlueMana: return blueManas;
-            case OrbType.RedMana: return redManas;
-            default: return null;
+            OrbType? type = GetTypeForSprite(img.sprite);
+            if (type.HasValue)
+            {
+                int count = ManaPoolController.Instance.poolInfo.GetCurrentManaCount(type.Value);
+                if (count >= 4)
+                {
+                    return count;
+                }
+            }
         }
+        return 1;
+    }
+
+    private OrbType? GetTypeForSprite(Sprite sprite)
+    {
+        OrbParticleSystem mapping = orbParticleSystems.Find(orb => orb.orbSprite == sprite);
+        return mapping != null ? mapping.type : null;
+    }
+
+    private Sprite GetSpriteForType(OrbType type)
+    {
+        OrbParticleSystem mapping = orbParticleSystems.Find(orb => orb.type == type);
+        return mapping != null ? mapping.orbSprite : null;
+    }
+
+    public ParticleSystem GetParticleSystemForType(OrbType type)
+    {
+        OrbParticleSystem mapping = orbParticleSystems.Find(orb => orb.type == type);
+        return mapping != null ? mapping.particleSystem : null;
     }
 }
