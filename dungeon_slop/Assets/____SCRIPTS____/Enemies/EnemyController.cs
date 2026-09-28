@@ -50,7 +50,7 @@ public class EnemyController : MonoBehaviour
         }
 
         PlayType chosenPlay = GetWeightedRandomPlay(attackWeight, healWeight, defenseWeight);
-
+        _visuals.SetIntentionIcon(chosenPlay);
         Debug.Log($"Acción elegida: {chosenPlay} con un % de vida de {healthPercentage * 100}%");
     }
 
