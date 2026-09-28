@@ -13,5 +13,6 @@ public class EnemyData : ScriptableObject
     [Header("Enemy Stats")]
     public int health;
     public int shield;
+    public int maxShield;
 
 }

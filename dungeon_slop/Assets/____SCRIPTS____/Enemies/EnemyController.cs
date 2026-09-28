@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public EnemyInfo _info { get; private set; }
-    EnemyVisuals _visuals;
+    public EnemyVisuals _visuals { get; private set; }
 
     public EnemyData enemyData;
 
@@ -19,7 +19,59 @@ public class EnemyController : MonoBehaviour
         _visuals = GetComponent<EnemyVisuals>();
         if (_visuals != null) _visuals.InitializeEnemyVisuals(enemyData);
     }
+    public void ChooseAction()
+    {
+        int currentHealth = _info.GetCurrentHealth();
+        int maxHealth = _info.GetMaxHealth();
+        int currentShield = _info.GetCurrentShield();
 
+        float healthPercentage = (float)currentHealth / maxHealth;
+
+        bool canHeal = healthPercentage < 0.95f;
+        bool needsShield = currentShield <= 0 && healthPercentage < 0.7f;
+
+        float attackWeight = 1f;
+        float healWeight = 0f;
+        float defenseWeight = 0f;
+
+        if (canHeal)
+        {
+            healWeight = Mathf.Lerp(3f, 0.5f, healthPercentage);
+
+            if (healthPercentage < 0.25f)
+            {
+                attackWeight = 1.5f;
+            }
+        }
+
+        if (needsShield)
+        {
+            defenseWeight = 2.0f; // Buen momento para el escudo
+        }
+
+        PlayType chosenPlay = GetWeightedRandomPlay(attackWeight, healWeight, defenseWeight);
+
+        Debug.Log($"Acción elegida: {chosenPlay} con un % de vida de {healthPercentage * 100}%");
+    }
+
+    private PlayType GetWeightedRandomPlay(float attackW, float healW, float shieldW)
+    {
+        float totalWeight = attackW + healW + shieldW;
+        float randomValue = Random.Range(0, totalWeight);
+
+        if (randomValue < attackW)
+        {
+            return PlayType.Attack;
+        }
+        else if (randomValue < attackW + healW)
+        {
+            return PlayType.Heal;
+        }
+        else
+        {
+            return PlayType.Defense;
+        }
+    }
     #region Character Stats Management
     public void ModifyCharacterHealth(int amount, bool isFixed)
     {
@@ -50,8 +102,6 @@ public class EnemyController : MonoBehaviour
         _info.SetCurrentShield(shieldAmount);
     }
     public void SetMaxShield(int amount) { _info.SetMaxShield(amount); }
-
-
 
     #endregion
 }

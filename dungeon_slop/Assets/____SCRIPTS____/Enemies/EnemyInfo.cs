@@ -1,9 +1,11 @@
+using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyInfo : MonoBehaviour
 {
     [Header("Character Stats")]
+    public string _enemyName { get; private set; }
     public int _maxHealth { get; private set; }
     public int _currentHealth { get; private set; }
 
@@ -20,11 +22,19 @@ public class EnemyInfo : MonoBehaviour
     public void SetMaxShield(int amount) { _maxShield = amount; }
     public void SetCurrentShield(int amount) { _currentShield = amount; }
 
-
-
+    [Button]
+    public void DamageTest()
+    {
+        _currentHealth--;
+    }
     internal void InitializeEnemyInfo(EnemyData enemyData)
     {
+        _enemyName = enemyData.enemyName;
+
+        SetCurrentHealth(enemyData.health);
         SetMaxHealth(enemyData.health);
-        SetMaxShield(enemyData.shield);
+
+        SetCurrentShield(enemyData.shield);
+        SetMaxShield(enemyData.maxShield);
     }
 }
