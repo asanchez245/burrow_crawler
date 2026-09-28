@@ -1,15 +1,17 @@
 using Sirenix.OdinInspector;
+using TMPro;
 using UnityEngine;
 
-public class CombatController : MonoBehaviour
+public class CombatController : MonoSingleton<CombatController>
 {
     CombatInfo _info;
     CombatVisuals _visuals;
 
     [SerializeField] CombatData _combatData;
 
-    private void Awake()
+    public  override void Awake()
     {
+        base.Awake();
         InitializeCombat();
     }
 
@@ -71,4 +73,9 @@ public class CombatController : MonoBehaviour
 
         Sequencer.Instance.TriggerSequence();
     }
+
+    #region Info Desc.
+    public TextMeshProUGUI GetInfoName() { return _visuals.infoName; }
+    public TextMeshProUGUI GetInfoDesc() { return _visuals.infoDescription; }
+    #endregion
 }

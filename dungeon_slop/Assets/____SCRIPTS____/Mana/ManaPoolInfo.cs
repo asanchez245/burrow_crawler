@@ -11,20 +11,20 @@ public class ManaPoolInfo : MonoBehaviour
     public void Initialize()
     {
     }
-    public void AddMana(OrbType type, int amount)
+    public void AddMana(ManaType type, int amount)
     {
         switch (type)
         {
-            case OrbType.NeutralMana:
+            case ManaType.NeutralMana:
                 neutralManaCount += amount;
                 break;
-            case OrbType.YellowMana:
+            case ManaType.YellowMana:
                 yellowManaCount += amount;
                 break;
-            case OrbType.BlueMana:
+            case ManaType.BlueMana:
                 blueManaCount += amount;
                 break;
-            case OrbType.RedMana:
+            case ManaType.RedMana:
                 redManaCount += amount;
                 break;
             default:
@@ -32,20 +32,20 @@ public class ManaPoolInfo : MonoBehaviour
                 break;
         }
     }
-    public void RemoveMana(OrbType type, int amount)
+    public void RemoveMana(ManaType type, int amount)
     {
         switch (type)
         {
-            case OrbType.NeutralMana:
+            case ManaType.NeutralMana:
                 neutralManaCount = Mathf.Max(0, neutralManaCount - amount);
                 break;
-            case OrbType.YellowMana:
+            case ManaType.YellowMana:
                 yellowManaCount = Mathf.Max(0, yellowManaCount - amount);
                 break;
-            case OrbType.BlueMana:
+            case ManaType.BlueMana:
                 blueManaCount = Mathf.Max(0, blueManaCount - amount);
                 break;
-            case OrbType.RedMana:
+            case ManaType.RedMana:
                 redManaCount = Mathf.Max(0, redManaCount - amount);
                 break;
             default:
@@ -53,17 +53,17 @@ public class ManaPoolInfo : MonoBehaviour
                 break;
         }
     }
-    public int GetCurrentManaCount(OrbType type)
+    public int GetCurrentManaCount(ManaType type)
     {
         switch (type)
         {
-            case OrbType.NeutralMana:
+            case ManaType.NeutralMana:
                 return neutralManaCount;
-            case OrbType.YellowMana:
+            case ManaType.YellowMana:
                 return yellowManaCount;
-            case OrbType.BlueMana:
+            case ManaType.BlueMana:
                 return blueManaCount;
-            case OrbType.RedMana:
+            case ManaType.RedMana:
                 return redManaCount;
             default:
                 Debug.LogWarning($"[ManaPoolInfo] Tipo de maná desconocido: {type}");

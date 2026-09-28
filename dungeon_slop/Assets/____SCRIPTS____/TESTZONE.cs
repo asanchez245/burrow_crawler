@@ -8,42 +8,42 @@ public class TESTZONE : MonoBehaviour
 
     public void EmmitNeutralMana(int amount)
     {
-        ManaPoolController.Instance.GenerateMana(OrbType.NeutralMana, spawnPoint.position, amount);
+        ManaPoolController.Instance.GenerateMana(ManaType.NeutralMana, spawnPoint.position, amount);
     }
 
     public void EmmitRedMana(int amount)
     {
-        ManaPoolController.Instance.GenerateMana(OrbType.RedMana, spawnPoint.position, amount);
+        ManaPoolController.Instance.GenerateMana(ManaType.RedMana, spawnPoint.position, amount);
     }
 
     public void EmmitBlueMana(int amount)
     {
-        ManaPoolController.Instance.GenerateMana(OrbType.BlueMana, spawnPoint.position, amount);
+        ManaPoolController.Instance.GenerateMana(ManaType.BlueMana, spawnPoint.position, amount);
     }
 
     public void EmmitYellowMana(int amount)
     {
-        ManaPoolController.Instance.GenerateMana(OrbType.YellowMana, spawnPoint.position, amount);
+        ManaPoolController.Instance.GenerateMana(ManaType.YellowMana, spawnPoint.position, amount);
     }
 
     public void UseNeutralMana(int amount)
     {
-        ManaPoolController.Instance.OnOrbUsed(OrbType.NeutralMana, amount);
+        ManaPoolController.Instance.OnOrbUsed(ManaType.NeutralMana, amount);
     }
 
     public void UseRedMana(int amount)
     {
-        ManaPoolController.Instance.OnOrbUsed(OrbType.RedMana, amount);
+        ManaPoolController.Instance.OnOrbUsed(ManaType.RedMana, amount);
     }
 
     public void UseBlueMana(int amount)
     {
-        ManaPoolController.Instance.OnOrbUsed(OrbType.BlueMana, amount);
+        ManaPoolController.Instance.OnOrbUsed(ManaType.BlueMana, amount);
     }
 
     public void UseYellowMana(int amount)
     {
-        ManaPoolController.Instance.OnOrbUsed(OrbType.YellowMana, amount);
+        ManaPoolController.Instance.OnOrbUsed(ManaType.YellowMana, amount);
     }
 
     #region ____________________TEST ZONE CONTROLS____________________

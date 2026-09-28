@@ -19,6 +19,7 @@ public class CharacterController : MonoBehaviour
         _visuals = GetComponent<CharacterVisuals>();
         if (_visuals != null) _visuals.InitializeCharacterVisuals(characterData, this);
 
+        InitializeCharacterAbilities();
     }
 
     #region Character Stats Management
@@ -60,4 +61,21 @@ public class CharacterController : MonoBehaviour
 
     #endregion
 
+
+    public void InitializeCharacterAbilities()
+    {
+        int ab = 0;
+        foreach(var ability in _info._characterAbilities)
+        {
+            if(characterData.characterAbilities[ab] != null)
+            {
+                ability.Initialize(characterData.characterAbilities[ab]);
+            }
+            else
+            {
+                ability.gameObject.SetActive(false);
+            }
+            ab++;
+        }
+    }
 }

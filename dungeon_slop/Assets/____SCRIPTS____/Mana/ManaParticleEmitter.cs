@@ -5,11 +5,11 @@ using static UnityEngine.ParticleSystem;
 public class ManaParticleEmitter : MonoBehaviour
 {
     private ParticleSystem pSystem;
-    private OrbType orbType;
+    private ManaType orbType;
     private ManaPoolController controller;
     private bool hasEmitted = false;
 
-    public void Initialize(OrbType type, int count, ManaPoolController poolController)
+    public void Initialize(ManaType type, int count, ManaPoolController poolController)
     {
         pSystem = GetComponent<ParticleSystem>();
         orbType = type;

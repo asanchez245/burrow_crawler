@@ -7,9 +7,9 @@ public class CharacterData : ScriptableObject
 {
     public string characterName;
 
-    [Image]
+    [PreviewField]
     public Sprite characterSprite;
-    [Image]
+    [PreviewField]
     public Sprite characterPortrait;
 
     [TextArea(3, 10)]
@@ -18,13 +18,17 @@ public class CharacterData : ScriptableObject
     [Header("Character Stats")]
     public int health;
     public int shield;
+
     [Header("Mana Generation")]
     public List<CharacterManaGeneration> manaGenerationPerTurn = new();
+
+    [Header("Abilities")]
+    public List<AbilityData> characterAbilities = new();
 
 }
 [System.Serializable]
 public class CharacterManaGeneration
 {
-    public OrbType manaType;
+    public ManaType manaType;
     public int manaQuantity;
 }

@@ -1,27 +1,18 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class ObjectWithEffects : MonoBehaviour
 {
     protected ObjectWithEffectsData objectWithEffectsData;
-    public List<Effect> effects { get; private set; }
+    public List<CardEffectEntryRuntime> cardEffects { get; private set; }
 
     public virtual void Initialize(ObjectWithEffectsData data)
     {
         objectWithEffectsData = data;
-        // Create runtime effects and save references
-        effects = new List<Effect>();
+        cardEffects = new List<CardEffectEntryRuntime>();
         foreach (var entry in objectWithEffectsData.effects)
         {
-            var effect = entry.effect.CreateRuntimeEffect(this);
-
-            effect.triggerEvent = entry.triggerEvent;
-            effect.conditions = entry.conditions
-                .Select(c => c.CreateRuntimeCondition())
-                .ToList();
-
-            effects.Add(effect);
+            cardEffects.Add(entry.CreateRuntimeEntry(this));
         }
     }
 
@@ -29,7 +20,7 @@ public class ObjectWithEffects : MonoBehaviour
 
     protected virtual void TriggerEvent(GameEventType eventType, EffectContext ctxt)
     {
-        foreach (Effect effect in effects)
+        foreach (CardEffectEntryRuntime effect in cardEffects)
         {
             if (effect.triggerEvent == eventType)
                 effect.OnEvent(ctxt);
@@ -43,17 +34,17 @@ public class ObjectWithEffects : MonoBehaviour
 
     protected virtual void DestroyReferences()
     {
-        if (effects == null) return;
-        if (effects.Count > 0)
+        if (cardEffects == null) return;
+        if (cardEffects.Count > 0)
         {
 
-            for (int i = effects.Count - 1; i >= 0; i--)
+            for (int i = cardEffects.Count - 1; i >= 0; i--)
             {
-                effects[i].OnDestroy();
+                cardEffects[i].OnDestroy();
             }
 
         }
-        effects.Clear();
-        effects = null;
+        cardEffects.Clear();
+        cardEffects = null;
     }
 }

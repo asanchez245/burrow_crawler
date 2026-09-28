@@ -23,3 +23,8 @@ MonoBehaviour:
     manaQuantity: 2
   - manaType: 1
     manaQuantity: 1
+  characterAbilities:
+  - {fileID: 11400000, guid: ae4be04d5c1152f45a9f5c353de3dcdd, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

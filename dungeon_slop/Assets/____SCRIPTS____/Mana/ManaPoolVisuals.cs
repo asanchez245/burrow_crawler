@@ -22,11 +22,11 @@ public class ManaPoolVisuals : MonoBehaviour
     [System.Serializable]
     public class OrbParticleSystem
     {
-        public OrbType type;
+        public ManaType type;
         public ParticleSystem particleSystem;
         public Sprite orbSprite;
 
-        public OrbParticleSystem(ParticleSystem ps, OrbType orbType, Sprite sprite)
+        public OrbParticleSystem(ParticleSystem ps, ManaType orbType, Sprite sprite)
         {
             particleSystem = ps;
             type = orbType;
@@ -42,7 +42,7 @@ public class ManaPoolVisuals : MonoBehaviour
         }
     }
 
-    public void AddMana(OrbType type)
+    public void AddMana(ManaType type)
     {
         Sprite sprite = GetSpriteForType(type);
         if (sprite == null) return;
@@ -82,7 +82,7 @@ public class ManaPoolVisuals : MonoBehaviour
         SortOrbsInContainer();
     }
 
-    public void RemoveMana(OrbType type)
+    public void RemoveMana(ManaType type)
     {
         Sprite sprite = GetSpriteForType(type);
         if (sprite == null) return;
@@ -191,7 +191,7 @@ public class ManaPoolVisuals : MonoBehaviour
         Image img = orbTransform.GetComponent<Image>();
         if (img != null && img.sprite != null)
         {
-            OrbType? type = GetTypeForSprite(img.sprite);
+            ManaType? type = GetTypeForSprite(img.sprite);
             if (type.HasValue)
             {
                 int count = ManaPoolController.Instance.poolInfo.GetCurrentManaCount(type.Value);
@@ -204,19 +204,19 @@ public class ManaPoolVisuals : MonoBehaviour
         return 1;
     }
 
-    private OrbType? GetTypeForSprite(Sprite sprite)
+    private ManaType? GetTypeForSprite(Sprite sprite)
     {
         OrbParticleSystem mapping = orbParticleSystems.Find(orb => orb.orbSprite == sprite);
         return mapping != null ? mapping.type : null;
     }
 
-    private Sprite GetSpriteForType(OrbType type)
+    private Sprite GetSpriteForType(ManaType type)
     {
         OrbParticleSystem mapping = orbParticleSystems.Find(orb => orb.type == type);
         return mapping != null ? mapping.orbSprite : null;
     }
 
-    public ParticleSystem GetParticleSystemForType(OrbType type)
+    public ParticleSystem GetParticleSystemForType(ManaType type)
     {
         OrbParticleSystem mapping = orbParticleSystems.Find(orb => orb.type == type);
         return mapping != null ? mapping.particleSystem : null;

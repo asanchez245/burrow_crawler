@@ -13,8 +13,8 @@ public class CombatVisuals : MonoBehaviour
     [SerializeField] TextMeshProUGUI characterShield;
 
     [Header("Selected Info")]
-    [SerializeField] TextMeshProUGUI infoName;
-    [SerializeField] TextMeshProUGUI infoDescription;
+    public TextMeshProUGUI infoName;
+    public TextMeshProUGUI infoDescription;
 
     [Header("Abilities Info")]
     [SerializeField] Image abilitie01;

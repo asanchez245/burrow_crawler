@@ -6,8 +6,6 @@ public abstract class Effect
 {
     public ObjectWithEffects owner;
     public EffectData data;
-    public GameEventType triggerEvent;
-    public List<Condition> conditions;
 
     public Effect(ObjectWithEffects owner, EffectData data)
     {
@@ -15,27 +13,16 @@ public abstract class Effect
         this.data = data;
     }
 
-    public void OnEvent(EffectContext ctxt)
+    public void Execute(EffectContext ctxt)
     {
-        if(CanTrigger(ctxt))
-            Sequencer.Instance.InsertSequence(Resolve(ctxt));
-    }
-
-    bool CanTrigger(EffectContext context)
-    {
-        foreach (var c in conditions)
-            if (!c.IsMet(context))
-                return false;
-
-        return true;
+        Sequencer.Instance.InsertSequence(Resolve(ctxt));
     }
 
     protected abstract IEnumerator Resolve(EffectContext context);
 
     public void OnDestroy()
     {
-        // Clean up references to avoid memory allocation
-        conditions.Clear();
-        conditions = null;
+        owner = null;
+        data = null;
     }
 }
