@@ -45,7 +45,7 @@ public class ManaParticleEmitter : MonoBehaviour
             return;
         }
 
-        Transform targetDestination = controller.GetTargetForType(orbType);
+        Transform targetDestination = controller.visuals.orbsTarget;
         if (targetDestination == null) return;
 
         Vector3 targetPosition = targetDestination.position;

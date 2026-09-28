@@ -7,12 +7,9 @@ public class ManaPoolInfo : MonoBehaviour
     public int yellowManaCount { get; private set; } = 0;
     public int blueManaCount { get; private set; } = 0;
     public int redManaCount { get; private set; } = 0;
-    public Dictionary<OrbType, ParticleSystem> prefabDict { get; private set; } = new();
-
 
     public void Initialize()
     {
-        prefabDict.Clear();
     }
     public void AddMana(OrbType type, int amount)
     {
@@ -71,18 +68,6 @@ public class ManaPoolInfo : MonoBehaviour
             default:
                 Debug.LogWarning($"[ManaPoolInfo] Tipo de maná desconocido: {type}");
                 return 0;
-        }
-    }
-    public void SetParticleSystemPrefab(OrbType type, ParticleSystem prefab)
-    {
-        if (prefab == null) return;
-        if (prefabDict.ContainsKey(type))
-        {
-            prefabDict[type] = prefab;
-        }
-        else
-        {
-            prefabDict.Add(type, prefab);
         }
     }
 }
