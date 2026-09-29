@@ -10,12 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da815bf575076d8469aae1801e4eaba2, type: 3}
-  m_Name: Test_Character 1
+  m_Name: Sol_Character
   m_EditorClassIdentifier: Assembly-CSharp::CharacterData
-  characterName: Payo Testeo
+  characterName: "Se\xF1or Sol"
+  characterSprite: {fileID: 21300000, guid: a8c1b7fc48e3f2f4dbaf6b219e0c7163, type: 3}
+  characterPortrait: {fileID: 21300000, guid: a8c1b7fc48e3f2f4dbaf6b219e0c7163, type: 3}
   characterDescription: la descripcion del payo de testeo
   health: 12
-  shield: 6
+  shield: 3
   manaGenerationPerTurn:
-  - manaType: 2
-    manaQuantity: 3
+  - manaType: 1
+    manaQuantity: 2
+  characterAbilities:
+  - {fileID: 11400000, guid: a01cbc4fb43373e41ac39539208ae4dc, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

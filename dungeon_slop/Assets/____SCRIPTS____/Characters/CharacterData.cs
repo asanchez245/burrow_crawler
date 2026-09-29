@@ -22,7 +22,7 @@ public class CharacterData : ScriptableObject
     [Header("Mana Generation")]
     public List<CharacterManaGeneration> manaGenerationPerTurn = new();
 
-    [Header("Abilities")]
+    [Header("_combatInfoAbilities")]
     public List<AbilityData> characterAbilities = new();
 
 }

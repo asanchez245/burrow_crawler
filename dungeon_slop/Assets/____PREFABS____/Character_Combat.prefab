@@ -999,7 +999,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3138496511482062734}
   - component: {fileID: 7613496085259003317}
-  - component: {fileID: 7005200589783343682}
+  - component: {fileID: 4941900118597624994}
   - component: {fileID: 8726618882784549400}
   - component: {fileID: 4376883045388524695}
   m_Layer: 5
@@ -1039,7 +1039,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6660059007609395198}
   m_CullTransparentMesh: 1
---- !u!114 &7005200589783343682
+--- !u!114 &4941900118597624994
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1048,10 +1048,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6660059007609395198}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 767ca0612c148834eaee6e246ca67918, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d2551af1041d344baba63a7efda1599, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CharacterController
-  characterData: {fileID: 11400000, guid: 958898638a4ce014095a29663cab1232, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::BasicCharacter
+  characterData: {fileID: 0}
 --- !u!114 &8726618882784549400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1065,6 +1065,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterInfo
   _chartacterPosition: {fileID: 0}
+  _characterAbilities:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &4376883045388524695
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using Sirenix.OdinInspector;
 using TMPro;
 using System.Collections;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class CombatController : MonoSingleton<CombatController>
 {
@@ -25,8 +26,7 @@ public class CombatController : MonoSingleton<CombatController>
     }
     private void Start()
     {
-        BoardController.Instance.Initialize();
-
+        BoardController.Instance.InitializeBoard();
         StartCombat();
     }
     public void SetEnemyTarget(EnemyController enemy)
@@ -63,7 +63,6 @@ public class CombatController : MonoSingleton<CombatController>
     public void StartCombat()
     {
         //intro combate
-        SetCharacterVisualsInInfo(BoardController.Instance.GetCharacter().characterData);
         SetPlayerTurn();
         Sequencer.Instance.TriggerSequence();
     }
@@ -96,5 +95,6 @@ public class CombatController : MonoSingleton<CombatController>
     #region Info Desc.
     public TextMeshProUGUI GetInfoName() { return _visuals.infoName; }
     public TextMeshProUGUI GetInfoDesc() { return _visuals.infoDescription; }
+    public List<AbilityController> GetCombatInfoAbilities() { return _info.GetCombatInfoAbilities(); }
     #endregion
 }

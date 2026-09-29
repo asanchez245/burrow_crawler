@@ -15,7 +15,7 @@ public class CharacterInfo : MonoBehaviour
     [Header("Mana Generation")]
     public List<CharacterManaGeneration> _manaGenerationPerTurn {  get; private set; } = new ();
 
-    [Header("Abilities")]
+    [Header("_combatInfoAbilities")]
     public List<AbilityController> _characterAbilities = new();
 
     public int GetMaxHealth() {  return _maxHealth; }
@@ -27,7 +27,6 @@ public class CharacterInfo : MonoBehaviour
     public void SetCurrentHealth(int amount) { _currentHealth = amount; }
     public void SetMaxShield(int amount) { _maxShield = amount; }
     public void SetCurrentShield(int amount) { _currentShield = amount; }
-
 
 
     internal void InitializeCharacterInfo(CharacterData chData)

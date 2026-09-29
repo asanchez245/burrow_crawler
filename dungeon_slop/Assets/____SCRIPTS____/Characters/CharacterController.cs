@@ -1,16 +1,14 @@
+using System.Collections.Generic;
+using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
 
-public class CharacterController : MonoBehaviour
+ public abstract class CharacterController : MonoBehaviour
 {
     public CharacterInfo _info { get; private set; }
-    CharacterVisuals _visuals;
+    public CharacterVisuals _visuals { get; private set; }
 
     public CharacterData characterData;
 
-    private void Awake()
-    {
-        InitializeCharacter();
-    }
 
     public void InitializeCharacter()
     {
@@ -19,7 +17,7 @@ public class CharacterController : MonoBehaviour
         _visuals = GetComponent<CharacterVisuals>();
         if (_visuals != null) _visuals.InitializeCharacterVisuals(characterData, this);
 
-        InitializeCharacterAbilities();
+        InitializeCharacterAbilities(characterData);
     }
 
     #region Character Stats Management
@@ -62,14 +60,15 @@ public class CharacterController : MonoBehaviour
     #endregion
 
 
-    public void InitializeCharacterAbilities()
+
+    public void InitializeCharacterAbilities(CharacterData chData)
     {
         int ab = 0;
         foreach(var ability in _info._characterAbilities)
         {
-            if(characterData.characterAbilities[ab] != null)
+            if(chData.characterAbilities[ab] != null)
             {
-                ability.Initialize(characterData.characterAbilities[ab]);
+                ability.Initialize(chData.characterAbilities[ab]);
             }
             else
             {
@@ -77,5 +76,11 @@ public class CharacterController : MonoBehaviour
             }
             ab++;
         }
+    }
+
+    public void ChangePortrait(CharacterData chData)
+    {
+        _visuals.SetCharacterPortrait(chData);
+
     }
 }

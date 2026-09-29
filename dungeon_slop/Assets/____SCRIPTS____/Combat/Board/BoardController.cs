@@ -7,7 +7,13 @@ public class BoardController : MonoSingleton<BoardController>
     public BoardInfo boardInfo { get; private set; }
     public BoardVisuals boardVisuals { get; private set; }
 
-    public void Initialize()
+    public override void Awake()
+    {
+        base.Awake();
+        InitializeBoard();
+    }
+
+    public void InitializeBoard()
     {
         boardInfo = GetComponent<BoardInfo>();
         if (boardInfo != null) boardInfo.Initialize();
@@ -22,6 +28,11 @@ public class BoardController : MonoSingleton<BoardController>
 
     public IEnumerator GenerateManaTurn()
     {
+        if(boardInfo.characters.Count <= 0 || boardInfo.characters == null)
+        {
+            Debug.LogWarning("no se han encontrado personajes en boardinfo.characters");
+            yield break;
+        }
         foreach (var character in boardInfo.characters)
         {
             foreach(var mana in character._info._manaGenerationPerTurn)

@@ -12,6 +12,7 @@ public class BoardInfo : MonoBehaviour
         {
             if (character != null)
             {
+                character.InitializeCharacter();
                 characterPositionMap.Add(character.transform, character);
             }
         }

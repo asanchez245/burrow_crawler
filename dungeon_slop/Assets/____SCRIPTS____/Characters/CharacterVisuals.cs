@@ -11,9 +11,14 @@ public class CharacterVisuals : MonoBehaviour
 
     internal void InitializeCharacterVisuals(CharacterData chData, CharacterController controller)
     {
-        characterSpriteCombat.sprite = chData.characterSprite;
+        SetCharacterPortrait(chData);
         UpdateHealthText(controller.GetCurrentHealth());
         UpdateShieldText(controller.GetCurrentShield());
+    }
+
+    public void SetCharacterPortrait(CharacterData chData)
+    {
+        characterSpriteCombat.sprite = chData.characterSprite;
     }
 
     public void UpdateHealthText(int currentHp)

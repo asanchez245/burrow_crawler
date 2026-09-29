@@ -29,8 +29,8 @@ public class AbilityVisuals : MonoBehaviour
     {
         abilityController = GetComponent<AbilityController>();
 
-        abilityNameText = CombatController.Instance.GetInfoName();
-        abilityDescriptionText = CombatController.Instance.GetInfoDesc();
+        //abilityNameText = CombatController.Instance.GetInfoName();
+        //abilityDescriptionText = CombatController.Instance.GetInfoDesc();
 
         abilityArtwork.sprite = data.artwork;
 
@@ -71,6 +71,8 @@ public class AbilityVisuals : MonoBehaviour
 
     public void PrintAbilityInfo()
     {
+        if(abilityNameText == null) abilityNameText = CombatController.Instance.GetInfoName();
+        if(abilityDescriptionText == null) abilityDescriptionText = CombatController.Instance.GetInfoDesc();
         abilityNameText.text = abilityController.GetAbilityName();
         abilityDescriptionText.text = abilityController.GetAbilityDesc();
     }
