@@ -36,6 +36,7 @@ public class CombatController : MonoSingleton<CombatController>
         _info.SetEnemyTargeted(enemy);
         enemy._visuals.SetTargetedVisuals(true);
     }
+    public EnemyController GetTargetedEnemy() => _info._enemyTargeted;
     public void SetCharacterVisualsInInfo(CharacterData chData) { _visuals.SetSelectedCharacterInfo(chData); }
 
     [Button("End Turn", ButtonSizes.Gigantic), GUIColor(1, 0.2f, 0)]

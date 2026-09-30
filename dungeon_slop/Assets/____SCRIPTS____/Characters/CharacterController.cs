@@ -49,6 +49,7 @@ using UnityEngine;
         {
             shieldAmount = amount;
         }
+        shieldAmount = Mathf.Max(0,shieldAmount);
         _info.SetCurrentShield(shieldAmount);
         _visuals?.UpdateShieldText(shieldAmount);
     }

@@ -2,5 +2,5 @@ using UnityEngine;
 
 public abstract class ConditionData : ScriptableObject
 {
-    public abstract Condition CreateRuntimeCondition();
+    public abstract Condition CreateRuntimeCondition(ObjectWithEffects owner);
 }

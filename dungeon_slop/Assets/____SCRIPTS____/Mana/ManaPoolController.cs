@@ -43,6 +43,7 @@ public class ManaPoolController : MonoSingleton<ManaPoolController>
         visuals.RemoveMana(type);
         return true;
     }
+    public int ManaCount(ManaType manaType) { return poolInfo.GetCurrentManaCount(manaType); }
 }
 
 [System.Serializable]

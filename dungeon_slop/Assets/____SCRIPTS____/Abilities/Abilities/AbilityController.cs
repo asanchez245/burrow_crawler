@@ -1,8 +1,4 @@
-﻿using DG.Tweening;
-using System;
-using System.Collections;
-using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AbilityController : ObjectWithEffects
 {
@@ -12,16 +8,6 @@ public class AbilityController : ObjectWithEffects
     public AbilityVisuals Visual => abilityVisual;
     public AbilityInfo Info => abilityInfo;
     public AbilityData abilityData => objectWithEffectsData as AbilityData;
-
-    private void Awake()
-    {
-        //PlayerInfo.OnDeliriumStateChanged += SetDeliriumMode;
-    }
-    private void OnDisable()
-    {
-        //PlayerInfo.OnDeliriumStateChanged -= SetDeliriumMode;
-    }
-
 
     public override void Initialize(ObjectWithEffectsData data)
     {
@@ -40,35 +26,10 @@ public class AbilityController : ObjectWithEffects
     {
         EffectContext ctxt = new EffectContext()
         {
-            //sourceCard = this,
-            //leftCards = new(),
-            //rightCards = new(),
-            //cardsInHand = handcontroller.GetCardsInHand(),
-            //cardsUsed = BoardController.Instance.GetUsedCards(),
-            //player = PlayerController.Instance,
-            //enemyCards = new(),
-            //playerCards = new()
+            enemyTargeted = CombatController.Instance.GetTargetedEnemy(),
+            //characterTargeted = CombatController.Instance.GetSelectedCharacter()
+
         };
-
-
-        //int thisSlotIndex = -1;
-
-        ////ActionSlot pSlot = playerSlots[thisSlotIndex];
-
-        //bool isCharacterAbility = pSlot.cardInSlot == this;
-
-        //if (isCharacterAbility)
-        //{
-        //    ctxt.enemyInFront =
-        //        BoardController.Instance.GetEnemyAtPosition(thisSlotIndex);
-        //}
-        //else
-        //{
-        //    // Enemy or boss card faces the player's card.
-        //    ctxt.cardInFront = pSlot.cardInSlot;
-        //}
-        
-
 
         TriggerEvent(eventType, ctxt);
     }
