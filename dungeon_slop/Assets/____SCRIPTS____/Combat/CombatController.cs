@@ -91,6 +91,11 @@ public class CombatController : MonoSingleton<CombatController>
             yield return new WaitForSeconds(_info.enemyActionDelay);
         }
     }
+    public void SetSelectedCharacter(CharacterController character)
+    {
+        //acceder a characters y deseleccionar a los que no son este y seleccionar a este
+        SetCharacterVisualsInInfo(character.characterData);
+    }
 
     #region Info Desc.
     public TextMeshProUGUI GetInfoName() { return _visuals.infoName; }

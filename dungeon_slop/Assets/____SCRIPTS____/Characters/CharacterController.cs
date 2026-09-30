@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
- public abstract class CharacterController : MonoBehaviour
+public abstract class CharacterController : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public CharacterInfo _info { get; private set; }
     public CharacterVisuals _visuals { get; private set; }
@@ -17,7 +18,7 @@ using UnityEngine;
         _visuals = GetComponent<CharacterVisuals>();
         if (_visuals != null) _visuals.InitializeCharacterVisuals(characterData, this);
 
-        InitializeCharacterAbilities(characterData);
+        SelectCharacter();
     }
 
     #region Character Stats Management
@@ -82,5 +83,26 @@ using UnityEngine;
     {
         _visuals.SetCharacterPortrait(chData);
 
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        SelectCharacter();
+    }
+
+    public void SelectCharacter()
+    {
+        CombatController.Instance.SetSelectedCharacter(this);
+        InitializeCharacterAbilities(characterData);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        _visuals.PointerEnterCharacter(true);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        _visuals.PointerEnterCharacter(false);
     }
 }

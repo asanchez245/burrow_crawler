@@ -1,6 +1,7 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : MonoBehaviour, IPointerClickHandler
 {
     public EnemyInfo _info { get; private set; }
     public EnemyVisuals _visuals { get; private set; }
@@ -102,6 +103,11 @@ public class EnemyController : MonoBehaviour
         _info.SetCurrentShield(shieldAmount);
     }
     public void SetMaxShield(int amount) { _info.SetMaxShield(amount); }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        CombatController.Instance.SetEnemyTarget(this);
+    }
 
     #endregion
 }
