@@ -99,6 +99,7 @@ public class EnemyController : MonoBehaviour, IPointerClickHandler
     }
     public void SetMaxHealth(int amount) { _info.SetMaxHealth(amount); }
 
+    public int GetCurrentShield() { return _info.GetCurrentShield(); }
     public void ModifyCharacterShield(int amount, bool isFixed)
     {
         int shieldAmount;
@@ -110,6 +111,7 @@ public class EnemyController : MonoBehaviour, IPointerClickHandler
         {
             shieldAmount = amount;
         }
+        shieldAmount = Mathf.Max(0, shieldAmount);
         _info.SetCurrentShield(shieldAmount);
     }
     public void SetMaxShield(int amount) { _info.SetMaxShield(amount); }

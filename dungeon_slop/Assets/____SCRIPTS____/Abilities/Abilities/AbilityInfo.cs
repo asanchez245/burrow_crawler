@@ -34,11 +34,11 @@ public class AbilityInfo : MonoBehaviour
         {
             foreach (EffectData effect in effectEntry.effects)
             {
-                if (effect is DealDamageEffectData
+                if (effect is EffectDataDealDamage
                 && effectEntry.conditions.Count() == 0)
                 {
-                    DealDamageEffectData damageEffectData = effect as DealDamageEffectData;         
-                    _healthDmg += damageEffectData.DamageAmount;                 
+                    EffectDataDealDamage damageEffectData = effect as EffectDataDealDamage;         
+                    _healthDmg += damageEffectData.damage;                 
                 }
             }
         }

@@ -23,7 +23,7 @@ public class CardEffectEntry
         runtimeEntry.conditions = new Condition[conditions != null ? conditions.Length : 0];
         for (int i = 0; i < runtimeEntry.conditions.Length; i++)
         {
-            runtimeEntry.conditions[i] = conditions[i].CreateRuntimeCondition();
+            runtimeEntry.conditions[i] = conditions[i].CreateRuntimeCondition(owner);
         }
         runtimeEntry.triggerEvent = triggerEvent;
         return runtimeEntry;

@@ -50,6 +50,7 @@ public abstract class CharacterController : MonoBehaviour, IPointerClickHandler,
         {
             shieldAmount = amount;
         }
+        shieldAmount = Mathf.Max(0,shieldAmount);
         _info.SetCurrentShield(shieldAmount);
         _visuals?.UpdateShieldText(shieldAmount);
     }
