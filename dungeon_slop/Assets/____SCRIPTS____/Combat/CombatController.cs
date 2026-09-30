@@ -79,8 +79,11 @@ public class CombatController : MonoSingleton<CombatController>
     {
         foreach (EnemyController enemy in enemies)
         {
-            Debug.Log("Enemie" + enemy._info._enemyName + "doing action");
-            yield return new WaitForSeconds(_info.enemyActionDelay);
+            foreach (var play in enemy.chosenPlayTypes)
+            {
+                enemy.ExecuteAction(play);
+                yield return new WaitForSeconds(_info.enemyActionDelay);
+            }
         }
     }
     IEnumerator EnemiesPrepareActions()

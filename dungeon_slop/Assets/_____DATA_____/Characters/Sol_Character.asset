@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sol_Character
   m_EditorClassIdentifier: Assembly-CSharp::CharacterData
   characterName: "Se\xF1or Sol"
-  characterSprite: {fileID: 21300000, guid: a8c1b7fc48e3f2f4dbaf6b219e0c7163, type: 3}
+  characterSpriteCombatIdle: {fileID: 21300000, guid: a8c1b7fc48e3f2f4dbaf6b219e0c7163, type: 3}
   characterPortrait: {fileID: 21300000, guid: a8c1b7fc48e3f2f4dbaf6b219e0c7163, type: 3}
   characterDescription: la descripcion del payo de testeo
   health: 12

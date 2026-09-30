@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Main_Character
   m_EditorClassIdentifier: Assembly-CSharp::CharacterData
   characterName: Main Payo
-  characterSprite: {fileID: 21300000, guid: f7a67cdeab852014ca9f68c97b32741c, type: 3}
-  characterPortrait: {fileID: 21300000, guid: f7a67cdeab852014ca9f68c97b32741c, type: 3}
-  characterDescription: la descripcion del payo de testeo
+  characterSpriteCombatIdle: {fileID: 21300000, guid: 6582484b4c6a4314baccf126db1e4fc6, type: 3}
+  characterPortrait: {fileID: 21300000, guid: 39ecf4ecaaeb71245ae8d2ad56d3772a, type: 3}
+  characterDescription: Conejp
   health: 15
   shield: 6
   manaGenerationPerTurn:

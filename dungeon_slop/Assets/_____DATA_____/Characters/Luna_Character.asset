@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Luna_Character
   m_EditorClassIdentifier: Assembly-CSharp::CharacterData
   characterName: "Se\xF1or Luna"
-  characterSprite: {fileID: 21300000, guid: 27edf72142cf3a044a317e23f169ce09, type: 3}
+  characterSpriteCombatIdle: {fileID: 21300000, guid: 27edf72142cf3a044a317e23f169ce09, type: 3}
   characterPortrait: {fileID: 21300000, guid: 27edf72142cf3a044a317e23f169ce09, type: 3}
   characterDescription: la descripcion del payo de testeo
   health: 12

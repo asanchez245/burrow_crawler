@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Sirenix.Utilities;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -7,6 +9,10 @@ public class EnemyController : MonoBehaviour, IPointerClickHandler
     public EnemyVisuals _visuals { get; private set; }
 
     public EnemyData enemyData;
+
+    public List<PlayType> chosenPlayTypes = new();
+
+ 
 
     private void Awake()
     {
@@ -52,6 +58,10 @@ public class EnemyController : MonoBehaviour, IPointerClickHandler
 
         PlayType chosenPlay = GetWeightedRandomPlay(attackWeight, healWeight, defenseWeight);
         _visuals.SetIntentionIcon(chosenPlay);
+
+        chosenPlayTypes.Clear();
+        chosenPlayTypes.Add(chosenPlay);
+
         Debug.Log($"Acción elegida: {chosenPlay} con un % de vida de {healthPercentage * 100}%");
     }
 
@@ -104,10 +114,32 @@ public class EnemyController : MonoBehaviour, IPointerClickHandler
     }
     public void SetMaxShield(int amount) { _info.SetMaxShield(amount); }
 
+    #endregion
+
     public void OnPointerClick(PointerEventData eventData)
     {
         CombatController.Instance.SetEnemyTarget(this);
     }
 
-    #endregion
+    internal void ExecuteAction(PlayType play)
+    {
+        switch (play)
+        {
+            case PlayType.Attack:
+                break;
+            case PlayType.Defense:
+                break;
+            case PlayType.Utility:
+
+                break;
+
+        }
+        Debug.Log("Enemie" + _info._enemyName + "doing action: " + play);
+        CleanAction(play);
+    }
+
+    public void CleanAction(PlayType play)
+    {
+        _visuals.CleanIntention(play);
+    }
 }

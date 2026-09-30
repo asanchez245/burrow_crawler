@@ -19,7 +19,7 @@ public class CharacterVisuals : MonoBehaviour
 
     public void SetCharacterPortrait(CharacterData chData)
     {
-        characterSpriteCombat.sprite = chData.characterSprite;
+        characterSpriteCombat.sprite = chData.characterSpriteCombatIdle;
     }
 
     public void UpdateHealthText(int currentHp)
@@ -47,7 +47,7 @@ public class CharacterVisuals : MonoBehaviour
     {
         if (enter)
         {
-            this.transform.DOScale(1.15f, .2f);
+            this.transform.DOScale(1.05f, .2f);
         }
         else
         {

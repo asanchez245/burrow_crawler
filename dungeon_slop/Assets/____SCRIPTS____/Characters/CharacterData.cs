@@ -8,7 +8,7 @@ public class CharacterData : ScriptableObject
     public string characterName;
 
     [PreviewField]
-    public Sprite characterSprite;
+    public Sprite characterSpriteCombatIdle;
     [PreviewField]
     public Sprite characterPortrait;
 

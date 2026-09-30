@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class EnemyVisuals : MonoBehaviour
@@ -20,10 +21,7 @@ public class EnemyVisuals : MonoBehaviour
     }
     public void SetIntentionIcon(PlayType playType)
     {
-
-        attackIntentionIcon.SetActive(false);
-        healIntentionIcon.SetActive(false);
-        deffenseIntentionIcon.SetActive(false);
+        CleanAllIntentionIcons();
         switch (playType)
         {
             case PlayType.Attack:
@@ -34,6 +32,27 @@ public class EnemyVisuals : MonoBehaviour
                 break;
             case PlayType.Defense:
                 deffenseIntentionIcon.SetActive(true);
+                break;
+        }
+    }
+    public void CleanAllIntentionIcons()
+    {
+        attackIntentionIcon.SetActive(false);
+        healIntentionIcon.SetActive(false);
+        deffenseIntentionIcon.SetActive(false);
+    }
+    public void CleanIntention(PlayType play)
+    {
+        switch (play)
+        {
+            case PlayType.Attack:
+                attackIntentionIcon.SetActive(false);
+                break;
+            case PlayType.Heal:
+                healIntentionIcon.SetActive(false);
+                break;
+            case PlayType.Defense:
+                deffenseIntentionIcon.SetActive(false);
                 break;
         }
     }

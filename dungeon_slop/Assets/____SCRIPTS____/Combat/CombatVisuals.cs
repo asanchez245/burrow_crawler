@@ -56,7 +56,7 @@ public class CombatVisuals : MonoBehaviour
     public void SetSelectedCharacterInfo(CharacterData chData)
     {
         this.characterName.text = chData.characterName.ToString();
-        this.characterPortrait.sprite = chData.characterSprite;
+        this.characterPortrait.sprite = chData.characterPortrait;
         this.characterHealth.text = chData.health.ToString();
         this.characterShield.text = chData.shield.ToString();
     }
