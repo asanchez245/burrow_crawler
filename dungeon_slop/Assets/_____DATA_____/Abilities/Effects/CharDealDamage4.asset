@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: CharDealDamage4
   m_EditorClassIdentifier: Assembly-CSharp::EffectDataDealDamage
   enemySource: 0
-  damage: 4
+  damage: 50

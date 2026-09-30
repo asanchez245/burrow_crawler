@@ -1,14 +1,14 @@
 public enum GameEventType
 {
-    OnPlay,
-    OnDraw,
-    OnTurnStart,
-    OnLockBoard,
-    OnResolve,
-    OnAttack,
-    OnReveal,
-    OnHit,
-    OnDeath
+    OnTriggerAbility,
+    //OnDraw,
+    //OnTurnStart,
+    //OnLockBoard,
+    //OnResolve,
+    //OnAttack,
+    //OnReveal,
+    //OnHit,
+    //OnDeath
 }
 
 public class GameEvent

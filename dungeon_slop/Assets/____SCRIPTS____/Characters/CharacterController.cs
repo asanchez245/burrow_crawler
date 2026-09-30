@@ -27,7 +27,7 @@ public abstract class CharacterController : MonoBehaviour, IPointerClickHandler,
         int healthAmount;
         if (!isFixed)
         {
-            healthAmount = _info.GetCurrentHealth() - amount;
+            healthAmount = _info.GetCurrentHealth() + amount;
         }
         else
         {
@@ -44,7 +44,7 @@ public abstract class CharacterController : MonoBehaviour, IPointerClickHandler,
         int shieldAmount;
         if (!isFixed)
         {
-            shieldAmount = _info.GetCurrentShield() - amount;
+            shieldAmount = _info.GetCurrentShield() + amount;
         }
         else
         {

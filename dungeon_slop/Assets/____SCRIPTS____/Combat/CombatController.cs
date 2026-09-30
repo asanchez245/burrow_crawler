@@ -53,7 +53,7 @@ public class CombatController : MonoSingleton<CombatController>
         _info.SetEnemyTargeted(enemy);
         enemy._visuals.SetTargetedVisuals(true);
     }
-    public EnemyController GetTargetedEnemy() => _info._enemyTargeted;
+    public EnemyController GetTargetedEnemy => _info._enemyTargeted;
     public void SetCharacterVisualsInInfo(CharacterData chData) { _visuals.SetSelectedCharacterInfo(chData); }
 
     [Button("End Turn", ButtonSizes.Gigantic), GUIColor(1, 0.2f, 0)]
@@ -114,10 +114,10 @@ public class CombatController : MonoSingleton<CombatController>
     }
     public void SetSelectedCharacter(CharacterController character)
     {
-        //acceder a characters y deseleccionar a los que no son este y seleccionar a este
+        _info.SetCharacterTargeted(character);
         SetCharacterVisualsInInfo(character.characterData);
     }
-
+    public CharacterController GetSelectedCharacter => _info._charSelected;
     #region Info Desc.
     public TextMeshProUGUI GetInfoName() { return _visuals.infoName; }
     public TextMeshProUGUI GetInfoDesc() { return _visuals.infoDescription; }

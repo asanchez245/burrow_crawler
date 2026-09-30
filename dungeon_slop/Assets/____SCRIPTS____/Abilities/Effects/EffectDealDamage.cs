@@ -35,11 +35,11 @@ public class EffectDealDamage : Effect
             targetShield = target.GetCurrentShield();
             if (targetShield > 0)
             {
-                target.ModifyCharacterShield(-totalDamage, false);
+                target.ModifyEnemyShield(-totalDamage, false);
                 totalDamage -= targetShield;
             }
             if (totalDamage > 0)
-                target.ModifyCharacterHealth(-totalDamage, false);
+                target.ModifyEnemyHealth(-totalDamage, false);
         }
         yield return null;
     }

@@ -84,12 +84,12 @@ public class EnemyController : MonoBehaviour, IPointerClickHandler
         }
     }
     #region Character Stats Management
-    public void ModifyCharacterHealth(int amount, bool isFixed)
+    public void ModifyEnemyHealth(int amount, bool isFixed)
     {
         int healthAmount;
         if (!isFixed)
         {
-            healthAmount = _info.GetCurrentHealth() - amount;
+            healthAmount = _info.GetCurrentHealth() + amount;
         }
         else
         {
@@ -100,12 +100,12 @@ public class EnemyController : MonoBehaviour, IPointerClickHandler
     public void SetMaxHealth(int amount) { _info.SetMaxHealth(amount); }
 
     public int GetCurrentShield() { return _info.GetCurrentShield(); }
-    public void ModifyCharacterShield(int amount, bool isFixed)
+    public void ModifyEnemyShield(int amount, bool isFixed)
     {
         int shieldAmount;
         if (!isFixed)
         {
-            shieldAmount = _info.GetCurrentShield() - amount;
+            shieldAmount = _info.GetCurrentShield() + amount;
         }
         else
         {

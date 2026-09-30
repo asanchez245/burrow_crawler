@@ -26,14 +26,17 @@ public class AbilityController : ObjectWithEffects
     {
         EffectContext ctxt = new EffectContext()
         {
-            enemyTargeted = CombatController.Instance.GetTargetedEnemy(),
-            //characterTargeted = CombatController.Instance.GetSelectedCharacter()
-
+            enemyTargeted = CombatController.Instance.GetTargetedEnemy,
+            characterTargeted = CombatController.Instance.GetSelectedCharacter,
+            poolController = ManaPoolController.Instance
         };
 
         TriggerEvent(eventType, ctxt);
     }
-
+    public void UseAbility()
+    {
+        OnEvent(GameEventType.OnTriggerAbility);
+    }
 
     //*********** CARD INFO MANAGEMENT *******************
     public string GetAbilityName() { return abilityInfo._abilityName; }
