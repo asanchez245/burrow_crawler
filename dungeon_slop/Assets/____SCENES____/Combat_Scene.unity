@@ -3000,7 +3000,7 @@ MonoBehaviour:
   - {fileID: 839400788}
   - {fileID: 1928079943}
   - {fileID: 1910439099}
-  _combatData: {fileID: 0}
+  _combatData: {fileID: 11400000, guid: 8daf9b777e877b54b903ccf9ca2bb4a7, type: 2}
 --- !u!4 &1393860429
 Transform:
   m_ObjectHideFlags: 0
