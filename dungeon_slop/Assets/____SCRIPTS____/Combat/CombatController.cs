@@ -8,7 +8,11 @@ public class CombatController : MonoSingleton<CombatController>
 {
     CombatInfo _info;
     CombatVisuals _visuals;
+
+
     public EnemyController[] enemies;
+
+
     [SerializeField] CombatData _combatData;
 
     public  override void Awake()
@@ -27,8 +31,21 @@ public class CombatController : MonoSingleton<CombatController>
     private void Start()
     {
         BoardController.Instance.InitializeBoard();
+        //InitializeEnemies();
         StartCombat();
     }
+
+    public void InitializeEnemies()
+    {
+        int i = 0;
+        foreach(EnemyData data in _combatData.combatEnemies)
+        {
+            if (enemies[i] == null) return;
+            enemies[i].InitializeCharacter(data);
+            i++;
+        }
+    }
+
     public void SetEnemyTarget(EnemyController enemy)
     {
         if (_info._enemyTargeted != null)

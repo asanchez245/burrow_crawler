@@ -16,15 +16,15 @@ public class EnemyController : MonoBehaviour, IPointerClickHandler
 
     private void Awake()
     {
-        InitializeCharacter();
+        InitializeCharacter(enemyData);
     }
 
-    public void InitializeCharacter()
+    public void InitializeCharacter(EnemyData data)
     {
         _info = GetComponent<EnemyInfo>();
-        if (_info != null) _info.InitializeEnemyInfo(enemyData);
+        if (_info != null) _info.InitializeEnemyInfo(data);
         _visuals = GetComponent<EnemyVisuals>();
-        if (_visuals != null) _visuals.InitializeEnemyVisuals(enemyData);
+        if (_visuals != null) _visuals.InitializeEnemyVisuals(data);
     }
     public void ChooseAction()
     {
