@@ -17,6 +17,8 @@ public class AbilityData : ObjectWithEffectsData
     public ManaCost[] manaCost;
 
     public bool enemyAbility;
+
+    public PlayType playType;
 }
 [Serializable]
 public class ManaCost

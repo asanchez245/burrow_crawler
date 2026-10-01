@@ -15,4 +15,5 @@ public class EnemyData : ScriptableObject
     public int shield;
     public int maxShield;
 
+    public AbilityData[] abilities;
 }
