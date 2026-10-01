@@ -10,7 +10,7 @@ public class CharacterInfo : MonoBehaviour
     public int _maxShield { get; private set; }
     public int _currentShield { get; private set; }
 
-    public Transform _chartacterPosition; /*{ get; private set; }*/
+    public Transform chartacterPosition; /*{ get; private set; }*/
 
     [Header("Mana Generation")]
     public List<CharacterManaGeneration> _manaGenerationPerTurn {  get; private set; } = new ();

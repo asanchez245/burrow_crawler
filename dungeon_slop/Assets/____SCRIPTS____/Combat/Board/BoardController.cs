@@ -37,7 +37,7 @@ public class BoardController : MonoSingleton<BoardController>
         {
             foreach(var mana in character._info._manaGenerationPerTurn)
             {
-                ManaPoolController.Instance.GenerateMana(mana.manaType,character._info._chartacterPosition.position,mana.manaQuantity);
+                ManaPoolController.Instance.GenerateMana(mana.manaType,character._info.chartacterPosition.position,mana.manaQuantity);
             }
             yield return new WaitForSeconds(boardVisuals.manaGenerationDelay);
         }

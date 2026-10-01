@@ -31,7 +31,7 @@ public class CombatController : MonoSingleton<CombatController>
     private void Start()
     {
         BoardController.Instance.InitializeBoard();
-        //InitializeEnemies();
+        InitializeEnemies();
         StartCombat();
     }
 
@@ -40,7 +40,8 @@ public class CombatController : MonoSingleton<CombatController>
         int i = 0;
         foreach(EnemyData data in _combatData.combatEnemies)
         {
-            if (enemies[i] == null) return;
+            if (data == null) return;
+            enemies[i].gameObject.SetActive(true);
             enemies[i].InitializeCharacter(data);
             i++;
         }
@@ -108,6 +109,7 @@ public class CombatController : MonoSingleton<CombatController>
     {
         foreach (EnemyController enemy in enemies)
         {
+            if(enemy != null && enemy.gameObject.activeSelf)
             enemy.ChooseAction();
             yield return new WaitForSeconds(_info.enemyActionDelay);
         }
