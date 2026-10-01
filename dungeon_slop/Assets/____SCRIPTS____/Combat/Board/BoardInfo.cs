@@ -3,12 +3,13 @@ using UnityEngine;
 
 public class BoardInfo : MonoBehaviour
 {
-    public List<CharacterController> characters = new();
+    public List<CharacterController> charactersInCombat = new();
+    public List<EnemyController> enemiesInCombat = new();
 
     public List<Transform> characterPositionMap = new();
     public void Initialize()
     {
-        foreach (var character in characters)
+        foreach (var character in charactersInCombat)
         {
             if (character != null)
             {
@@ -19,9 +20,9 @@ public class BoardInfo : MonoBehaviour
     }
     public void AddCharacter(CharacterController character)
     {
-        if (!characters.Contains(character))
+        if (!charactersInCombat.Contains(character))
         {
-            characters.Add(character);
+            charactersInCombat.Add(character);
             characterPositionMap.Add(character.GetCharacterPos());
         }
     }

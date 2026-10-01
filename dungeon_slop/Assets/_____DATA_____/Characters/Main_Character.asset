@@ -25,6 +25,6 @@ MonoBehaviour:
     manaQuantity: 1
   characterAbilities:
   - {fileID: 11400000, guid: ae4be04d5c1152f45a9f5c353de3dcdd, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 2182253386554d74d9e0682ab85bafd9, type: 2}
   - {fileID: 0}
   - {fileID: 0}

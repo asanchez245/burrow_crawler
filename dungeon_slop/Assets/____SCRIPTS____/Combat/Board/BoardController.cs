@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -23,17 +25,17 @@ public class BoardController : MonoSingleton<BoardController>
 
     public CharacterController GetCharacter()
     {
-        return boardInfo.characters[0];
+        return boardInfo.charactersInCombat[0];
     }
 
     public IEnumerator GenerateManaTurn()
     {
-        if(boardInfo.characters.Count <= 0 || boardInfo.characters == null)
+        if(boardInfo.charactersInCombat.Count <= 0 || boardInfo.charactersInCombat == null)
         {
-            Debug.LogWarning("no se han encontrado personajes en boardinfo.characters");
+            Debug.LogWarning("no se han encontrado personajes en boardinfo.charactersInCombat");
             yield break;
         }
-        foreach (var character in boardInfo.characters)
+        foreach (var character in boardInfo.charactersInCombat)
         {
             foreach(var mana in character._info._manaGenerationPerTurn)
             {
@@ -41,5 +43,24 @@ public class BoardController : MonoSingleton<BoardController>
             }
             yield return new WaitForSeconds(boardVisuals.manaGenerationDelay);
         }
+    }
+
+    public void RemoveEnemyFromCombat(EnemyController enemy)
+    {
+        if (boardInfo.enemiesInCombat.Contains(enemy))
+        {
+            boardInfo.enemiesInCombat.Remove(enemy);
+        }
+        CombatController.Instance.CheckCombatEnd();
+    }
+
+    internal void AddEnemyToCombat(EnemyController enemyController)
+    {
+        boardInfo.enemiesInCombat.Add(enemyController);
+    }
+
+    public List<EnemyController> GetEnemiesInCombat()
+    {
+        return boardInfo.enemiesInCombat;
     }
 }

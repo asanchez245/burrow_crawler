@@ -3,6 +3,7 @@ using TMPro;
 using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 public class CombatController : MonoSingleton<CombatController>
 {
@@ -10,9 +11,7 @@ public class CombatController : MonoSingleton<CombatController>
     CombatVisuals _visuals;
 
 
-    public EnemyController[] enemies;
-
-
+    public EnemyController[] enemyControllers;
     [SerializeField] CombatData _combatData;
 
     public  override void Awake()
@@ -41,8 +40,8 @@ public class CombatController : MonoSingleton<CombatController>
         foreach(EnemyData data in _combatData.combatEnemies)
         {
             if (data == null) return;
-            enemies[i].gameObject.SetActive(true);
-            enemies[i].InitializeCharacter(data);
+            enemyControllers[i].gameObject.SetActive(true);
+            enemyControllers[i].InitializeCharacter(data);
             i++;
         }
     }
@@ -53,6 +52,13 @@ public class CombatController : MonoSingleton<CombatController>
             _info._enemyTargeted._visuals.SetTargetedVisuals(false);
         _info.SetEnemyTargeted(enemy);
         enemy._visuals.SetTargetedVisuals(true);
+    }
+    public void SetRandomEnemyTarget()
+    {
+        List<EnemyController> enemiesInCombat = BoardController.Instance.GetEnemiesInCombat();
+        if (enemiesInCombat.Count <= 0) return;
+        int randomIndex = UnityEngine.Random.Range(0, enemiesInCombat.Count);
+        SetEnemyTarget(enemiesInCombat[randomIndex]);
     }
     public EnemyController GetTargetedEnemy => _info._enemyTargeted;
     public void SetCharacterVisualsInInfo(CharacterData chData) { _visuals.SetSelectedCharacterInfo(chData); }
@@ -88,15 +94,15 @@ public class CombatController : MonoSingleton<CombatController>
     public void EndCombat()
     {
         //outro sequence
-        //recompensas combate
         //cambiar escena
-
+        Debug.Log("Combat Ended");
         Sequencer.Instance.TriggerSequence();
     }
 
+
     IEnumerator EnemiesResolveActions()
     {
-        foreach (EnemyController enemy in enemies)
+        foreach (EnemyController enemy in enemyControllers)
         {
             foreach (var play in enemy.chosenPlayTypes)
             {
@@ -107,7 +113,7 @@ public class CombatController : MonoSingleton<CombatController>
     }
     IEnumerator EnemiesPrepareActions()
     {
-        foreach (EnemyController enemy in enemies)
+        foreach (EnemyController enemy in enemyControllers)
         {
             if(enemy != null && enemy.gameObject.activeSelf)
             enemy.ChooseAction();
@@ -120,9 +126,23 @@ public class CombatController : MonoSingleton<CombatController>
         SetCharacterVisualsInInfo(character.characterData);
     }
     public CharacterController GetSelectedCharacter => _info._charSelected;
+
     #region Info Desc.
     public TextMeshProUGUI GetInfoName() { return _visuals.infoName; }
     public TextMeshProUGUI GetInfoDesc() { return _visuals.infoDescription; }
     public List<AbilityController> GetCombatInfoAbilities() { return _info.GetCombatInfoAbilities(); }
+
     #endregion
+
+    public void CheckCombatEnd()
+    {
+        if (BoardController.Instance.boardInfo.enemiesInCombat.Count <= 0)
+        {
+            EndCombat();
+        }
+        else
+        {
+            SetRandomEnemyTarget();
+        }
+    }
 }

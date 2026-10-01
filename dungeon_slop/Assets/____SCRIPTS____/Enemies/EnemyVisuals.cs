@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class EnemyVisuals : MonoBehaviour
 {
+    public GameObject enemyVisuals;
+
     public Image enemySprite;
     public GameObject targetedIcon;
     public GameObject attackIntentionIcon;
@@ -61,5 +63,11 @@ public class EnemyVisuals : MonoBehaviour
     {
         enemySprite.DOKill();
         enemySprite.DOColor(Color.red, 0.1f).From(Color.white).OnComplete(() => enemySprite.DOColor(Color.white, 0.1f));
+    }
+
+    public void EnemyDieVisuals()
+    {
+        enemySprite.DOKill();
+        enemySprite.DOFade(0, 0.5f).OnComplete(() => enemyVisuals.SetActive(false));
     }
 }

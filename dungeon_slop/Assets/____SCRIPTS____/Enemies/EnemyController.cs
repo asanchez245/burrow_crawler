@@ -16,10 +16,7 @@ public class EnemyController : MonoBehaviour, IPointerClickHandler
 
     public List<PlayType> chosenPlayTypes = new();
 
-    private void Awake()
-    {
-        InitializeCharacter(enemyData);
-    }
+
 
     public void InitializeCharacter(EnemyData data)
     {
@@ -27,6 +24,8 @@ public class EnemyController : MonoBehaviour, IPointerClickHandler
         if (_info != null) _info.InitializeEnemyInfo(data);
         _visuals = GetComponent<EnemyVisuals>();
         if (_visuals != null) _visuals.InitializeEnemyVisuals(data);
+
+        BoardController.Instance.AddEnemyToCombat(this);
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -36,7 +35,8 @@ public class EnemyController : MonoBehaviour, IPointerClickHandler
 
     public void EnemyDie()
     {
-        gameObject.SetActive(false);
+        BoardController.Instance.RemoveEnemyFromCombat(this);
+        _visuals.EnemyDieVisuals();
     }
 
     #region Character Actions Management

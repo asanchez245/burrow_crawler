@@ -70,7 +70,9 @@ public abstract class CharacterController : MonoBehaviour, IPointerClickHandler,
         {
             if(chData.characterAbilities[ab] != null)
             {
-                ability.Initialize(chData.characterAbilities[ab]);
+                ability.Initialize(chData.characterAbilities[ab]); 
+                ability.gameObject.SetActive(true);
+
             }
             else
             {

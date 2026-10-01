@@ -527,8 +527,8 @@ namespace DG.Tweening
         /// <param name="richTextEnabled">If TRUE (default), rich text will be interpreted correctly while animated,
         /// otherwise all tags will be considered as normal text</param>
         /// <param name="scrambleMode">The type of scramble mode to use, if any</param>
-        /// <param name="scrambleChars">A string containing the characters to use for scrambling.
-        /// Use as many characters as possible (minimum 10) because DOTween uses a fast scramble mode which gives better results with more characters.
+        /// <param name="scrambleChars">A string containing the charactersInCombat to use for scrambling.
+        /// Use as many charactersInCombat as possible (minimum 10) because DOTween uses a fast scramble mode which gives better results with more charactersInCombat.
         /// Leave it to NULL (default) to use default ones</param>
         public static TweenerCore<string, string, StringOptions> DOText(this Text target, string endValue, float duration, bool richTextEnabled = true, ScrambleMode scrambleMode = ScrambleMode.None, string scrambleChars = null)
         {

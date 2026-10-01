@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cd9e9483762ffa4f961aace520b4914, type: 3}
-  m_Name: CharDealDamage4
+  m_Name: CharDealDamage_4
   m_EditorClassIdentifier: Assembly-CSharp::EffectDataDealDamage
   enemySource: 0
   damage: 4
