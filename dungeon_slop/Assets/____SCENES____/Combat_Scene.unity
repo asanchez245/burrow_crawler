@@ -1758,6 +1758,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1684864832}
     m_Modifications:
+    - target: {fileID: 447670311893987756, guid: c82f032c4a268d748b105b8b92d0dd1b, type: 3}
+      propertyPath: enemyData
+      value: 
+      objectReference: {fileID: 11400000, guid: 545e765bf203b4b458f1591027b3d6e7, type: 2}
     - target: {fileID: 1016509772140861222, guid: c82f032c4a268d748b105b8b92d0dd1b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1841,6 +1845,10 @@ PrefabInstance:
     - target: {fileID: 6380621601110776033, guid: c82f032c4a268d748b105b8b92d0dd1b, type: 3}
       propertyPath: m_Name
       value: Enemy_Combat
+      objectReference: {fileID: 0}
+    - target: {fileID: 6380621601110776033, guid: c82f032c4a268d748b105b8b92d0dd1b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
