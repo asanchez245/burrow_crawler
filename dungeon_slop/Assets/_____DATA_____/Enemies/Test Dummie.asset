@@ -16,3 +16,6 @@ MonoBehaviour:
   enemySprite: {fileID: 21300000, guid: e82cd080cd54187409f68a2625caa94c, type: 3}
   health: 100
   shield: 0
+  maxShield: 0
+  abilities:
+  - {fileID: 11400000, guid: 8c5b2b511a8893f49b41c1807b619d83, type: 2}

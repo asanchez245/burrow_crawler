@@ -1,18 +1,20 @@
-using System.Collections.Generic;
 using Sirenix.Utilities;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static UnityEditor.Searcher.Searcher.AnalyticsEvent;
 
 public class EnemyController : MonoBehaviour, IPointerClickHandler
 {
     public EnemyInfo _info { get; private set; }
     public EnemyVisuals _visuals { get; private set; }
 
+    public AbilityController abilityController { get; private set; }
+    public AbilityInfo abilityInfo { get; private set; }
+
     public EnemyData enemyData;
 
     public List<PlayType> chosenPlayTypes = new();
-
- 
 
     private void Awake()
     {
@@ -26,6 +28,18 @@ public class EnemyController : MonoBehaviour, IPointerClickHandler
         _visuals = GetComponent<EnemyVisuals>();
         if (_visuals != null) _visuals.InitializeEnemyVisuals(data);
     }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        CombatController.Instance.SetEnemyTarget(this);
+    }
+
+    public void EnemyDie()
+    {
+        gameObject.SetActive(false);
+    }
+
+    #region Character Actions Management
     public void ChooseAction()
     {
         int currentHealth = _info.GetCurrentHealth();
@@ -53,7 +67,7 @@ public class EnemyController : MonoBehaviour, IPointerClickHandler
 
         if (needsShield)
         {
-            defenseWeight = 2.0f; // Buen momento para el escudo
+            defenseWeight = 2.0f;
         }
 
         PlayType chosenPlay = GetWeightedRandomPlay(attackWeight, healWeight, defenseWeight);
@@ -64,7 +78,20 @@ public class EnemyController : MonoBehaviour, IPointerClickHandler
 
         Debug.Log($"Acción elegida: {chosenPlay} con un % de vida de {healthPercentage * 100}%");
     }
-
+    internal void ExecuteAction(PlayType play)
+    {
+        //List<AbilityData> abilitiesToExecute = _info.GetAbilitiesByPlayType(play);
+        //foreach (AbilityData ability in abilitiesToExecute)
+        //{
+        //    abilityController.OnEvent(GameEventType.OnTriggerAbility);
+        //}
+        //Debug.Log("Enemie" + _info._enemyName + "doing action: " + play);
+        //CleanAction(play);
+    }
+    public void CleanAction(PlayType play)
+    {
+        _visuals.CleanIntention(play);
+    }
     private PlayType GetWeightedRandomPlay(float attackW, float healW, float shieldW)
     {
         float totalWeight = attackW + healW + shieldW;
@@ -83,10 +110,17 @@ public class EnemyController : MonoBehaviour, IPointerClickHandler
             return PlayType.Defense;
         }
     }
+    
+    #endregion
     #region Character Stats Management
+    public int GetCurrentHealth() { return _info.GetCurrentHealth(); }
     public void ModifyEnemyHealth(int amount, bool isFixed)
     {
         int healthAmount;
+        if(amount < 0)
+        {
+            _visuals.EnemyHitVisuals();
+        }
         if (!isFixed)
         {
             healthAmount = _info.GetCurrentHealth() + amount;
@@ -96,6 +130,10 @@ public class EnemyController : MonoBehaviour, IPointerClickHandler
             healthAmount = amount;
         }
         _info.SetCurrentHealth(healthAmount);
+        if(_info.GetCurrentHealth() <= 0)
+        {
+            EnemyDie();
+        }
     }
     public void SetMaxHealth(int amount) { _info.SetMaxHealth(amount); }
 
@@ -117,31 +155,4 @@ public class EnemyController : MonoBehaviour, IPointerClickHandler
     public void SetMaxShield(int amount) { _info.SetMaxShield(amount); }
 
     #endregion
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        CombatController.Instance.SetEnemyTarget(this);
-    }
-
-    internal void ExecuteAction(PlayType play)
-    {
-        switch (play)
-        {
-            case PlayType.Attack:
-                break;
-            case PlayType.Defense:
-                break;
-            case PlayType.Utility:
-
-                break;
-
-        }
-        Debug.Log("Enemie" + _info._enemyName + "doing action: " + play);
-        CleanAction(play);
-    }
-
-    public void CleanAction(PlayType play)
-    {
-        _visuals.CleanIntention(play);
-    }
 }

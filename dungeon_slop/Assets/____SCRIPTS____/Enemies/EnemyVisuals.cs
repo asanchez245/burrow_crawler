@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -55,5 +56,10 @@ public class EnemyVisuals : MonoBehaviour
                 deffenseIntentionIcon.SetActive(false);
                 break;
         }
+    }
+    public void EnemyHitVisuals()
+    {
+        enemySprite.DOKill();
+        enemySprite.DOColor(Color.red, 0.1f).From(Color.white).OnComplete(() => enemySprite.DOColor(Color.white, 0.1f));
     }
 }

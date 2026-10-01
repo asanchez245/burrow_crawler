@@ -12,6 +12,8 @@ public class EnemyInfo : MonoBehaviour
     public int _maxShield { get; private set; }
     public int _currentShield { get; private set; }
 
+    public AbilityData[] abilities { get; private set; }
+
     public int GetMaxHealth() { return _maxHealth; }
     public int GetCurrentHealth() { return _currentHealth; }
     public int GetMaxShield() { return _maxShield; }
@@ -36,5 +38,7 @@ public class EnemyInfo : MonoBehaviour
 
         SetCurrentShield(enemyData.shield);
         SetMaxShield(enemyData.maxShield);
+
+        abilities = enemyData.abilities;
     }
 }
