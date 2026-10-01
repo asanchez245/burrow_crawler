@@ -5,7 +5,7 @@ public class BoardInfo : MonoBehaviour
 {
     public List<CharacterController> characters = new();
 
-    public Dictionary<CharacterController, Transform> characterPositionMap = new();
+    public List<Transform> characterPositionMap = new();
     public void Initialize()
     {
         foreach (var character in characters)
@@ -13,7 +13,7 @@ public class BoardInfo : MonoBehaviour
             if (character != null)
             {
                 character.InitializeCharacter();
-                characterPositionMap.Add(character, character.transform);
+                characterPositionMap.Add(character.GetCharacterPos());
             }
         }
     }
@@ -22,7 +22,7 @@ public class BoardInfo : MonoBehaviour
         if (!characters.Contains(character))
         {
             characters.Add(character);
-            characterPositionMap.Add(character, character.transform);
+            characterPositionMap.Add(character.GetCharacterPos());
         }
     }
 }

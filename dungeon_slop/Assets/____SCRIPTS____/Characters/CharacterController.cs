@@ -106,4 +106,6 @@ public abstract class CharacterController : MonoBehaviour, IPointerClickHandler,
     {
         _visuals.PointerEnterCharacter(false);
     }
+
+    public Transform GetCharacterPos() { return _info.chartacterPosition; }
 }
