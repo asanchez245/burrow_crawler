@@ -3070,7 +3070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a575a9152d53eb847bae6ac4e67e6d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CombatInfo
-  enemyActionDelay: 0.5
+  enemyActionDelay: 0.25
   _combatInfoAbilities:
   - {fileID: 1604099368}
   - {fileID: 1309305539}
@@ -3092,6 +3092,10 @@ MonoBehaviour:
   - {fileID: 1437800582}
   - {fileID: 1928079945}
   - {fileID: 1910439101}
+  charactersControllers:
+  - {fileID: 1712255287}
+  - {fileID: 520259601}
+  - {fileID: 1693451316}
   _combatData: {fileID: 11400000, guid: 8daf9b777e877b54b903ccf9ca2bb4a7, type: 2}
 --- !u!4 &1393860429
 Transform:

@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Lobo
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   enemyName: Lobo
-  enemySprite: {fileID: 21300000, guid: e82cd080cd54187409f68a2625caa94c, type: 3}
+  enemySprite: {fileID: 21300000, guid: 35498ee11f949cf4a898bdf8235ad1fb, type: 3}
   health: 13
   shield: 0
   maxShield: 0
   abilities:
   - {fileID: 11400000, guid: 8c5b2b511a8893f49b41c1807b619d83, type: 2}
+  maxAbilitiesPerTurn: 1

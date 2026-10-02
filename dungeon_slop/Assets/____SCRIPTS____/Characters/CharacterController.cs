@@ -33,6 +33,10 @@ public abstract class CharacterController : MonoBehaviour, IPointerClickHandler,
         {
             healthAmount = amount;
         }
+        if (amount < 0)
+        {
+            _visuals.CharGetDamageVisuals();
+        }
         _info.SetCurrentHealth(healthAmount);
         _visuals.UpdateHealthText(healthAmount);
     }

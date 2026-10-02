@@ -1,5 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
+using System;
+using System.Linq;
 using UnityEngine;
 
 public class EffectDealDamage : Effect
@@ -16,31 +17,78 @@ public class EffectDealDamage : Effect
     protected override IEnumerator Resolve(EffectContext ctx)
     {
         int totalDamage = damage;
-        int targetShield = 0;
+
         if (enemySource)
         {
-            CharacterController target = ctx.characterTargeted;
-            targetShield = target.GetCurrentShield();
-            if (targetShield > 0)
+            var characters = CombatController.Instance.charactersControllers;
+
+            int aliveCount = 0;
+            for (int i = 0; i < characters.Length; i++)
             {
-                target.ModifyCharacterShield(-totalDamage, false);
-                totalDamage -= targetShield;
+                if (characters[i] != null && characters[i]._info.GetCurrentHealth() > 0)
+                    aliveCount++;
             }
-            if (totalDamage > 0)
-                target.ModifyCharacterHealth(-totalDamage, false);
+
+            if (aliveCount > 0)
+            {
+                int targetIndex = UnityEngine.Random.Range(0, aliveCount);
+                CharacterController target = null;
+
+                int currentIndex = 0;
+                for (int i = 0; i < characters.Length; i++)
+                {
+                    if (characters[i] != null && characters[i]._info.GetCurrentHealth() > 0)
+                    {
+                        if (currentIndex == targetIndex)
+                        {
+                            target = characters[i];
+                            break;
+                        }
+                        currentIndex++;
+                    }
+                }
+
+                if (target != null)
+                {
+                    ApplyDamage(
+                        totalDamage,
+                        target.GetCurrentShield,
+                        shieldDmg => target.ModifyCharacterShield(-shieldDmg, false),
+                        healthDmg => target.ModifyCharacterHealth(-healthDmg, false)
+                    );
+                }
+            }
         }
         else
         {
             EnemyController target = ctx.enemyTargeted;
-            targetShield = target.GetCurrentShield();
-            if (targetShield > 0)
+
+            if (target != null && target._info.GetCurrentHealth() > 0)
             {
-                target.ModifyEnemyShield(-totalDamage, false);
-                totalDamage -= targetShield;
+                ApplyDamage(
+                    totalDamage,
+                    target.GetCurrentShield,
+                    shieldDmg => target.ModifyEnemyShield(-shieldDmg, false),
+                    healthDmg => target.ModifyEnemyHealth(-healthDmg, false)
+                );
             }
-            if (totalDamage > 0)
-                target.ModifyEnemyHealth(-totalDamage, false);
         }
+
         yield return null;
+    }
+    private void ApplyDamage(int amount, Func<int> getShield, Action<int> modifyShield, Action<int> modifyHealth)
+    {
+        int shield = getShield();
+
+        if (shield > 0)
+        {
+            int damageToShield = Mathf.Min(amount, shield);
+            modifyShield(damageToShield);
+            amount -= damageToShield;
+        }
+        if (amount > 0)
+        {
+            modifyHealth(amount);
+        }
     }
 }

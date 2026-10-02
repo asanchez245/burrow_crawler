@@ -829,6 +829,9 @@ GameObject:
   - component: {fileID: 447670311893987756}
   - component: {fileID: 5776602780738511854}
   - component: {fileID: 2881749775498997221}
+  - component: {fileID: 870483865881069296}
+  - component: {fileID: 5055307365830731499}
+  - component: {fileID: 8277104712760417548}
   m_Layer: 5
   m_Name: Enemy_Combat
   m_TagString: Untagged
@@ -876,7 +879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9fcf9abf00d31140b34e2dc0bb9f4e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
-  enemyData: {fileID: 11400000, guid: 6401a6c3964676d4c913073c27f59d15, type: 2}
+  enemyData: {fileID: 11400000, guid: 545e765bf203b4b458f1591027b3d6e7, type: 2}
   chosenPlayTypes: 
 --- !u!114 &5776602780738511854
 MonoBehaviour:
@@ -908,6 +911,43 @@ MonoBehaviour:
   attackIntentionIcon: {fileID: 4656487931575732474}
   healIntentionIcon: {fileID: 1395152293908219153}
   deffenseIntentionIcon: {fileID: 2174890798974925598}
+--- !u!114 &870483865881069296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6380621601110776033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 643c772c967610048b7f47d3cda57f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AbilityController
+--- !u!114 &5055307365830731499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6380621601110776033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4fe9712b4502ec46851c65ca3e936fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AbilityInfo
+--- !u!114 &8277104712760417548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6380621601110776033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da012aa83aa771c46aaef35a40724976, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AbilityVisuals
+  abilityArtwork: {fileID: 5645650424785164697}
 --- !u!1 &7943901076009163570
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ public class CombatController : MonoSingleton<CombatController>
 
 
     public EnemyController[] enemyControllers;
+    public CharacterController[] charactersControllers;
     [SerializeField] CombatData _combatData;
 
     public  override void Awake()

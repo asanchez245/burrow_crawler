@@ -21,7 +21,11 @@ public class CharacterVisuals : MonoBehaviour
     {
         characterSpriteCombat.sprite = chData.characterSpriteCombatIdle;
     }
-
+    public void CharGetDamageVisuals()
+    {
+        characterSpriteCombat.transform.DOShakePosition(.2f, .1f, 10, 90, false, true);
+        characterSpriteCombat.DOColor(Color.red, .2f).From(Color.white).OnComplete(() => characterSpriteCombat.DOColor(Color.white, .2f));
+    }
     public void UpdateHealthText(int currentHp)
     {
         healthText.text = $"{currentHp.ToString()}";

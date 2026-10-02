@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: TEST_COMBAT
   m_EditorClassIdentifier: Assembly-CSharp::CombatData
   combatEnemies:
-  - {fileID: 11400000, guid: 6401a6c3964676d4c913073c27f59d15, type: 2}
-  - {fileID: 11400000, guid: 6401a6c3964676d4c913073c27f59d15, type: 2}
+  - {fileID: 11400000, guid: 545e765bf203b4b458f1591027b3d6e7, type: 2}
+  - {fileID: 11400000, guid: 545e765bf203b4b458f1591027b3d6e7, type: 2}

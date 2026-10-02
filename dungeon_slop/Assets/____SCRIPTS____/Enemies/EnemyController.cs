@@ -10,7 +10,6 @@ public class EnemyController : MonoBehaviour, IPointerClickHandler
     public EnemyVisuals _visuals { get; private set; }
 
     public AbilityController abilityController { get; private set; }
-    public AbilityInfo abilityInfo { get; private set; }
 
     public EnemyData enemyData;
 
@@ -24,7 +23,7 @@ public class EnemyController : MonoBehaviour, IPointerClickHandler
         if (_info != null) _info.InitializeEnemyInfo(data);
         _visuals = GetComponent<EnemyVisuals>();
         if (_visuals != null) _visuals.InitializeEnemyVisuals(data);
-
+        abilityController = GetComponent<AbilityController>();
         BoardController.Instance.AddEnemyToCombat(this);
     }
 
@@ -80,13 +79,13 @@ public class EnemyController : MonoBehaviour, IPointerClickHandler
     }
     internal void ExecuteAction(PlayType play)
     {
-        //List<AbilityData> abilitiesToExecute = _info.GetAbilitiesByPlayType(play);
-        //foreach (AbilityData ability in abilitiesToExecute)
-        //{
-        //    abilityController.OnEvent(GameEventType.OnTriggerAbility);
-        //}
-        //Debug.Log("Enemie" + _info._enemyName + "doing action: " + play);
-        //CleanAction(play);
+        foreach (AbilityData ability in _info.GetAbilitiesByPlayType(play))
+        {
+            abilityController.Initialize(ability);
+            abilityController.OnEvent(GameEventType.OnTriggerAbility);
+        }
+        Debug.Log("Enemie" + _info._enemyName + "doing action: " + play);
+        CleanAction(play);
     }
     public void CleanAction(PlayType play)
     {
