@@ -15,6 +15,7 @@ public class CombatVisuals : MonoBehaviour
     [Header("Selected Info")]
     public TextMeshProUGUI infoName;
     public TextMeshProUGUI infoDescription;
+    public TextMeshProUGUI infoCost;
 
     [Header("_combatInfoAbilities Info")]
     [SerializeField] Image abilitie01;

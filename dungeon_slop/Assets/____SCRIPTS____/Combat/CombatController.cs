@@ -134,16 +134,24 @@ public class CombatController : MonoSingleton<CombatController>
 
     public void SetInfoName(string name) { _visuals.infoName.text = name; }
     public void SetInfoDesc(string desc) { _visuals.infoDescription.text = desc; }
+    public void SetInfoCost(string cost) { _visuals.infoCost.text += cost; }
+    public void ClearInfoCost() { _visuals.infoCost.text = ""; }
     public void SetAbilityInfo (AbilityData data)
     {
         if (data == null) return;
         SetInfoName(data.abilityName);
         SetInfoDesc(data.description);
+        foreach (ManaCost cost in data.manaCost)
+        {
+            if (cost == null) continue;
+            SetInfoCost(cost.GetCostString());
+        }
     }
     public void CleatAbilityInfo()
     {
         SetInfoName("");
         SetInfoDesc("");
+        ClearInfoCost();
     }
     #endregion
 

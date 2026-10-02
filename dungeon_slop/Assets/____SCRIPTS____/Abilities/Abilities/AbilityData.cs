@@ -26,4 +26,19 @@ public class ManaCost
     public int amount;
     public ManaType manaType;
     public ManaCost(int _cost, ManaType _manaType) { amount = _cost; manaType = _manaType; }
+    public String GetCostString() 
+    {
+        switch(manaType)
+        {
+            case ManaType.NeutralMana:
+                return $"<style=Neutral>{amount}</style>";
+            case ManaType.RedMana:
+                return $"<style=Red>{amount}</style>";
+            case ManaType.BlueMana:
+                return $"<style=Blue>{amount}</style>";
+            case ManaType.YellowMana:
+                return $"<style=Yellow>{amount}</style>";
+        }
+        return "";
+    }
 }
