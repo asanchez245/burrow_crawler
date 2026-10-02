@@ -132,6 +132,19 @@ public class CombatController : MonoSingleton<CombatController>
     public TextMeshProUGUI GetInfoDesc() { return _visuals.infoDescription; }
     public List<AbilityController> GetCombatInfoAbilities() { return _info.GetCombatInfoAbilities(); }
 
+    public void SetInfoName(string name) { _visuals.infoName.text = name; }
+    public void SetInfoDesc(string desc) { _visuals.infoDescription.text = desc; }
+    public void SetAbilityInfo (AbilityData data)
+    {
+        if (data == null) return;
+        SetInfoName(data.abilityName);
+        SetInfoDesc(data.description);
+    }
+    public void CleatAbilityInfo()
+    {
+        SetInfoName("");
+        SetInfoDesc("");
+    }
     #endregion
 
     public void CheckCombatEnd()

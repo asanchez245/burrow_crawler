@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class AbilityController : ObjectWithEffects
+public class AbilityController : ObjectWithEffects, IPointerEnterHandler, IPointerExitHandler
 {
     AbilityInfo abilityInfo;
     AbilityVisuals abilityVisual;
@@ -66,6 +67,18 @@ public class AbilityController : ObjectWithEffects
             default:
                 return 0;
         }
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        CombatController.Instance.SetAbilityInfo(abilityData);
+        Visual.PointerEnterVisuals();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        CombatController.Instance.CleatAbilityInfo();
+        Visual.PointerExitVisuals();
     }
 
 
