@@ -22,3 +22,4 @@ MonoBehaviour:
   description: 5 dmg
   manaCost: []
   enemyAbility: 1
+  playType: 0
