@@ -51,7 +51,7 @@ public class BoardController : MonoSingleton<BoardController>
         {
             boardInfo.enemiesInCombat.Remove(enemy);
         }
-        CombatController.Instance.CheckCombatEnd();
+        CombatController.Instance.CheckCombatEnd(true);
     }
 
     internal void AddEnemyToCombat(EnemyController enemyController)
@@ -62,5 +62,23 @@ public class BoardController : MonoSingleton<BoardController>
     public List<EnemyController> GetEnemiesInCombat()
     {
         return boardInfo.enemiesInCombat;
+    }
+
+
+    public void RemoveCharacterFromCombat(CharacterController characterController)
+    {
+        if (boardInfo.charactersInCombat.Contains(characterController))
+        {
+            boardInfo.charactersInCombat.Remove(characterController);
+        }
+        CombatController.Instance.CheckCombatEnd(false);
+    }
+    public void AddCharacterToCombat(CharacterController characterController)
+    {
+        boardInfo.AddCharacter(characterController);
+    }
+    public List<CharacterController> GetCharactersInCombat()
+    {
+        return boardInfo.charactersInCombat;
     }
 }

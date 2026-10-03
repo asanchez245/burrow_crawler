@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
@@ -39,7 +40,13 @@ public abstract class CharacterController : MonoBehaviour, IPointerClickHandler,
         }
         _info.SetCurrentHealth(healthAmount);
         _visuals.UpdateHealthText(healthAmount);
+        if (_info.GetCurrentHealth() <= 0)
+        {
+            CharacterDie();
+        }
     }
+
+
     public void SetMaxHealth(int amount) { _info.SetMaxHealth(amount); }
     public int GetCurrentHealth() {  return _info.GetCurrentHealth(); }
 
@@ -65,6 +72,11 @@ public abstract class CharacterController : MonoBehaviour, IPointerClickHandler,
 
     #endregion
 
+    private void CharacterDie()
+    {
+        BoardController.Instance.RemoveCharacterFromCombat(this);
+        _visuals.CharacterDieVisuals();
+    }
 
 
     public void InitializeCharacterAbilities(CharacterData chData)

@@ -58,4 +58,9 @@ public class CharacterVisuals : MonoBehaviour
             this.transform.DOScale(1f, .2f);
         }
     }
+
+    internal void CharacterDieVisuals()
+    {
+        characterSpriteCombat.DOFade(0, .5f).OnComplete(() => this.gameObject.SetActive(false));
+    }
 }

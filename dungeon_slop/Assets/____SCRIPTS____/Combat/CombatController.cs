@@ -92,11 +92,16 @@ public class CombatController : MonoSingleton<CombatController>
         SetPlayerTurn();
         Sequencer.Instance.TriggerSequence();
     }
-    public void EndCombat()
+    public void EndCombat(bool victory)
     {
-        //outro sequence
-        //cambiar escena
-        Debug.Log("Combat Ended");
+        if (victory)
+        {
+            Debug.Log("Combat Ended - Victory");
+        }
+        else
+        {
+            Debug.Log("Combat Ended - Defeat");
+        }
         Sequencer.Instance.TriggerSequence();
     }
 
@@ -156,15 +161,26 @@ public class CombatController : MonoSingleton<CombatController>
     }
     #endregion
 
-    public void CheckCombatEnd()
+    public void CheckCombatEnd(bool victory)
     {
-        if (BoardController.Instance.boardInfo.enemiesInCombat.Count <= 0)
+        if (!victory) //character ha muerto
         {
-            EndCombat();
+            if(BoardController.Instance.boardInfo.charactersInCombat.Count <= 0)
+            {
+                EndCombat(false); //pierdes combate
+            }
         }
-        else
+        else //enemy ha muerto
         {
-            SetRandomEnemyTarget();
+            if (BoardController.Instance.boardInfo.enemiesInCombat.Count <= 0)
+            {
+                EndCombat(true); //ganas combate
+            }
+            else //quedan enemigos vivos
+            {
+                SetRandomEnemyTarget();
+            }
         }
+
     }
 }
