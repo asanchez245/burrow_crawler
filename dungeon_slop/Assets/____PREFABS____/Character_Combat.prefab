@@ -707,8 +707,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 100/100
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0117e2e63e56e76458ff5dbd9f57959c, type: 2}
+  m_sharedMaterial: {fileID: -5410073493714008471, guid: 0117e2e63e56e76458ff5dbd9f57959c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -844,8 +844,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0117e2e63e56e76458ff5dbd9f57959c, type: 2}
+  m_sharedMaterial: {fileID: -5410073493714008471, guid: 0117e2e63e56e76458ff5dbd9f57959c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1064,7 +1064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59eb9c6ea72bca5418e4282fd1e0876b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterInfo
-  _chartacterPosition: {fileID: 0}
+  chartacterPosition: {fileID: 0}
   _characterAbilities:
   - {fileID: 0}
   - {fileID: 0}

@@ -4,15 +4,15 @@ using UnityEngine;
 public class ObjectWithEffects : MonoBehaviour
 {
     protected ObjectWithEffectsData objectWithEffectsData;
-    public List<CardEffectEntryRuntime> cardEffects { get; private set; }
+    public List<AbilityEffectEntryRuntime> abilityEffects { get; private set; }
 
     public virtual void Initialize(ObjectWithEffectsData data)
     {
         objectWithEffectsData = data;
-        cardEffects = new List<CardEffectEntryRuntime>();
+        abilityEffects = new List<AbilityEffectEntryRuntime>();
         foreach (var entry in objectWithEffectsData.effects)
         {
-            cardEffects.Add(entry.CreateRuntimeEntry(this));
+            abilityEffects.Add(entry.CreateRuntimeEntry(this));
         }
     }
 
@@ -20,7 +20,7 @@ public class ObjectWithEffects : MonoBehaviour
 
     protected virtual void TriggerEvent(GameEventType eventType, EffectContext ctxt)
     {
-        foreach (CardEffectEntryRuntime effect in cardEffects)
+        foreach (AbilityEffectEntryRuntime effect in abilityEffects)
         {
             if (effect.triggerEvent == eventType)
                 effect.OnEvent(ctxt);
@@ -34,17 +34,17 @@ public class ObjectWithEffects : MonoBehaviour
 
     protected virtual void DestroyReferences()
     {
-        if (cardEffects == null) return;
-        if (cardEffects.Count > 0)
+        if (abilityEffects == null) return;
+        if (abilityEffects.Count > 0)
         {
 
-            for (int i = cardEffects.Count - 1; i >= 0; i--)
+            for (int i = abilityEffects.Count - 1; i >= 0; i--)
             {
-                cardEffects[i].OnDestroy();
+                abilityEffects[i].OnDestroy();
             }
 
         }
-        cardEffects.Clear();
-        cardEffects = null;
+        abilityEffects.Clear();
+        abilityEffects = null;
     }
 }

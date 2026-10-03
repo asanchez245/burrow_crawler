@@ -1,6 +1,7 @@
-using System.Collections;
 using System;
+using System.Collections;
 using System.Linq;
+using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
 
 public class EffectDealDamage : Effect
@@ -50,12 +51,18 @@ public class EffectDealDamage : Effect
 
                 if (target != null)
                 {
-                    ApplyDamage(
-                        totalDamage,
-                        target.GetCurrentShield,
-                        shieldDmg => target.ModifyCharacterShield(-shieldDmg, false),
-                        healthDmg => target.ModifyCharacterHealth(-healthDmg, false)
-                    );
+                    int shield = target.GetCurrentShield();
+
+                    if (shield > 0)
+                    {
+                        int damageToShield = Mathf.Min(totalDamage, shield);
+                        target.ModifyCharacterShield(-damageToShield, false);
+                        totalDamage -= damageToShield;
+                    }
+                    if (totalDamage > 0)
+                    {
+                        target.ModifyCharacterHealth(-totalDamage, false);
+                    }
                 }
             }
         }
@@ -65,30 +72,21 @@ public class EffectDealDamage : Effect
 
             if (target != null && target._info.GetCurrentHealth() > 0)
             {
-                ApplyDamage(
-                    totalDamage,
-                    target.GetCurrentShield,
-                    shieldDmg => target.ModifyEnemyShield(-shieldDmg, false),
-                    healthDmg => target.ModifyEnemyHealth(-healthDmg, false)
-                );
+                int shield = target.GetCurrentShield();
+
+                if (shield > 0)
+                {
+                    int damageToShield = Mathf.Min(totalDamage, shield);
+                    target.ModifyEnemyShield(-damageToShield, false);
+                    totalDamage -= damageToShield;
+                }
+                if (totalDamage > 0)
+                {
+                    target.ModifyEnemyHealth(-totalDamage, false);
+                }
             }
         }
 
         yield return null;
-    }
-    private void ApplyDamage(int amount, Func<int> getShield, Action<int> modifyShield, Action<int> modifyHealth)
-    {
-        int shield = getShield();
-
-        if (shield > 0)
-        {
-            int damageToShield = Mathf.Min(amount, shield);
-            modifyShield(damageToShield);
-            amount -= damageToShield;
-        }
-        if (amount > 0)
-        {
-            modifyHealth(amount);
-        }
     }
 }

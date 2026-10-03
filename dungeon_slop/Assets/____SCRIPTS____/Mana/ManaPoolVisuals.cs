@@ -141,16 +141,9 @@ public class ManaPoolVisuals : MonoBehaviour
         TextMeshProUGUI tmpText = orbInstance.GetComponentInChildren<TextMeshProUGUI>(true);
         if (tmpText != null)
         {
-            tmpText.text = textValue;
+            tmpText.text = "x " + textValue;
             tmpText.gameObject.SetActive(active);
             return;
-        }
-
-        Text legacyText = orbInstance.GetComponentInChildren<Text>(true);
-        if (legacyText != null)
-        {
-            legacyText.text = textValue;
-            legacyText.gameObject.SetActive(active);
         }
     }
 

@@ -32,7 +32,7 @@ public class CombatController : MonoSingleton<CombatController>
     {
         BoardController.Instance.InitializeBoard();
         InitializeEnemies();
-        StartCombat();
+        NextTurn();
     }
 
     public void InitializeEnemies()
@@ -65,31 +65,14 @@ public class CombatController : MonoSingleton<CombatController>
     public void SetCharacterVisualsInInfo(CharacterData chData) { _visuals.SetSelectedCharacterInfo(chData); }
 
     [Button("End Turn", ButtonSizes.Gigantic), GUIColor(1, 0.2f, 0)]
-    public void EndTurn()
+    public void NextTurn()
     {
-        SetEnemyTurn();
-        SetPlayerTurn();
-        Sequencer.Instance.TriggerSequence();
-    }
-
-
-    public void SetPlayerTurn()
-    {
-        _info.SetCurrentTurnState(TurnState.playerTurn);
-        Sequencer.Instance.AddSequence(_visuals.SetTurnVisuals(TurnState.playerTurn));
-        Sequencer.Instance.AddSequence(BoardController.Instance.GenerateManaTurn());
-        Sequencer.Instance.AddSequence(EnemiesPrepareActions());
-    }
-    public void SetEnemyTurn()
-    {
-        _info.SetCurrentTurnState(TurnState.enemyTurn);
-        Sequencer.Instance.AddSequence(_visuals.SetTurnVisuals(TurnState.enemyTurn));
         Sequencer.Instance.AddSequence(EnemiesResolveActions());
-    }
-    public void StartCombat()
-    {
-        //intro combate
-        SetPlayerTurn();
+
+        Sequencer.Instance.AddSequence(BoardController.Instance.GenerateManaTurn());
+
+        Sequencer.Instance.AddSequence(EnemiesPrepareActions());
+        
         Sequencer.Instance.TriggerSequence();
     }
     public void EndCombat()
@@ -118,7 +101,7 @@ public class CombatController : MonoSingleton<CombatController>
         {
             if(enemy != null && enemy.gameObject.activeSelf)
             enemy.ChooseAction();
-            yield return new WaitForSeconds(_info.enemyActionDelay);
+            yield return new WaitForSeconds(_info.enemyActionDelay/2);
         }
     }
     public void SetSelectedCharacter(CharacterController character)

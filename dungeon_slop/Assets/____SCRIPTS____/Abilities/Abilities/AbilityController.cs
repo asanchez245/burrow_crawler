@@ -15,12 +15,12 @@ public class AbilityController : ObjectWithEffects, IPointerEnterHandler, IPoint
         base.Initialize(data);
         abilityInfo = GetComponent<AbilityInfo>();
         if (abilityInfo) abilityInfo.Initialize(abilityData);
-        else Debug.LogError($"Trying to initialize the card <b>{gameObject.name}</b> without CardInfo");
+        else Debug.LogError($"Trying to initialize the card <b>{gameObject.name}</b> without ability info");
 
 
         abilityVisual = GetComponent<AbilityVisuals>();
         if (abilityVisual) abilityVisual.Initialize(abilityData);
-        else Debug.LogError($"Trying to initialize the card <b>{gameObject.name}</b> without CardVisuals");
+        else Debug.LogError($"Trying to initialize the card <b>{gameObject.name}</b> without ability visuals");
     }
 
     public override void OnEvent(GameEventType eventType)
@@ -29,7 +29,10 @@ public class AbilityController : ObjectWithEffects, IPointerEnterHandler, IPoint
         {
             enemyTargeted = CombatController.Instance.GetTargetedEnemy,
             characterTargeted = CombatController.Instance.GetSelectedCharacter,
-            poolController = ManaPoolController.Instance
+            poolController = ManaPoolController.Instance,
+            enemiesOnBoard = BoardController.Instance.GetEnemiesInCombat(),
+            alliesOnBoard = BoardController.Instance.GetCharactersInCombat(),
+            sourceCharacter = CombatController.Instance.GetSelectedCharacter,
         };
 
         TriggerEvent(eventType, ctxt);
