@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class ObjectWithEffectsData : ScriptableObject
 {
-    public CardEffectEntry[] effects;
+    public AbilityEffectEntry[] effects;
 }
 
 [System.Serializable]
-public class CardEffectEntry
+public class AbilityEffectEntry
 {
+    public PlayType playType;
     public EffectData[] effects;
     public ConditionData[] conditions;
     public GameEventType triggerEvent;
@@ -26,6 +27,7 @@ public class CardEffectEntry
             runtimeEntry.conditions[i] = conditions[i].CreateRuntimeCondition(owner);
         }
         runtimeEntry.triggerEvent = triggerEvent;
+        runtimeEntry.playType = playType;
         return runtimeEntry;
     }
 }
@@ -36,6 +38,7 @@ public class AbilityEffectEntryRuntime
     public Effect[] effects;
     public Condition[] conditions;
     public GameEventType triggerEvent;
+    public PlayType playType;
 
     public virtual void OnEvent(EffectContext ctxt)
     {

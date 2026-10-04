@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da815bf575076d8469aae1801e4eaba2, type: 3}
   m_Name: Main_Character
   m_EditorClassIdentifier: Assembly-CSharp::CharacterData
-  characterName: Main Payo
-  characterSpriteCombatIdle: {fileID: 21300000, guid: 6582484b4c6a4314baccf126db1e4fc6, type: 3}
-  characterPortrait: {fileID: 21300000, guid: 39ecf4ecaaeb71245ae8d2ad56d3772a, type: 3}
-  characterDescription: Conejp
+  characterName: Conejo
+  characterSpriteCombatIdle: {fileID: -1709618375, guid: 1ce787b1587e4884f8e356b692badf73, type: 3}
+  characterPortrait: {fileID: -747932199, guid: 1ce787b1587e4884f8e356b692badf73, type: 3}
+  characterDescription: Conejo
   health: 15
   shield: 6
   manaGenerationPerTurn:

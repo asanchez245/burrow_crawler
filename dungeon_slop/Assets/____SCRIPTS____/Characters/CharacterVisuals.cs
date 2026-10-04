@@ -1,25 +1,49 @@
 using System;
 using DG.Tweening;
 using TMPro;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CharacterVisuals : MonoBehaviour
 {
     [SerializeField] Image characterSpriteCombat;
+    [SerializeField] Animator characterAnimator;
     [SerializeField] TextMeshProUGUI healthText;
     [SerializeField] TextMeshProUGUI shieldText;
 
     internal void InitializeCharacterVisuals(CharacterData chData, CharacterController controller)
     {
         SetCharacterPortrait(chData);
+        SetAnimatorController(chData.characterAnimationController);
         UpdateHealthText(controller.GetCurrentHealth());
         UpdateShieldText(controller.GetCurrentShield());
     }
-
+    public void TriggerAnim(PlayType playType)
+    {
+        switch(playType)
+        {
+            case PlayType.Attack:
+                characterAnimator.SetTrigger("Attack");
+                break;
+            case PlayType.Defense:
+                characterAnimator.SetTrigger("Defense");
+                break;
+            case PlayType.Heal:
+                characterAnimator.SetTrigger("Heal");
+                break;
+            case PlayType.Utility:
+                characterAnimator.SetTrigger("Utility");
+                break;
+        }
+    }
     public void SetCharacterPortrait(CharacterData chData)
     {
         characterSpriteCombat.sprite = chData.characterSpriteCombatIdle;
+    }
+    public void SetAnimatorController(AnimatorController animatorController)
+    {
+        characterAnimator.runtimeAnimatorController = animatorController;
     }
     public void CharGetDamageVisuals()
     {
