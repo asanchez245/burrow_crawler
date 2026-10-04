@@ -35,6 +35,7 @@ public class AbilityController : ObjectWithEffects, IPointerEnterHandler, IPoint
             sourceCharacter = CombatController.Instance.GetSelectedCharacter,
         };
 
+        ctxt.sourceCharacter._visuals.TriggerAnim(abilityInfo._playType);
         TriggerEvent(eventType, ctxt);
     }
     public void UseAbility()
