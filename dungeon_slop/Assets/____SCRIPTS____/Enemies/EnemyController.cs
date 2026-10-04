@@ -1,32 +1,47 @@
-using Sirenix.Utilities;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using static UnityEditor.Searcher.Searcher.AnalyticsEvent;
-
-public class EnemyController : MonoBehaviour, IPointerClickHandler
+public class EnemyController : ObjectWithEffects, IPointerClickHandler
 {
     public EnemyInfo _info { get; private set; }
     public EnemyVisuals _visuals { get; private set; }
 
-    public AbilityController abilityController { get; private set; }
-
     public EnemyData enemyData;
 
     public List<PlayType> chosenPlayTypes = new();
-
-
+    Dictionary<AbilityData, List<AbilityEffectEntryRuntime>> abilityEffects = new();
 
     public void InitializeCharacter(EnemyData data)
     {
+        base.Initialize(data);
         _info = GetComponent<EnemyInfo>();
         if (_info != null) _info.InitializeEnemyInfo(data);
         _visuals = GetComponent<EnemyVisuals>();
         if (_visuals != null) _visuals.InitializeEnemyVisuals(data);
-        abilityController = GetComponent<AbilityController>();
+        InitializeAbilityEffects(data);
+
         BoardController.Instance.AddEnemyToCombat(this);
     }
+    void InitializeAbilityEffects(EnemyData data)
+    {
+        abilityEffects.Clear();
 
+        if (data.abilities == null) return;
+
+        foreach (AbilityData ability in data.abilities)
+        {
+            if (ability == null) continue;
+
+            List<AbilityEffectEntryRuntime> runtimeEffects = new();
+
+            foreach (var entry in ability.effects)
+            {
+                runtimeEffects.Add(entry.CreateRuntimeEntry(this));
+            }
+
+            abilityEffects[ability] = runtimeEffects;
+        }
+    }
     public void OnPointerClick(PointerEventData eventData)
     {
         CombatController.Instance.SetEnemyTarget(this);
@@ -39,6 +54,41 @@ public class EnemyController : MonoBehaviour, IPointerClickHandler
     }
 
     #region Character Actions Management
+
+    internal void ExecuteAction(PlayType play)
+    {
+        foreach (AbilityData ability in _info.GetAbilitiesByPlayType(play))
+        {
+            if (abilityEffects.TryGetValue(ability, out List<AbilityEffectEntryRuntime> effects))
+            {
+                TriggerAbilityEffects(ability, effects);
+            }
+        }
+
+        Debug.Log($"Enemigo {_info._enemyName} usando acción: {play}");
+        CleanAction(play);
+    }
+    void TriggerAbilityEffects(AbilityData ability, List<AbilityEffectEntryRuntime> effects)
+    {
+        EffectContext ctxt = new EffectContext()
+        {
+            enemyTargeted = CombatController.Instance.GetTargetedEnemy,
+            characterTargeted = CombatController.Instance.GetSelectedCharacter,
+            poolController = ManaPoolController.Instance,
+            enemiesOnBoard = BoardController.Instance.GetEnemiesInCombat(),
+            alliesOnBoard = BoardController.Instance.GetCharactersInCombat(),
+            sourceEnemy = this
+        };
+
+        foreach (AbilityEffectEntryRuntime effect in effects)
+        {
+            if (effect.triggerEvent == GameEventType.OnTriggerAbility)
+            {
+                effect.OnEvent(ctxt);
+                TriggerEvent(GameEventType.OnTriggerAbility, ctxt);
+            }
+        }
+    }
     public void ChooseAction()
     {
         int currentHealth = _info.GetCurrentHealth();
@@ -77,21 +127,11 @@ public class EnemyController : MonoBehaviour, IPointerClickHandler
 
         Debug.Log($"Acción elegida: {chosenPlay} con un % de vida de {healthPercentage * 100}%");
     }
-    internal void ExecuteAction(PlayType play)
-    {
-        foreach (AbilityData ability in _info.GetAbilitiesByPlayType(play))
-        {
-            abilityController.Initialize(ability);
-            abilityController.OnEvent(GameEventType.OnTriggerAbility);
-        }
-        Debug.Log("Enemie" + _info._enemyName + "doing action: " + play);
-        CleanAction(play);
-    }
     public void CleanAction(PlayType play)
     {
         _visuals.CleanIntention(play);
     }
-    private PlayType GetWeightedRandomPlay(float attackW, float healW, float shieldW)
+    PlayType GetWeightedRandomPlay(float attackW, float healW, float shieldW)
     {
         float totalWeight = attackW + healW + shieldW;
         float randomValue = Random.Range(0, totalWeight);
@@ -109,7 +149,22 @@ public class EnemyController : MonoBehaviour, IPointerClickHandler
             return PlayType.Defense;
         }
     }
-    
+    protected override void DestroyReferences()
+    {
+        base.DestroyReferences();
+
+        if (abilityEffects != null)
+        {
+            foreach (var kvp in abilityEffects)
+            {
+                foreach (var effect in kvp.Value)
+                {
+                    effect.OnDestroy();
+                }
+            }
+            abilityEffects.Clear();
+        }
+    }
     #endregion
     #region Character Stats Management
     public int GetCurrentHealth() { return _info.GetCurrentHealth(); }

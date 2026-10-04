@@ -12,9 +12,9 @@ public class CardEffectEntry
     public ConditionData[] conditions;
     public GameEventType triggerEvent;
 
-    public CardEffectEntryRuntime CreateRuntimeEntry(ObjectWithEffects owner)
+    public AbilityEffectEntryRuntime CreateRuntimeEntry(ObjectWithEffects owner)
     {
-        CardEffectEntryRuntime runtimeEntry = new CardEffectEntryRuntime();
+        AbilityEffectEntryRuntime runtimeEntry = new AbilityEffectEntryRuntime();
         runtimeEntry.effects = new Effect[effects != null ? effects.Length : 0];
         for (int i = 0; i < runtimeEntry.effects.Length; i++)
         {
@@ -31,7 +31,7 @@ public class CardEffectEntry
 }
 
 [System.Serializable]
-public class CardEffectEntryRuntime
+public class AbilityEffectEntryRuntime
 {
     public Effect[] effects;
     public Condition[] conditions;
