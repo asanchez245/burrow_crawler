@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using TMPro;
@@ -23,6 +24,9 @@ public class CombatVisuals : MonoBehaviour
     [SerializeField] Image abilitie03;
     [SerializeField] Image abilitie04;
 
+    [Header("Combat End")]
+    [SerializeField] GameObject combatDiePanel;
+    [SerializeField] GameObject combatWinPanel;
 
     internal void InitializeCombatVisuals(CombatData combatData)
     {
@@ -61,4 +65,43 @@ public class CombatVisuals : MonoBehaviour
         this.characterHealth.text = chData.health.ToString();
         this.characterShield.text = chData.shield.ToString();
     }
+
+    public void ShowDieVisuals(bool show)
+    {
+        if(show)
+        {
+            combatDiePanel.SetActive(true);
+            combatDiePanel.GetComponent<CanvasGroup>().DOFade(1, 1f).OnComplete(() =>
+            {
+                combatDiePanel.SetActive(true);
+            });
+        }
+        else
+        {
+            combatDiePanel.GetComponent<CanvasGroup>().DOFade(0, 1f).OnComplete(() =>
+            {
+                combatDiePanel.SetActive(false);
+            });
+        }
+    }
+
+    public void ShowWinVisuals(bool show)
+    {
+        if (show)
+        {
+            combatWinPanel.SetActive(true);
+            combatWinPanel.GetComponent<CanvasGroup>().DOFade(1, 1f).OnComplete(() =>
+            {
+                combatWinPanel.SetActive(true);
+            });
+        }
+        else
+        {
+            combatWinPanel.GetComponent<CanvasGroup>().DOFade(0, 1f).OnComplete(() =>
+            {
+                combatWinPanel.SetActive(false);
+            });
+        }
+    }
+
 }

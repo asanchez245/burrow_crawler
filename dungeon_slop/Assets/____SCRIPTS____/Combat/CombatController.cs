@@ -79,11 +79,11 @@ public class CombatController : MonoSingleton<CombatController>
     {
         if (victory)
         {
-            Debug.Log("Combat Ended - Victory");
+            _visuals.ShowWinVisuals(true);
         }
         else
         {
-            Debug.Log("Combat Ended - Defeat");
+            _visuals.ShowDieVisuals(true);
         }
         Sequencer.Instance.TriggerSequence();
     }
