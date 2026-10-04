@@ -101,7 +101,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 512
+        y: 1536
         width: 512
         height: 512
       alignment: 0
@@ -123,7 +123,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 512
-        y: 512
+        y: 1536
         width: 512
         height: 512
       alignment: 0
@@ -145,7 +145,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 1024
         width: 512
         height: 512
       alignment: 0
@@ -158,6 +158,28 @@ TextureImporter:
       bones: []
       spriteID: 55c06b168c4945b4080c5f699be47e11
       internalID: -497446216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnemigoLoboCombat_SpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8bc2072f5c8633428354c1a820f4e7b
+      internalID: 1149506697
       vertices: []
       indices: 
       edges: []
@@ -181,6 +203,7 @@ TextureImporter:
       EnemigoLoboCombat_SpriteSheet_0: -593264114
       EnemigoLoboCombat_SpriteSheet_1: -737040484
       EnemigoLoboCombat_SpriteSheet_2: -497446216
+      EnemigoLoboCombat_SpriteSheet_3: 1149506697
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
