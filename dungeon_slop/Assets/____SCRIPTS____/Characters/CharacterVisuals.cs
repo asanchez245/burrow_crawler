@@ -45,10 +45,10 @@ public class CharacterVisuals : MonoBehaviour
     {
         characterAnimator.runtimeAnimatorController = animatorController;
     }
-    public void CharGetDamageVisuals()
+    public void CharGetDamageVisuals(int damageAmount)
     {
-        characterSpriteCombat.transform.DOShakePosition(.2f, .1f, 10, 90, false, true);
-        characterSpriteCombat.DOColor(Color.red, .2f).From(Color.white).OnComplete(() => characterSpriteCombat.DOColor(Color.white, .2f));
+        SpawnFloatingText(damageAmount.ToString(), Color.red);
+        characterAnimator.SetTrigger("Hurt");
     }
     public void UpdateHealthText(int currentHp)
     {
@@ -86,5 +86,30 @@ public class CharacterVisuals : MonoBehaviour
     internal void CharacterDieVisuals()
     {
         characterSpriteCombat.DOFade(0, .5f).OnComplete(() => this.gameObject.SetActive(false));
+    }
+
+    public void SpawnFloatingText(string text, Color color, float size = 45f, float duration = 0.7f, float offsetY = 40f)
+    {
+        GameObject textObj = new GameObject("FloatingText_" + text);
+        textObj.transform.SetParent(this.transform, false);
+
+        RectTransform rect = textObj.AddComponent<RectTransform>();
+
+        Vector2 initialPos = new Vector2(UnityEngine.Random.Range(-10f, 10f), offsetY);
+        rect.anchoredPosition = initialPos;
+
+        TextMeshProUGUI tmp = textObj.AddComponent<TextMeshProUGUI>();
+        tmp.text = text;
+        tmp.fontSize = size;
+        tmp.color = color;
+        tmp.alignment = TextAlignmentOptions.Center;
+        tmp.raycastTarget = false;
+
+        rect.DOAnchorPosY(initialPos.y + 60f, duration).SetEase(Ease.OutQuad).SetUpdate(true);
+        tmp.DOFade(0f, duration).SetEase(Ease.InQuad).SetUpdate(true).OnComplete(() =>
+        {
+            textObj.transform.DOKill();
+            Destroy(textObj);
+        });
     }
 }

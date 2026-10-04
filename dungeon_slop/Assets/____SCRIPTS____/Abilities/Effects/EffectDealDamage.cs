@@ -69,7 +69,7 @@ public class EffectDealDamage : Effect
         else
         {
             EnemyController target = ctx.enemyTargeted;
-
+            ctx.sourceCharacter._visuals.TriggerAnim(PlayType.Attack);
             if (target != null && target._info.GetCurrentHealth() > 0)
             {
                 int shield = target.GetCurrentShield();

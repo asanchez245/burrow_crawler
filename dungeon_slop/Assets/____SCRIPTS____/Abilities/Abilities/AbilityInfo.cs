@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AbilityInfo : MonoBehaviour
 {
-    public PlayType _playType { get; private set; }
     public string _abilityName { get; private set; }
     public string _description { get; private set; }
 
@@ -26,7 +25,6 @@ public class AbilityInfo : MonoBehaviour
     public GameObject _cardOwner { get; private set;  }
     public void Initialize(AbilityData data)
     {
-        _playType = data.playType;
         _abilityName = data.abilityName;
         _description = data.description;
         _enemyAbility = data.enemyAbility;

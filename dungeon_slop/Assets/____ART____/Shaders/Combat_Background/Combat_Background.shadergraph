@@ -76,9 +76,6 @@
             "m_Id": "b4398d9ce7524f2f8e3cae7a0d7a6e3e"
         },
         {
-            "m_Id": "3c66e5a356f14889b2bdd47c76dd3c93"
-        },
-        {
             "m_Id": "a9e2174f43344fe4b6b8f1bc3f5a5543"
         },
         {
@@ -941,33 +938,33 @@
     "m_Value": {
         "serializedVersion": "2",
         "key0": {
-            "r": 0.002659221412613988,
+            "r": 0.0,
             "g": 0.0,
-            "b": 0.09433960914611817,
+            "b": 0.0,
             "a": 1.0
         },
         "key1": {
-            "r": 0.00012971065007150173,
-            "g": 0.10810665041208267,
-            "b": 0.3527849614620209,
+            "r": 0.005011830944567919,
+            "g": 0.0013186415890231729,
+            "b": 0.08894866704940796,
             "a": 1.0
         },
         "key2": {
-            "r": 0.000003631561412476003,
-            "g": 0.11349504441022873,
-            "b": 0.3656667470932007,
+            "r": 0.15280967950820924,
+            "g": 0.11956820636987686,
+            "b": 0.3908354640007019,
             "a": 0.0
         },
         "key3": {
-            "r": 0.0,
-            "g": 0.26037728786468508,
-            "b": 0.038011275231838229,
+            "r": 0.039728496223688129,
+            "g": 0.0,
+            "b": 0.364705890417099,
             "a": 0.0
         },
         "key4": {
-            "r": 0.8437868356704712,
-            "g": 1.0,
-            "b": 0.0,
+            "r": 0.06277647614479065,
+            "g": 0.0,
+            "b": 0.18400000035762788,
             "a": 0.0
         },
         "key5": {
@@ -989,8 +986,8 @@
             "a": 0.0
         },
         "ctime0": 0,
-        "ctime1": 5474,
-        "ctime2": 12876,
+        "ctime1": 16246,
+        "ctime2": 43782,
         "ctime3": 14109,
         "ctime4": 19198,
         "ctime5": 0,
@@ -1006,7 +1003,7 @@
         "atime7": 0,
         "m_Mode": 0,
         "m_ColorSpace": 1,
-        "m_NumColorKeys": 5,
+        "m_NumColorKeys": 3,
         "m_NumAlphaKeys": 2
     }
 }
@@ -1202,73 +1199,6 @@
         "y": 0.5
     },
     "m_Labels": []
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.GradientNode",
-    "m_ObjectId": "3c66e5a356f14889b2bdd47c76dd3c93",
-    "m_Group": {
-        "m_Id": ""
-    },
-    "m_Name": "Gradient",
-    "m_DrawState": {
-        "m_Expanded": true,
-        "m_Position": {
-            "serializedVersion": "2",
-            "x": 889.1427612304688,
-            "y": -51.99998092651367,
-            "width": 209.14276123046876,
-            "height": 105.71424865722656
-        }
-    },
-    "m_Slots": [
-        {
-            "m_Id": "c01bbd4d457c4c2b8c4cc2221fb994e7"
-        }
-    ],
-    "synonyms": [
-        "ramp"
-    ],
-    "m_Precision": 0,
-    "m_PreviewExpanded": true,
-    "m_DismissedVersion": 0,
-    "m_PreviewMode": 0,
-    "m_CustomColors": {
-        "m_SerializableColors": []
-    },
-    "m_Value": 0.0,
-    "m_SerializableColorKeys": [
-        {
-            "x": 0.0,
-            "y": 0.0,
-            "z": 0.0,
-            "w": 0.0
-        },
-        {
-            "x": 0.005011830944567919,
-            "y": 0.0013186415890231729,
-            "z": 0.08894866704940796,
-            "w": 0.24789807200431825
-        },
-        {
-            "x": 0.15280967950820924,
-            "y": 0.11956820636987686,
-            "z": 0.3908354640007019,
-            "w": 0.6680704951286316
-        }
-    ],
-    "m_SerializableAlphaKeys": [
-        {
-            "x": 1.0,
-            "y": 0.0
-        },
-        {
-            "x": 1.0,
-            "y": 1.0
-        }
-    ],
-    "m_SerializableMode": 0
 }
 
 {
@@ -2700,18 +2630,6 @@
     },
     "m_Labels": [],
     "m_Space": 0
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.GradientMaterialSlot",
-    "m_ObjectId": "c01bbd4d457c4c2b8c4cc2221fb994e7",
-    "m_Id": 0,
-    "m_DisplayName": "Out",
-    "m_SlotType": 1,
-    "m_Hidden": false,
-    "m_ShaderOutputName": "Out",
-    "m_StageCapability": 3
 }
 
 {
