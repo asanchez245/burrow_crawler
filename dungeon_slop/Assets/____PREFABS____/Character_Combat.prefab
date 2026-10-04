@@ -327,7 +327,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f0a3e8251e2c5534a8d29975e07c7a5f, type: 3}
+  m_Sprite: {fileID: -790633056, guid: 50dd53ccc2a17644cb05b72926daffd4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -999,7 +999,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasicCharacter
   characterData: {fileID: 11400000, guid: 958898638a4ce014095a29663cab1232, type: 2}
-  selectedCharacter: 0
 --- !u!114 &8726618882784549400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1121,7 +1120,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e82cd080cd54187409f68a2625caa94c, type: 3}
+  m_Sprite: {fileID: 750998219, guid: 50dd53ccc2a17644cb05b72926daffd4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

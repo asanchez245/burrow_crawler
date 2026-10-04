@@ -36,7 +36,7 @@ MonoBehaviour:
     m_StrikethroughThickness: 0
     m_TabWidth: 0
   m_Material: {fileID: 3904179850450212667}
-  spriteSheet: {fileID: 2800000, guid: 5e2ea6448f9e3d8489651d9e0c433b33, type: 3}
+  spriteSheet: {fileID: 2800000, guid: 67d6a7d798603814ab3b6881e675eb4b, type: 3}
   m_SpriteCharacterTable:
   - m_ElementType: 2
     m_Unicode: 65534
@@ -233,7 +233,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 5e2ea6448f9e3d8489651d9e0c433b33, type: 3}
+        m_Texture: {fileID: 2800000, guid: 67d6a7d798603814ab3b6881e675eb4b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
