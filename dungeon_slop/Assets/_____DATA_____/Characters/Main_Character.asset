@@ -15,6 +15,7 @@ MonoBehaviour:
   characterName: Conejo
   characterSpriteCombatIdle: {fileID: -1709618375, guid: 1ce787b1587e4884f8e356b692badf73, type: 3}
   characterPortrait: {fileID: -747932199, guid: 1ce787b1587e4884f8e356b692badf73, type: 3}
+  characterAnimationController: {fileID: 9100000, guid: 7b20dc3af8f23814ebfa678f5e53bfd4, type: 2}
   characterDescription: Conejo
   health: 15
   shield: 6

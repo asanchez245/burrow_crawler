@@ -34,9 +34,9 @@ public abstract class CharacterController : MonoBehaviour, IPointerClickHandler,
         {
             healthAmount = amount;
         }
-        if (amount < 0)
+        if (healthAmount < _info.GetCurrentHealth())
         {
-            _visuals.CharGetDamageVisuals();
+            _visuals.CharGetDamageVisuals(healthAmount);
         }
         _info.SetCurrentHealth(healthAmount);
         _visuals.UpdateHealthText(healthAmount);
@@ -60,6 +60,10 @@ public abstract class CharacterController : MonoBehaviour, IPointerClickHandler,
         else
         {
             shieldAmount = amount;
+        }
+        if (shieldAmount < _info.GetCurrentShield())
+        {
+            _visuals.CharGetDamageVisuals(shieldAmount);
         }
         shieldAmount = Mathf.Max(0,shieldAmount);
         _info.SetCurrentShield(shieldAmount);

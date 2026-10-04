@@ -8,7 +8,6 @@ public class ObjectWithEffectsData : ScriptableObject
 [System.Serializable]
 public class AbilityEffectEntry
 {
-    public PlayType playType;
     public EffectData[] effects;
     public ConditionData[] conditions;
     public GameEventType triggerEvent;
@@ -27,7 +26,6 @@ public class AbilityEffectEntry
             runtimeEntry.conditions[i] = conditions[i].CreateRuntimeCondition(owner);
         }
         runtimeEntry.triggerEvent = triggerEvent;
-        runtimeEntry.playType = playType;
         return runtimeEntry;
     }
 }
@@ -38,7 +36,6 @@ public class AbilityEffectEntryRuntime
     public Effect[] effects;
     public Condition[] conditions;
     public GameEventType triggerEvent;
-    public PlayType playType;
 
     public virtual void OnEvent(EffectContext ctxt)
     {

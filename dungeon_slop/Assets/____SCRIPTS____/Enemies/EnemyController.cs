@@ -58,7 +58,7 @@ public class EnemyController : ObjectWithEffects, IPointerClickHandler
 
         OnEvent(gameEvent);
         Debug.Log($"Enemigo {_info._enemyName} usando acción: {play}");
-        _visuals.CleanIntention(play);
+        Sequencer.Instance.InsertSequence(_visuals.CleanAllIntentionIcons());
     }
     public void ChooseAction()
     {
