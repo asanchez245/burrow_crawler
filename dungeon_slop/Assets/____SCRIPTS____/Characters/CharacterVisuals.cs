@@ -75,18 +75,6 @@ public class CharacterVisuals : MonoBehaviour
         });
     }
 
-    public void SelectedCharacterVisuals(bool selected)
-    {
-        if (selected)
-        {
-
-        }
-        else
-        {
-
-        }
-    }
-
     internal void PointerEnterCharacter(bool enter)
     {
         if (enter)
@@ -127,5 +115,17 @@ public class CharacterVisuals : MonoBehaviour
             textObj.transform.DOKill();
             Destroy(textObj);
         });
+    }
+
+    internal void SelectedVisuals(bool isSelected)
+    {
+        if (isSelected)
+        {
+            characterSpriteCombat.transform.DOScale(1.1f, .2f);
+        }
+        else
+        {
+            characterSpriteCombat.transform.DOScale(1f, .2f);
+        }
     }
 }

@@ -1,11 +1,12 @@
 using Sirenix.OdinInspector;
-using TMPro;
-using System.Collections;
-using UnityEngine;
-using System.Collections.Generic;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class CombatController : MonoSingleton<CombatController>
 {
@@ -45,6 +46,7 @@ public class CombatController : MonoSingleton<CombatController>
         int i = 0;
         foreach(EnemyData data in _combatData.combatEnemies)
         {
+            Debug.Log("Initializing enemy: " + data.enemyName);
             if (data == null) return;
             enemyControllers[i].gameObject.SetActive(true);
             enemyControllers[i].InitializeCharacter(data);
@@ -126,17 +128,11 @@ public class CombatController : MonoSingleton<CombatController>
     }
     public void SetSelectedCharacter(CharacterController character)
     {
-        foreach(var ch in BoardController.Instance.GetCharactersInCombat())
-        {
-            if(character != null)
-            {
-               ch.selectedCharacter = false;
-            }
-        }
-
-        character.selectedCharacter = true;
+        if (_info._charSelected != null)
+            _info._charSelected._visuals.SelectedVisuals(false);
         _info.SetCharacterTargeted(character);
         SetCharacterVisualsInInfo(character.characterData);
+        character._visuals.SelectedVisuals(true);
     }
 
     public void UpdateInfoHealth(int newHealth)

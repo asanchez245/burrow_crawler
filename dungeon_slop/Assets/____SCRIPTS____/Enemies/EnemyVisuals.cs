@@ -23,6 +23,14 @@ public class EnemyVisuals : MonoBehaviour
     public void SetTargetedVisuals(bool isTargeted)
     {
         targetedIcon.SetActive(isTargeted);
+        if (isTargeted)
+        {
+            enemySprite.transform.DOScale(1.15f, .2f);
+        }
+        else
+        {
+            enemySprite.transform.DOScale(1f, .2f);
+        }
     }
     public void SetIntentionIcon(PlayType playType)
     {
@@ -72,5 +80,17 @@ public class EnemyVisuals : MonoBehaviour
     {
         enemySprite.DOKill();
         enemySprite.DOFade(0, 0.5f).OnComplete(() => enemyVisuals.SetActive(false));
+    }
+
+    internal void PointerEnterEnemy(bool enter)
+    {
+        if (enter)
+        {
+            this.transform.DOScale(1.05f, .2f);
+        }
+        else
+        {
+            this.transform.DOScale(1f, .2f);
+        }
     }
 }
