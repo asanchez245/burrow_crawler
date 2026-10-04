@@ -55,7 +55,7 @@ public class EnemyController : ObjectWithEffects, IPointerClickHandler
             PlayType.Heal => GameEventType.OnEnemyHeal,
             _ => throw new System.ArgumentOutOfRangeException(nameof(play), play, null)
         };
-
+        _visuals.TriggerAnim(play);
         OnEvent(gameEvent);
         Debug.Log($"Enemigo {_info._enemyName} usando acción: {play}");
         Sequencer.Instance.InsertSequence(_visuals.CleanAllIntentionIcons());
@@ -125,7 +125,7 @@ public class EnemyController : ObjectWithEffects, IPointerClickHandler
         int healthAmount;
         if(amount < 0)
         {
-            _visuals.EnemyHitVisuals();
+            _visuals.enemyAnimator.SetTrigger("Hurt");
         }
         if (!isFixed)
         {

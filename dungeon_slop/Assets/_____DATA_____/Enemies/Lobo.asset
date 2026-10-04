@@ -23,6 +23,7 @@ MonoBehaviour:
     triggerEvent: 2
   enemyName: Lobo
   enemySprite: {fileID: -593264114, guid: 6504ff7a2b4a7a641bd5d8fa1c2e3a15, type: 3}
+  animatorController: {fileID: 9100000, guid: 3438efbb0e62ce24ca0a59f81f55ba23, type: 2}
   health: 13
   shield: 0
   maxShield: 0
