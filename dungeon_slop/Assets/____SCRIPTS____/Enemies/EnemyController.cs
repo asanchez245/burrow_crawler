@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-public class EnemyController : ObjectWithEffects, IPointerClickHandler
+public class EnemyController : ObjectWithEffects, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public EnemyInfo _info { get; private set; }
     public EnemyVisuals _visuals { get; private set; }
@@ -23,6 +23,16 @@ public class EnemyController : ObjectWithEffects, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         CombatController.Instance.SetEnemyTarget(this);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        _visuals.PointerEnterEnemy(true);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        _visuals.PointerEnterEnemy(false);
     }
 
     public void EnemyDie()
