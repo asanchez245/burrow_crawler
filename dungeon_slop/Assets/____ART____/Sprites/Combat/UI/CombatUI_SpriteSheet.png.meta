@@ -144,8 +144,8 @@ TextureImporter:
       name: CombatUI_SpriteSheet_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 768
+        x: 256
+        y: 896
         width: 128
         height: 128
       alignment: 0
@@ -166,7 +166,7 @@ TextureImporter:
       name: CombatUI_SpriteSheet_3
       rect:
         serializedVersion: 2
-        x: 128
+        x: 0
         y: 768
         width: 128
         height: 128
@@ -180,6 +180,28 @@ TextureImporter:
       bones: []
       spriteID: e15dfc4edc6155a4db8c434cae163b41
       internalID: -790633056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CombatUI_SpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0711fb32a12ee44d8fa01f054c4e8d1
+      internalID: 169967967
       vertices: []
       indices: 
       edges: []
@@ -204,6 +226,7 @@ TextureImporter:
       CombatUI_SpriteSheet_1: 964163123
       CombatUI_SpriteSheet_2: -2120154040
       CombatUI_SpriteSheet_3: -790633056
+      CombatUI_SpriteSheet_4: 169967967
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
