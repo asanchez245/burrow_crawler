@@ -1,8 +1,7 @@
 using DG.Tweening;
-using System;
 using System.Collections;
+using UnityEditor.Animations;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class EnemyVisuals : MonoBehaviour
@@ -10,6 +9,7 @@ public class EnemyVisuals : MonoBehaviour
     public GameObject enemyVisuals;
 
     public Image enemySprite;
+    public Animator enemyAnimator;
     public GameObject targetedIcon;
     public GameObject attackIntentionIcon;
     public GameObject healIntentionIcon;
@@ -18,6 +18,7 @@ public class EnemyVisuals : MonoBehaviour
     {
         enemySprite.sprite = enemyData.enemySprite;
         targetedIcon.SetActive(false);
+        SetAnimatorController(enemyData.animatorController);
     }
     public void SetTargetedVisuals(bool isTargeted)
     {
@@ -45,12 +46,28 @@ public class EnemyVisuals : MonoBehaviour
         deffenseIntentionIcon.SetActive(false);
         yield return new WaitForSeconds(0.5f);
     }
-    public void EnemyHitVisuals()
+    public void TriggerAnim(PlayType playType)
     {
-        enemySprite.DOKill();
-        enemySprite.DOColor(Color.red, 0.1f).From(Color.white).OnComplete(() => enemySprite.DOColor(Color.white, 0.1f));
+        switch (playType)
+        {
+            case PlayType.Attack:
+                enemyAnimator.SetTrigger("Attack");
+                break;
+            case PlayType.Defense:
+                enemyAnimator.SetTrigger("Defense");
+                break;
+            case PlayType.Heal:
+                enemyAnimator.SetTrigger("Heal");
+                break;
+            case PlayType.Utility:
+                enemyAnimator.SetTrigger("Utility");
+                break;
+        }
     }
-
+    public void SetAnimatorController(AnimatorController animatorController)
+    {
+        enemyAnimator.runtimeAnimatorController = animatorController;
+    }
     public void EnemyDieVisuals()
     {
         enemySprite.DOKill();
