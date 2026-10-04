@@ -27,10 +27,6 @@ public class BoardController : MonoSingleton<BoardController>
     {
         return boardInfo.charactersInCombat[0];
     }
-    public List<CharacterController> GetCharactersInCombat()
-    {
-        return boardInfo.charactersInCombat;
-    }
     public IEnumerator GenerateManaTurn()
     {
         if(boardInfo.charactersInCombat.Count <= 0 || boardInfo.charactersInCombat == null)

@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b53b09aabe85a14aa8402e54fc199ab, type: 3}
-  m_Name: PayNeutral1
-  m_EditorClassIdentifier: Assembly-CSharp::ConditionDataPayMana
-  manaCosts:
-  - amount: 1
-    manaType: 0
+  m_Script: {fileID: 11500000, guid: f9ee3854bf2803e4e9adad76370e1777, type: 3}
+  m_Name: CharGetShield_2
+  m_EditorClassIdentifier: Assembly-CSharp::EffectDataGetShield
+  enemySource: 0
+  shield: 2

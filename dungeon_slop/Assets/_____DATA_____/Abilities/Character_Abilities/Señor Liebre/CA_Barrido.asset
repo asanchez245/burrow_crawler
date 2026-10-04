@@ -16,7 +16,8 @@ MonoBehaviour:
   - effects:
     - {fileID: 11400000, guid: e5e012430c571814abad8c7f74868a73, type: 2}
     conditions:
-    - {fileID: 11400000, guid: 9c20caa250a123c48adc256991d71c18, type: 2}
+    - {fileID: 11400000, guid: 1ad44ae27d970754d9648bf1d42e5058, type: 2}
+    - {fileID: 11400000, guid: 2ed596ac34a22d44ba26c0c68aff9cf4, type: 2}
     triggerEvent: 0
   abilityName: Barrido
   artwork: {fileID: 21300000, guid: 585c878e13bb9cb48b305ad50700214e, type: 3}

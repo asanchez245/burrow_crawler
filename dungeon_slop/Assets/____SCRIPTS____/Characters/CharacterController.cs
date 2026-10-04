@@ -23,7 +23,7 @@ public abstract class CharacterController : MonoBehaviour, IPointerClickHandler,
     }
 
     #region Character Stats Management
-    public void ModifyCharacterHealth(int amount, bool isFixed)
+    public void ModifyCharacterHealth(int amount, bool isFixed = false)
     {
         int healthAmount;
         if (!isFixed)
@@ -50,7 +50,7 @@ public abstract class CharacterController : MonoBehaviour, IPointerClickHandler,
     public void SetMaxHealth(int amount) { _info.SetMaxHealth(amount); }
     public int GetCurrentHealth() {  return _info.GetCurrentHealth(); }
 
-    public void ModifyCharacterShield(int amount, bool isFixed)
+    public void ModifyCharacterShield(int amount, bool isFixed = false)
     {
         int shieldAmount;
         if (!isFixed)

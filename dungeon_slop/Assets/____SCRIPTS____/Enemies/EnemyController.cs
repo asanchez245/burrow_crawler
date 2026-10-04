@@ -168,7 +168,7 @@ public class EnemyController : ObjectWithEffects, IPointerClickHandler
     #endregion
     #region Character Stats Management
     public int GetCurrentHealth() { return _info.GetCurrentHealth(); }
-    public void ModifyEnemyHealth(int amount, bool isFixed)
+    public void ModifyEnemyHealth(int amount, bool isFixed = false)
     {
         int healthAmount;
         if(amount < 0)
@@ -192,7 +192,7 @@ public class EnemyController : ObjectWithEffects, IPointerClickHandler
     public void SetMaxHealth(int amount) { _info.SetMaxHealth(amount); }
 
     public int GetCurrentShield() { return _info.GetCurrentShield(); }
-    public void ModifyEnemyShield(int amount, bool isFixed)
+    public void ModifyEnemyShield(int amount, bool isFixed = false)
     {
         int shieldAmount;
         if (!isFixed)
