@@ -104,4 +104,29 @@ public class CombatVisuals : MonoBehaviour
         }
     }
 
+    internal void UpdateHealthText(int newHealth)
+    {
+        characterHealth.DOKill();
+
+        characterHealth.color = Color.red;
+        characterHealth.text = newHealth.ToString();
+        characterHealth.transform.DOPunchScale(Vector3.one * 0.2f, 0.2f, 1, 1).OnComplete(() =>
+        {
+            characterHealth.transform.localScale = Vector3.one;
+            characterHealth.DOColor(Color.white, 0.2f);
+        });
+    }
+
+    internal void UpdateShieldText(int newShield)
+    {
+        characterShield.DOKill();
+
+        characterShield.color = Color.red;
+        characterShield.text = newShield.ToString();
+        characterShield.transform.DOPunchScale(Vector3.one * 0.2f, 0.2f, 1, 1).OnComplete(() =>
+        {
+            characterShield.transform.localScale = Vector3.one;
+            characterShield.DOColor(Color.white, 0.2f);
+        });
+    }
 }

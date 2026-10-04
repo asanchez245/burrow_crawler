@@ -11,6 +11,7 @@ public abstract class CharacterController : MonoBehaviour, IPointerClickHandler,
 
     public CharacterData characterData;
 
+    public bool selectedCharacter = false;
 
     public void InitializeCharacter()
     {
@@ -38,6 +39,12 @@ public abstract class CharacterController : MonoBehaviour, IPointerClickHandler,
         {
             _visuals.CharGetDamageVisuals(healthAmount);
         }
+
+        if (selectedCharacter)
+        {
+            CombatController.Instance.UpdateInfoHealth(healthAmount);
+        }
+
         _info.SetCurrentHealth(healthAmount);
         _visuals.UpdateHealthText(healthAmount);
         if (_info.GetCurrentHealth() <= 0)
@@ -65,6 +72,12 @@ public abstract class CharacterController : MonoBehaviour, IPointerClickHandler,
         {
             _visuals.CharGetDamageVisuals(shieldAmount);
         }
+
+        if (selectedCharacter)
+        {
+            CombatController.Instance.UpdateInfoShield(shieldAmount);
+        }
+
         shieldAmount = Mathf.Max(0,shieldAmount);
         _info.SetCurrentShield(shieldAmount);
         _visuals?.UpdateShieldText(shieldAmount);
