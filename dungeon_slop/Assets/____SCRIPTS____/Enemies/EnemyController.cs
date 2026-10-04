@@ -9,7 +9,6 @@ public class EnemyController : ObjectWithEffects, IPointerClickHandler
     public EnemyData enemyData;
 
     public List<PlayType> chosenPlayTypes = new();
-    Dictionary<AbilityData, List<AbilityEffectEntryRuntime>> abilityEffects = new();
 
     public void InitializeCharacter(EnemyData data)
     {
@@ -18,29 +17,8 @@ public class EnemyController : ObjectWithEffects, IPointerClickHandler
         if (_info != null) _info.InitializeEnemyInfo(data);
         _visuals = GetComponent<EnemyVisuals>();
         if (_visuals != null) _visuals.InitializeEnemyVisuals(data);
-        InitializeAbilityEffects(data);
 
         BoardController.Instance.AddEnemyToCombat(this);
-    }
-    void InitializeAbilityEffects(EnemyData data)
-    {
-        abilityEffects.Clear();
-
-        if (data.abilities == null) return;
-
-        foreach (AbilityData ability in data.abilities)
-        {
-            if (ability == null) continue;
-
-            List<AbilityEffectEntryRuntime> runtimeEffects = new();
-
-            foreach (var entry in ability.effects)
-            {
-                runtimeEffects.Add(entry.CreateRuntimeEntry(this));
-            }
-
-            abilityEffects[ability] = runtimeEffects;
-        }
     }
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -54,21 +32,7 @@ public class EnemyController : ObjectWithEffects, IPointerClickHandler
     }
 
     #region Character Actions Management
-
-    internal void ExecuteAction(PlayType play)
-    {
-        foreach (AbilityData ability in _info.GetAbilitiesByPlayType(play))
-        {
-            if (abilityEffects.TryGetValue(ability, out List<AbilityEffectEntryRuntime> effects))
-            {
-                TriggerAbilityEffects(ability, effects);
-            }
-        }
-
-        Debug.Log($"Enemigo {_info._enemyName} usando acción: {play}");
-        CleanAction(play);
-    }
-    void TriggerAbilityEffects(AbilityData ability, List<AbilityEffectEntryRuntime> effects)
+    public override void OnEvent(GameEventType eventType)
     {
         EffectContext ctxt = new EffectContext()
         {
@@ -77,17 +41,24 @@ public class EnemyController : ObjectWithEffects, IPointerClickHandler
             poolController = ManaPoolController.Instance,
             enemiesOnBoard = BoardController.Instance.GetEnemiesInCombat(),
             alliesOnBoard = BoardController.Instance.GetCharactersInCombat(),
-            sourceEnemy = this
+            sourceCharacter = CombatController.Instance.GetSelectedCharacter,
         };
 
-        foreach (AbilityEffectEntryRuntime effect in effects)
+        TriggerEvent(eventType, ctxt);
+    }
+    internal void ExecuteAction(PlayType play)
+    {
+        GameEventType gameEvent = play switch
         {
-            if (effect.triggerEvent == GameEventType.OnTriggerAbility)
-            {
-                effect.OnEvent(ctxt);
-                TriggerEvent(GameEventType.OnTriggerAbility, ctxt);
-            }
-        }
+            PlayType.Attack => GameEventType.OnEnemyAttack,
+            PlayType.Defense => GameEventType.OnEnemyDefense,
+            PlayType.Heal => GameEventType.OnEnemyHeal,
+            _ => throw new System.ArgumentOutOfRangeException(nameof(play), play, null)
+        };
+
+        OnEvent(gameEvent);
+        Debug.Log($"Enemigo {_info._enemyName} usando acción: {play}");
+        _visuals.CleanIntention(play);
     }
     public void ChooseAction()
     {
@@ -127,10 +98,6 @@ public class EnemyController : ObjectWithEffects, IPointerClickHandler
 
         Debug.Log($"Acción elegida: {chosenPlay} con un % de vida de {healthPercentage * 100}%");
     }
-    public void CleanAction(PlayType play)
-    {
-        _visuals.CleanIntention(play);
-    }
     PlayType GetWeightedRandomPlay(float attackW, float healW, float shieldW)
     {
         float totalWeight = attackW + healW + shieldW;
@@ -149,22 +116,7 @@ public class EnemyController : ObjectWithEffects, IPointerClickHandler
             return PlayType.Defense;
         }
     }
-    protected override void DestroyReferences()
-    {
-        base.DestroyReferences();
 
-        if (abilityEffects != null)
-        {
-            foreach (var kvp in abilityEffects)
-            {
-                foreach (var effect in kvp.Value)
-                {
-                    effect.OnDestroy();
-                }
-            }
-            abilityEffects.Clear();
-        }
-    }
     #endregion
     #region Character Stats Management
     public int GetCurrentHealth() { return _info.GetCurrentHealth(); }

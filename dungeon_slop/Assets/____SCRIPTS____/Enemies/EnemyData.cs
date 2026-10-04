@@ -15,6 +15,5 @@ public class EnemyData : ObjectWithEffectsData
     public int shield;
     public int maxShield;
 
-    public AbilityData[] abilities;
     public int maxAbilitiesPerTurn = 1;
 }

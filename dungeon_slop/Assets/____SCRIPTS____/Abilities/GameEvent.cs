@@ -1,6 +1,9 @@
 public enum GameEventType
 {
     OnTriggerAbility,
+    OnEnemyAttack,
+    OnEnemyHeal,
+    OnEnemyDefense
     //OnDraw,
     //OnTurnStart,
     //OnLockBoard,

@@ -14,20 +14,8 @@ public class EnemyInfo : MonoBehaviour
     public int _maxShield { get; private set; }
     public int _currentShield { get; private set; }
 
-    public AbilityData[] abilities { get; private set; }
-    public int maxAbilitiesPerTurn { get; private set; } = 1;
+    public int maxActionsPerTurn { get; private set; } = 1;
 
-    public List<AbilityData> GetAbilitiesByPlayType(PlayType playType)
-    {
-        var filtered = abilities.Where(a => a.playType == playType).ToList();
-        if (filtered.Count == 0) return filtered;
-
-        int countToTake = Random.Range(1, maxAbilitiesPerTurn + 1);
-
-        return filtered.OrderBy(a => Random.value)
-                       .Take(countToTake)
-                       .ToList();
-    }
     public int GetMaxHealth() { return _maxHealth; }
     public int GetCurrentHealth() { return _currentHealth; }
     public int GetMaxShield() { return _maxShield; }
@@ -52,8 +40,6 @@ public class EnemyInfo : MonoBehaviour
 
         SetCurrentShield(enemyData.shield);
         SetMaxShield(enemyData.maxShield);
-
-        abilities = enemyData.abilities;
-        maxAbilitiesPerTurn = enemyData.maxAbilitiesPerTurn;
+        maxActionsPerTurn = enemyData.maxAbilitiesPerTurn;
     }
 }
