@@ -52,11 +52,27 @@ public class CharacterVisuals : MonoBehaviour
     }
     public void UpdateHealthText(int currentHp)
     {
-        healthText.text = $"{currentHp.ToString()}";
+        healthText.DOKill();
+
+        healthText.color = Color.red;
+        healthText.text = currentHp.ToString();
+        healthText.transform.DOPunchScale(Vector3.one * 0.2f, 0.2f, 1, 1).OnComplete(() =>
+        {
+            healthText.transform.localScale = Vector3.one;
+            healthText.DOColor(Color.white, 0.2f);
+        });
     }
     public void UpdateShieldText(int currentShield)
     {
-        shieldText.text = $"{currentShield.ToString()}";
+        shieldText.DOKill();
+
+        shieldText.color = Color.red;
+        shieldText.text = currentShield.ToString();
+        shieldText.transform.DOPunchScale(Vector3.one * 0.2f, 0.2f, 1, 1).OnComplete(() =>
+        {
+            shieldText.transform.localScale = Vector3.one;
+            shieldText.DOColor(Color.white, 0.2f);
+        });
     }
 
     public void SelectedCharacterVisuals(bool selected)

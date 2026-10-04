@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using TMPro;
@@ -23,6 +24,9 @@ public class CombatVisuals : MonoBehaviour
     [SerializeField] Image abilitie03;
     [SerializeField] Image abilitie04;
 
+    [Header("Combat End")]
+    [SerializeField] GameObject combatDiePanel;
+    [SerializeField] GameObject combatWinPanel;
 
     internal void InitializeCombatVisuals(CombatData combatData)
     {
@@ -60,5 +64,69 @@ public class CombatVisuals : MonoBehaviour
         this.characterPortrait.sprite = chData.characterPortrait;
         this.characterHealth.text = chData.health.ToString();
         this.characterShield.text = chData.shield.ToString();
+    }
+
+    public void ShowDieVisuals(bool show)
+    {
+        if(show)
+        {
+            combatDiePanel.SetActive(true);
+            combatDiePanel.GetComponent<CanvasGroup>().DOFade(1, 1f).OnComplete(() =>
+            {
+                combatDiePanel.SetActive(true);
+            });
+        }
+        else
+        {
+            combatDiePanel.GetComponent<CanvasGroup>().DOFade(0, 1f).OnComplete(() =>
+            {
+                combatDiePanel.SetActive(false);
+            });
+        }
+    }
+
+    public void ShowWinVisuals(bool show)
+    {
+        if (show)
+        {
+            combatWinPanel.SetActive(true);
+            combatWinPanel.GetComponent<CanvasGroup>().DOFade(1, 1f).OnComplete(() =>
+            {
+                combatWinPanel.SetActive(true);
+            });
+        }
+        else
+        {
+            combatWinPanel.GetComponent<CanvasGroup>().DOFade(0, 1f).OnComplete(() =>
+            {
+                combatWinPanel.SetActive(false);
+            });
+        }
+    }
+
+    internal void UpdateHealthText(int newHealth)
+    {
+        characterHealth.DOKill();
+
+        characterHealth.color = Color.red;
+        characterHealth.text = newHealth.ToString();
+        characterHealth.transform.DOPunchScale(Vector3.one * 0.2f, 0.2f, 1, 1).OnComplete(() =>
+        {
+            characterHealth.transform.localScale = Vector3.one;
+            characterHealth.DOColor(Color.white, 0.2f);
+        });
+    }
+
+    internal void UpdateShieldText(int newShield)
+    {
+        characterShield.DOKill();
+
+        characterShield.color = Color.red;
+        characterShield.text = newShield.ToString();
+        characterShield.transform.DOPunchScale(Vector3.one * 0.2f, 0.2f, 1, 1).OnComplete(() =>
+        {
+            characterShield.transform.localScale = Vector3.one;
+            characterShield.DOColor(Color.white, 0.2f);
+        });
     }
 }

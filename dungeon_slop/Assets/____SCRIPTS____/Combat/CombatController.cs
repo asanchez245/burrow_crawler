@@ -4,6 +4,8 @@ using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
 using System;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class CombatController : MonoSingleton<CombatController>
 {
@@ -14,6 +16,9 @@ public class CombatController : MonoSingleton<CombatController>
     public EnemyController[] enemyControllers;
     public CharacterController[] charactersControllers;
     [SerializeField] CombatData _combatData;
+
+    [SerializeField] Button endTurnButton;
+
 
     public  override void Awake()
     {
@@ -64,26 +69,36 @@ public class CombatController : MonoSingleton<CombatController>
     public EnemyController GetTargetedEnemy => _info._enemyTargeted;
     public void SetCharacterVisualsInInfo(CharacterData chData) { _visuals.SetSelectedCharacterInfo(chData); }
 
-    [Button("End Turn", ButtonSizes.Gigantic), GUIColor(1, 0.2f, 0)]
     public void NextTurn()
     {
+        endTurnButton.interactable = false;
+
         Sequencer.Instance.AddSequence(EnemiesResolveActions());
 
         Sequencer.Instance.AddSequence(BoardController.Instance.GenerateManaTurn());
 
         Sequencer.Instance.AddSequence(EnemiesPrepareActions());
         
+        Sequencer.Instance.AddSequence(EndTurnDelay());
+
         Sequencer.Instance.TriggerSequence();
     }
+
+    IEnumerator EndTurnDelay()
+    {
+        yield return new WaitForSeconds(1f);
+        endTurnButton.interactable = true;
+    }
+
     public void EndCombat(bool victory)
     {
         if (victory)
         {
-            Debug.Log("Combat Ended - Victory");
+            _visuals.ShowWinVisuals(true);
         }
         else
         {
-            Debug.Log("Combat Ended - Defeat");
+            _visuals.ShowDieVisuals(true);
         }
         Sequencer.Instance.TriggerSequence();
     }
@@ -111,9 +126,28 @@ public class CombatController : MonoSingleton<CombatController>
     }
     public void SetSelectedCharacter(CharacterController character)
     {
+        foreach(var ch in BoardController.Instance.GetCharactersInCombat())
+        {
+            if(character != null)
+            {
+               ch.selectedCharacter = false;
+            }
+        }
+
+        character.selectedCharacter = true;
         _info.SetCharacterTargeted(character);
         SetCharacterVisualsInInfo(character.characterData);
     }
+
+    public void UpdateInfoHealth(int newHealth)
+    {
+        _visuals.UpdateHealthText(newHealth);
+    }
+    public void UpdateInfoShield(int newShield)
+    {
+        _visuals.UpdateShieldText(newShield);
+    }
+
     public CharacterController GetSelectedCharacter => _info._charSelected;
 
     #region Info Desc.
