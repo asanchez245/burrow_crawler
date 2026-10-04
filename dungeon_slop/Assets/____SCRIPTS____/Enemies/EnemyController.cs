@@ -18,7 +18,7 @@ public class EnemyController : ObjectWithEffects, IPointerClickHandler
         if (_info != null) _info.InitializeEnemyInfo(data);
         _visuals = GetComponent<EnemyVisuals>();
         if (_visuals != null) _visuals.InitializeEnemyVisuals(data);
-        InitializeAbilityEffects(data);
+        //InitializeAbilityEffects(data);
 
         BoardController.Instance.AddEnemyToCombat(this);
     }
