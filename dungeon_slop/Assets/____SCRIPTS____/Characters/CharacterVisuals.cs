@@ -1,6 +1,7 @@
 using System;
 using DG.Tweening;
 using TMPro;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,7 @@ public class CharacterVisuals : MonoBehaviour
     internal void InitializeCharacterVisuals(CharacterData chData, CharacterController controller)
     {
         SetCharacterPortrait(chData);
+        SetAnimatorController(chData.characterAnimationController);
         UpdateHealthText(controller.GetCurrentHealth());
         UpdateShieldText(controller.GetCurrentShield());
     }
@@ -38,6 +40,10 @@ public class CharacterVisuals : MonoBehaviour
     public void SetCharacterPortrait(CharacterData chData)
     {
         characterSpriteCombat.sprite = chData.characterSpriteCombatIdle;
+    }
+    public void SetAnimatorController(AnimatorController animatorController)
+    {
+        characterAnimator.runtimeAnimatorController = animatorController;
     }
     public void CharGetDamageVisuals()
     {
