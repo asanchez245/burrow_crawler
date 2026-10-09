@@ -27,3 +27,11 @@ public enum ManaType
     BlueMana,
     RedMana,
 }
+public enum PlayerStates
+{
+    state_none = -1,
+    exploring,
+    dialogue,
+    cinematic,
+    combat,
+}
