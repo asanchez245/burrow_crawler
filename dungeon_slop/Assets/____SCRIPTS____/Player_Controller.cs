@@ -12,4 +12,11 @@ public class Player_Controller : MonoBehaviour
         playerVisuals = GetComponent<Player_Visuals>();
         if (playerVisuals) playerVisuals.Initialice();
     }
+    void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            GameManager.Instance.EnterCombat(collision.gameObject.GetComponent<Explore_EnemyInfo>().enemyCombatData);
+        }
+    }
 }

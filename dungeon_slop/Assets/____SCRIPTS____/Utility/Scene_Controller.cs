@@ -11,6 +11,7 @@ public class Scene_Controller : MonoSingleton<Scene_Controller>
 
     public override void Awake()
     {
+        base.Awake();
         DontDestroyOnLoad(gameObject);
         transform.SetAsLastSibling();
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -19,7 +20,8 @@ public class Scene_Controller : MonoSingleton<Scene_Controller>
     }
     public Tween FadeScene(bool fadeIn, float? time = null)
     {
-        if (fadePanel != null)
+        if (fadePanel == null) return null;
+        else
         {
             fadePanel.SetActive(true);
         }

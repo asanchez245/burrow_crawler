@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 3726273626775068099}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 7289503153833717671}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,15 +154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81b478fc244e084d91572b0caceb26f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player_Info
-  moveAction:
-    m_Name: Move
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 0fbcef64-3148-449a-b438-5f8a4bdb4ff9
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
 --- !u!114 &511895872352328975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,7 +230,7 @@ GameObject:
   - component: {fileID: 2535702059887468421}
   m_Layer: 0
   m_Name: Player_Collider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -253,7 +244,7 @@ Transform:
   m_GameObject: {fileID: 6331525259568435460}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -279,6 +270,6 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 1.5
+  m_Height: 2.4435413
   m_Direction: 1
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Center: {x: 0, y: 0.028229356, z: 0}
