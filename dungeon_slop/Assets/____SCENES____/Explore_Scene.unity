@@ -458,7 +458,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 182967588882335280, guid: ed42669297e649d46a6fb619d5831d71, type: 3}
       propertyPath: m_Name
-      value: Enemie
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 561640986128268455, guid: ed42669297e649d46a6fb619d5831d71, type: 3}
       propertyPath: m_LocalPosition.x
@@ -503,8 +503,59 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 182967588882335280, guid: ed42669297e649d46a6fb619d5831d71, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1066849376}
+    - targetCorrespondingSourceObject: {fileID: 182967588882335280, guid: ed42669297e649d46a6fb619d5831d71, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1066849375}
+    - targetCorrespondingSourceObject: {fileID: 182967588882335280, guid: ed42669297e649d46a6fb619d5831d71, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1066849374}
   m_SourcePrefab: {fileID: 100100000, guid: ed42669297e649d46a6fb619d5831d71, type: 3}
+--- !u!1 &1066849373 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 182967588882335280, guid: ed42669297e649d46a6fb619d5831d71, type: 3}
+  m_PrefabInstance: {fileID: 1066849372}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1066849374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066849373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b07217557f1c6242ac5e5be2b7609d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Explore_EnemyVisuals
+--- !u!114 &1066849375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066849373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0680a5f05d44d24d92a0a6214de50c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Explore_EnemyInfo
+  enemyCombatData: {fileID: 0}
+--- !u!114 &1066849376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066849373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4b24c39b5f1de44803e7c41d775c89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Explore_EnemyController
 --- !u!4 &1516273648 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2357347736373164226, guid: 32b2d035dd08de44a9b4e7cbc29fcfdc, type: 3}
