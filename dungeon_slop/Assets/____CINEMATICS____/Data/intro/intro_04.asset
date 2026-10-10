@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aab1dc00761cd4d4d8c3a9278c4fd1b3, type: 3}
+  m_Name: intro_04
+  m_EditorClassIdentifier: Assembly-CSharp::CinematicDialogueData
+  changeBackground: 0
+  background: {fileID: 0}
+  lines:
+  - text: "Te extra\xF1o muuuucho..."
+    changeSprite: 0
+    sprite: {fileID: 0}
+  - text: Mandame uno wachap...
+    changeSprite: 0
+    sprite: {fileID: 0}
