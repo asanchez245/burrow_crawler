@@ -1132,6 +1132,7 @@ MonoBehaviour:
   advanceAction: {fileID: -4816668294589770251, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   fadeDuration: 0.25
   dialogueDelay: 0.25
+  dialogueTable: {fileID: 0}
 --- !u!4 &1730251592
 Transform:
   m_ObjectHideFlags: 0

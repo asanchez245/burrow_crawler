@@ -1,8 +1,11 @@
-using System;
 using DG.Tweening;
 using Febucci.TextAnimatorForUnity;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
+using UnityEngine.Localization.Tables;
 using UnityEngine.UI;
 
 public class CinematicDialogueController : MonoBehaviour
@@ -29,6 +32,10 @@ public class CinematicDialogueController : MonoBehaviour
     [Header("Animation")]
     [SerializeField] private float fadeDuration = 0.25f;
     [SerializeField] private float dialogueDelay = 0.25f;
+
+    [Header("Localization")]
+    public StringTable cinematicTable;
+
 
     private CinematicDialogueTree currentTree;
     private CinematicDialogueData currentDialogue;
@@ -62,6 +69,9 @@ public class CinematicDialogueController : MonoBehaviour
             advanceAction.action.performed += OnAdvanceInput;
             advanceAction.action.Enable();
         }
+
+        LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
+        LoadTable();
     }
 
     private void OnDisable()
@@ -72,6 +82,20 @@ public class CinematicDialogueController : MonoBehaviour
             typewriter.onTextShowed.RemoveListener(OnTextShowed);
         StopIndicator();
         KillTweens();
+
+        LocalizationSettings.SelectedLocaleChanged -= OnLocaleChanged;
+
+    }
+
+    void LoadTable()
+    {
+        cinematicTable = LocalizationSettings.StringDatabase.GetTable("Cinematics");
+    }
+
+    void OnLocaleChanged(Locale locale)
+    {
+        LoadTable();
+        //cambiar el texto acutal al del nuevo idioma si eso
     }
 
     private void OnDestroy()
@@ -218,7 +242,9 @@ public class CinematicDialogueController : MonoBehaviour
         if (line.changeSprite && line.sprite != null)
             spriteImage.sprite = line.sprite;
 
-        typewriter.ShowText(line.text);
+        string localizedText = cinematicTable.GetEntry(line.text).GetLocalizedString();
+
+        typewriter.ShowText(localizedText);
     }
 
     private void OnTextShowed()

@@ -15,9 +15,9 @@ MonoBehaviour:
   changeBackground: 0
   background: {fileID: 0}
   lines:
-  - text: "\xBFPor qu\xE9 no me has mandado uno wachap?"
+  - text: cinematics_intro_03_a
     changeSprite: 0
     sprite: {fileID: 0}
-  - text: "Que ya no me quieres o qu\xE9."
+  - text: cinematics_intro_03_b
     changeSprite: 0
     sprite: {fileID: 0}

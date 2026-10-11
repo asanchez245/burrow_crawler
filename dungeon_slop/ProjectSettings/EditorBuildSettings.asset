@@ -18,5 +18,7 @@ EditorBuildSettings:
     path: Assets/____SCENES____/03_Intro_Scene.unity
     guid: 4d38d6267074ad945a7cf35071a29d87
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 925972fe15d1be944b7f6b95d857f042, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    com.unity.localization.settings: {fileID: 11400000, guid: 8d66604de59a3c14f909cb916832724f, type: 2}
   m_UseUCBPForAssetBundles: 0

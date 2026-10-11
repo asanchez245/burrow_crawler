@@ -19,13 +19,12 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 1ad44ae27d970754d9648bf1d42e5058, type: 2}
     - {fileID: 11400000, guid: 2ed596ac34a22d44ba26c0c68aff9cf4, type: 2}
     triggerEvent: 0
-  abilityName: Barrido
+  abilityName: conejo_abilities_03_name
   artwork: {fileID: 21300000, guid: 585c878e13bb9cb48b305ad50700214e, type: 3}
-  description: Deal 5 damage to all enemies.
+  description: conejo_abilities_03_desc
   manaCost:
   - amount: 2
     manaType: 3
   - amount: 2
     manaType: 0
   enemyAbility: 0
-  playType: 0

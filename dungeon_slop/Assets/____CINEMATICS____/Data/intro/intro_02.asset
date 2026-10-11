@@ -15,9 +15,9 @@ MonoBehaviour:
   changeBackground: 0
   background: {fileID: 0}
   lines:
-  - text: ...
+  - text: cinematics_intro_02_a
     changeSprite: 0
     sprite: {fileID: 0}
-  - text: "\xBFPor qu\xE9?"
+  - text: cinematics_intro_02_b
     changeSprite: 0
     sprite: {fileID: 0}

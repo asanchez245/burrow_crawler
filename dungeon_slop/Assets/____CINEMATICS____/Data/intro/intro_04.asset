@@ -15,9 +15,9 @@ MonoBehaviour:
   changeBackground: 0
   background: {fileID: 0}
   lines:
-  - text: "Te extra\xF1o muuuucho..."
+  - text: cinematics_intro_04_a
     changeSprite: 0
     sprite: {fileID: 0}
-  - text: Mandame uno wachap...
+  - text: cinematics_intro_04_b
     changeSprite: 0
     sprite: {fileID: 0}
