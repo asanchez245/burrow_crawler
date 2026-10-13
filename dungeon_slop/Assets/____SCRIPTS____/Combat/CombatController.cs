@@ -5,6 +5,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
+using UnityEngine.Localization.Tables;
 using UnityEngine.UI;
 using static UnityEngine.EventSystems.EventTrigger;
 
@@ -20,8 +23,34 @@ public class CombatController : MonoSingleton<CombatController>
 
     [SerializeField] Button endTurnButton;
 
+    [Header("Localization")]
+    StringTable abilitiesTable;
 
-    public  override void Awake()
+    #region Localization
+    private void OnEnable()
+    {
+        LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
+        LoadTables();
+    }
+
+    private void OnDisable()
+    {
+        LocalizationSettings.SelectedLocaleChanged -= OnLocaleChanged;
+    }
+
+    void LoadTables()
+    {
+        abilitiesTable = LocalizationSettings.StringDatabase.GetTable("Abilities");
+    }
+
+    void OnLocaleChanged(Locale locale)
+    {
+        LoadTables();
+        //cambiar el texto acutal al del nuevo idioma si eso
+    }
+    #endregion
+
+    public override void Awake()
     {
         base.Awake();
         InitializeCombat();
@@ -158,8 +187,11 @@ public class CombatController : MonoSingleton<CombatController>
     public void SetAbilityInfo (AbilityData data)
     {
         if (data == null) return;
-        SetInfoName(data.abilityName);
-        SetInfoDesc(data.description);
+        string localizedAbilityName = abilitiesTable.GetEntry(data.abilityName)?.GetLocalizedString() ?? data.abilityName;
+        string localizedAbilityDesc = abilitiesTable.GetEntry(data.description)?.GetLocalizedString() ?? data.description;
+
+        SetInfoName(localizedAbilityName);
+        SetInfoDesc(localizedAbilityDesc);
         foreach (ManaCost cost in data.manaCost)
         {
             if (cost == null) continue;
