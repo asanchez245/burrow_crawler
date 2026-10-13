@@ -712,9 +712,9 @@ GameObject:
   - component: {fileID: 3010096474493698046}
   - component: {fileID: 6251893546154605696}
   - component: {fileID: 8202105033391234841}
-  - component: {fileID: 6738663115677236806}
   - component: {fileID: 4873306424737573476}
   - component: {fileID: 7039923070523278085}
+  - component: {fileID: 8896142386197200552}
   m_Layer: 5
   m_Name: Dialogue_Text
   m_TagString: Untagged
@@ -842,7 +842,47 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &6738663115677236806
+--- !u!114 &4873306424737573476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9000134366066268599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ace8ced0e81c847968cdca0aeda757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Febucci.TextAnimatorForUnity.TMP.Runtime::Febucci.TextAnimatorForUnity.TextMeshPro.TextAnimator_TMP
+  localSettings:
+    isResettingTimeOnNewText: 1
+    defaultEffectsMode: 1
+    timeScale: 0
+    defaultBehaviorTags: []
+    defaultAppearanceTags: []
+    defaultDisappearanceTags: []
+    isAnimatingBehaviors: 1
+    isAnimatingAppearances: 1
+    isAnimatingDisappearances: 1
+    useDynamicScaling: 1
+    referenceFontSize: 12
+  sharedSettings: {fileID: 0}
+  animationLoop: 0
+  databaseEffects: {fileID: 0}
+  styleSheet: {fileID: 0}
+--- !u!225 &7039923070523278085
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9000134366066268599}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &8896142386197200552
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -888,46 +928,6 @@ MonoBehaviour:
   onMessage:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &4873306424737573476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9000134366066268599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8ace8ced0e81c847968cdca0aeda757, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Febucci.TextAnimatorForUnity.TMP.Runtime::Febucci.TextAnimatorForUnity.TextMeshPro.TextAnimator_TMP
-  localSettings:
-    isResettingTimeOnNewText: 1
-    defaultEffectsMode: 1
-    timeScale: 0
-    defaultBehaviorTags: []
-    defaultAppearanceTags: []
-    defaultDisappearanceTags: []
-    isAnimatingBehaviors: 1
-    isAnimatingAppearances: 1
-    isAnimatingDisappearances: 1
-    useDynamicScaling: 1
-    referenceFontSize: 12
-  sharedSettings: {fileID: 0}
-  animationLoop: 0
-  databaseEffects: {fileID: 0}
-  styleSheet: {fileID: 0}
---- !u!225 &7039923070523278085
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9000134366066268599}
-  m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1001 &356122765915593016
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -938,15 +938,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1778376121444119448, guid: 3c215b22febeb8244bc3a98bba3c839d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.4
+      value: -3.08
       objectReference: {fileID: 0}
     - target: {fileID: 1778376121444119448, guid: 3c215b22febeb8244bc3a98bba3c839d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1778376121444119448, guid: 3c215b22febeb8244bc3a98bba3c839d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -13.2
+      value: 39.93
       objectReference: {fileID: 0}
     - target: {fileID: 1778376121444119448, guid: 3c215b22febeb8244bc3a98bba3c839d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1099,7 +1099,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC_Dialogue
   panelGroup: {fileID: 2182391350940748397}
   textGroup: {fileID: 7039923070523278085}
-  typewriter: {fileID: 6738663115677236806}
+  typewriter: {fileID: 8896142386197200552}
   continueIndicator: {fileID: 5124708853557149335}
   blinkDuration: 0.5
   blinkMinAlpha: 0.15
