@@ -991,6 +991,45 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Cinematic",
+            "id": "59c5f9d5-2701-4550-881b-f44c3ee8fb1d",
+            "actions": [
+                {
+                    "name": "AdvanceAction",
+                    "type": "Button",
+                    "id": "bb3a1063-bc9a-4e8b-9dae-9d14c867c51c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9c4885b1-5c22-442c-84be-441e54b26b7a",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "AdvanceAction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1f9da441-ee7f-466d-ba45-ea253907f38d",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "AdvanceAction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

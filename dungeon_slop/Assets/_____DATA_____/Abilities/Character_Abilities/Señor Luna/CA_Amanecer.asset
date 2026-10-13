@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: CA_Amanecer
   m_EditorClassIdentifier: Assembly-CSharp::AbilityData
   effects: []
-  abilityName: Amanecer
+  abilityName: luna_abilities_00_name
   artwork: {fileID: 21300000, guid: a8c1b7fc48e3f2f4dbaf6b219e0c7163, type: 3}
-  description: Cambia a estado Sol.
+  description: luna_abilities_00_desc
   manaCost:
   - amount: 1
     manaType: 0
