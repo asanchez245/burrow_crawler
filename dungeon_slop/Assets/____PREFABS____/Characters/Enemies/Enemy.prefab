@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1778376121444119448, guid: 3c215b22febeb8244bc3a98bba3c839d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -46
+      value: 17.54
       objectReference: {fileID: 0}
     - target: {fileID: 1778376121444119448, guid: 3c215b22febeb8244bc3a98bba3c839d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1778376121444119448, guid: 3c215b22febeb8244bc3a98bba3c839d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 22.6
+      value: 19.89
       objectReference: {fileID: 0}
     - target: {fileID: 1778376121444119448, guid: 3c215b22febeb8244bc3a98bba3c839d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -136,6 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b07217557f1c6242ac5e5be2b7609d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Explore_EnemyVisuals
+  enemySpriteRenderer: {fileID: 2007304305682321663}
 --- !u!135 &536308190211026171
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -200,3 +201,8 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 4.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!212 &2007304305682321663 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 341770582934790080, guid: 3c215b22febeb8244bc3a98bba3c839d, type: 3}
+  m_PrefabInstance: {fileID: 2262309123239382847}
+  m_PrefabAsset: {fileID: 0}

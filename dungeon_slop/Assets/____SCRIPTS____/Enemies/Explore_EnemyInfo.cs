@@ -11,6 +11,8 @@ public class Explore_EnemyInfo : MonoBehaviour
     public float loseAgroTimer;
     public float loseAgroDelay = 2f;
 
+    public Vector3 initialPosition { get; private set; }
+
     public float timeBetweenPatrols = 5f;
     public float patrolRadius = 10f;
     public float patrolTimer;
@@ -18,6 +20,7 @@ public class Explore_EnemyInfo : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         patrolTimer = timeBetweenPatrols;
+        initialPosition = transform.position;
     }
     public void SetActualTarget(GameObject target)
     {

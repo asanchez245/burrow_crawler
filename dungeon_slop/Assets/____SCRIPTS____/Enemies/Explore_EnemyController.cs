@@ -86,16 +86,20 @@ public class Explore_EnemyController : MonoBehaviour
     void StartPatroll()
     {
         enemyInfo.patrolTimer = 0f;
-        Vector3 randomPoint = GetRandomNavMeshPosition(transform.position, enemyInfo.patrolRadius);
+        Vector3 randomPoint = GetRandomNavMeshPosition(enemyInfo.initialPosition, enemyInfo.patrolRadius);
         enemyInfo.agent.destination = randomPoint;
     }
 
     Vector3 GetRandomNavMeshPosition(Vector3 center, float range)
     {
         Vector3 randomDirection = Random.insideUnitSphere * range;
-        randomDirection += center;
+        Vector3 targetPosition = center + randomDirection;
+
         NavMeshHit hit;
-        NavMesh.SamplePosition(randomDirection, out hit, range, NavMesh.AllAreas);
-        return hit.position;
+        if (NavMesh.SamplePosition(targetPosition, out hit, range, NavMesh.AllAreas))
+        {
+            return hit.position;
+        }
+        return center;
     }
 }
