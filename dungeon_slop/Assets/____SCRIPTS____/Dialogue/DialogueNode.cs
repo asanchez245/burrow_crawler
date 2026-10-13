@@ -1,10 +1,20 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewDialogueNode", menuName = "Dialogue/DialogueNode")]
 public class DialogueNode : ScriptableObject
 {
-    [TextArea(3, 10)]
-    public string dialogueText;
+    [System.Serializable]
+    public class DialogueLine
+    {
+        [TextArea(2, 5)]
+        public string text;
 
-    public DialogueNode[] nextNodes;
+        [Header("Sprite")]
+        public bool changeSprite;
+        public Sprite sprite;
+    }
+
+    [Header("Lines")]
+    public List<DialogueLine> lines = new List<DialogueLine>();
 }
