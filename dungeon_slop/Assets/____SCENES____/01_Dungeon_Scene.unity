@@ -2092,7 +2092,7 @@ Transform:
   m_GameObject: {fileID: 400723904}
   serializedVersion: 2
   m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063079}
-  m_LocalPosition: {x: -0.00000059604645, y: 7.660444, z: -5.427874}
+  m_LocalPosition: {x: -0.00000059604645, y: 7.6604447, z: -12.927875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9590,6 +9590,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   nextCombat: {fileID: 0}
+  playerParty:
+  - {fileID: 11400000, guid: 958898638a4ce014095a29663cab1232, type: 2}
 --- !u!4 &1065640283
 Transform:
   m_ObjectHideFlags: 0
@@ -13118,7 +13120,7 @@ Transform:
   m_GameObject: {fileID: 1690768844}
   serializedVersion: 2
   m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063079}
-  m_LocalPosition: {x: -0.00000059604645, y: 7.660444, z: -5.427874}
+  m_LocalPosition: {x: -0.00000059604645, y: 7.6604447, z: -12.927875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14837,7 +14839,7 @@ PrefabInstance:
     - target: {fileID: 2134889529402989381, guid: 32b2d035dd08de44a9b4e7cbc29fcfdc, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1709618375, guid: 1ce787b1587e4884f8e356b692badf73, type: 3}
+      objectReference: {fileID: 1476876392, guid: 1ce787b1587e4884f8e356b692badf73, type: 3}
     - target: {fileID: 2357347736373164226, guid: 32b2d035dd08de44a9b4e7cbc29fcfdc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -14848,7 +14850,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2357347736373164226, guid: 32b2d035dd08de44a9b4e7cbc29fcfdc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 2357347736373164226, guid: 32b2d035dd08de44a9b4e7cbc29fcfdc, type: 3}
       propertyPath: m_LocalRotation.w

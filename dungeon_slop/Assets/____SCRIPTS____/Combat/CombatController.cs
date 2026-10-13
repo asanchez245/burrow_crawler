@@ -58,6 +58,7 @@ public class CombatController : MonoSingleton<CombatController>
 
     public void InitializeCombat()
     {
+        _combatData = GameManager.Instance.nextCombat;
         _info = GetComponent<CombatInfo>();
         if (_info != null) _info.InitializeCombatInfo(_combatData);
         _visuals = GetComponent<CombatVisuals>();
@@ -66,7 +67,14 @@ public class CombatController : MonoSingleton<CombatController>
     private void Start()
     {
         BoardController.Instance.InitializeBoard();
+        InitializeCharacters();
         InitializeEnemies();
+        StartCoroutine(StartCombat());
+    }
+
+    IEnumerator StartCombat()
+    {
+        yield return new WaitForSeconds(1);
         NextTurn();
     }
 
@@ -75,10 +83,24 @@ public class CombatController : MonoSingleton<CombatController>
         int i = 0;
         foreach(EnemyData data in _combatData.combatEnemies)
         {
-            Debug.Log("Initializing enemy: " + data.enemyName);
             if (data == null) return;
+            Debug.Log("Initializing enemy: " + data.enemyName);
             enemyControllers[i].gameObject.SetActive(true);
             enemyControllers[i].InitializeCharacter(data);
+            i++;
+        }
+    }
+    public void InitializeCharacters()
+    {
+        int i = 0;
+        foreach(CharacterData charData in GameManager.Instance.playerParty)
+        {
+            if (charData == null) return;
+            Debug.Log("Initializing character: " + charData.characterName);
+            CharacterController controller = charactersControllers[i];
+            controller.gameObject.SetActive(true);
+            controller.InitializeCharacter(charData);
+            BoardController.Instance.AddCharacterToCombat(controller);
             i++;
         }
     }

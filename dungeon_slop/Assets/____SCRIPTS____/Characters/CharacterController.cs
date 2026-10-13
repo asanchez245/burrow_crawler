@@ -11,7 +11,7 @@ public abstract class CharacterController : MonoBehaviour, IPointerClickHandler,
 
     public CharacterData characterData;
 
-    public void InitializeCharacter()
+    public void InitializeCharacter(CharacterData characterData)
     {
         _info = GetComponent<CharacterInfo>();
         if (_info != null) _info.InitializeCharacterInfo(characterData);

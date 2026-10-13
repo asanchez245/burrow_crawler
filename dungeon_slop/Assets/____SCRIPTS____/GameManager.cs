@@ -1,8 +1,10 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoSingleton<GameManager>
 {
     public CombatData nextCombat;
+    public List<CharacterData> playerParty;
     public override void Awake()
     {
         base.Awake();
