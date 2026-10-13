@@ -38,10 +38,18 @@ public class ConditionPayMana : Condition
             }
             else return false;
         }
-        ctx.poolController.OnOrbUsed(ManaType.NeutralMana,neutralManaCost);
-        ctx.poolController.OnOrbUsed(ManaType.RedMana,redManaCost);
-        ctx.poolController.OnOrbUsed(ManaType.YellowMana,yellowManaCost);
-        ctx.poolController.OnOrbUsed(ManaType.BlueMana,blueManaCost);
+
+        if (neutralManaCost > 0)
+            ctx.poolController.OnOrbUsed(ManaType.NeutralMana, neutralManaCost);
+
+        if (redManaCost > 0)
+            ctx.poolController.OnOrbUsed(ManaType.RedMana, redManaCost);
+
+        if (yellowManaCost > 0)
+            ctx.poolController.OnOrbUsed(ManaType.YellowMana, yellowManaCost);
+
+        if (blueManaCost > 0)
+            ctx.poolController.OnOrbUsed(ManaType.BlueMana, blueManaCost);
         return true;
     }
 }
