@@ -14873,6 +14873,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 511895872352328975, guid: 32b2d035dd08de44a9b4e7cbc29fcfdc, type: 3}
+      propertyPath: backSprite
+      value: 
+      objectReference: {fileID: -1709618375, guid: 1ce787b1587e4884f8e356b692badf73, type: 3}
+    - target: {fileID: 511895872352328975, guid: 32b2d035dd08de44a9b4e7cbc29fcfdc, type: 3}
+      propertyPath: frontSprite
+      value: 
+      objectReference: {fileID: 1476876392, guid: 1ce787b1587e4884f8e356b692badf73, type: 3}
+    - target: {fileID: 511895872352328975, guid: 32b2d035dd08de44a9b4e7cbc29fcfdc, type: 3}
       propertyPath: playerSprite
       value: 
       objectReference: {fileID: 1788295524}
