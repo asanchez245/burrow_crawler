@@ -88,6 +88,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2157046256091973903, guid: 3c215b22febeb8244bc3a98bba3c839d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3187721815013539729}
+    - targetCorrespondingSourceObject: {fileID: 2157046256091973903, guid: 3c215b22febeb8244bc3a98bba3c839d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6147612556945998520}
   m_SourcePrefab: {fileID: 100100000, guid: 3c215b22febeb8244bc3a98bba3c839d, type: 3}
 --- !u!1 &182967588882335280 stripped
 GameObject:
@@ -137,6 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Explore_EnemyVisuals
   enemySpriteRenderer: {fileID: 2007304305682321663}
+  enemyAnimator: {fileID: 6147612556945998520}
 --- !u!135 &536308190211026171
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -177,7 +181,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!135 &3187721815013539729
@@ -201,6 +205,28 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 4.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &6147612556945998520
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182967588882335280}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fb09f7b8969375041a31cb95cd24bb96, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &2007304305682321663 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 341770582934790080, guid: 3c215b22febeb8244bc3a98bba3c839d, type: 3}

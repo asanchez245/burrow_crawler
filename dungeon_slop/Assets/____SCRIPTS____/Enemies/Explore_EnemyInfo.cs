@@ -19,6 +19,7 @@ public class Explore_EnemyInfo : MonoBehaviour
     public void Initialize()
     {
         agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
         patrolTimer = timeBetweenPatrols;
         initialPosition = transform.position;
     }
