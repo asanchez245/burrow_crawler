@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,5 +17,24 @@ public class PlayerInventary_Controller : MonoBehaviour
     {
         inventory.Add(item);
         visuals.ShowItem(item);
+    }
+
+    public void QuitItem(ItemController item)
+    {
+        inventory.Remove(item);
+        visuals.HideItem(item);
+    }
+
+    internal bool CheckItemRequired(ItemController requiredItem)
+    {
+        foreach (ItemController item in inventory)
+        {
+            if(item == requiredItem)
+            {
+                QuitItem(item);
+                return true;
+            }
+        }
+        return false;
     }
 }

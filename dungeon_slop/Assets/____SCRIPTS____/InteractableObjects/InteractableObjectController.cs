@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static InteractableObjectController;
 
 public class InteractableObjectController : MonoBehaviour
 {
     ItemController item;
+    RequiredItem requiredItem;
     NPC_Visuals npcVisuals;
 
     [SerializeField] PlayerInventary_Controller playerInventary;
@@ -14,6 +16,14 @@ public class InteractableObjectController : MonoBehaviour
     bool interactuable;
     bool interacting;
 
+    public InteractionType interactionType;
+
+    public enum InteractionType
+    {
+        item,
+        door
+    }
+
     private void Start()
     {
         Initialize();
@@ -22,6 +32,7 @@ public class InteractableObjectController : MonoBehaviour
     void Initialize()
     {
         item = GetComponent<ItemController>();
+        requiredItem = GetComponent<RequiredItem>();
         npcVisuals = GetComponent<NPC_Visuals>();
         if (npcVisuals) npcVisuals.Initialize();
 
@@ -49,7 +60,7 @@ public class InteractableObjectController : MonoBehaviour
 
         npcVisuals.StopIndicator();
 
-        Interaction();
+        Interaction(interactionType);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -74,9 +85,28 @@ public class InteractableObjectController : MonoBehaviour
             npcVisuals.ShowInteractionIcon(false);
     }
 
-    public void Interaction()
+    public void Interaction(InteractionType interactionType)
     {
-        playerInventary.PickUpItem(item);
-        this.gameObject.SetActive(false);
+        switch (interactionType)
+        {
+            case InteractionType.item:
+                playerInventary.PickUpItem(item);
+                this.gameObject.SetActive(false);
+                break;
+            case InteractionType.door:
+                if (playerInventary.CheckItemRequired(requiredItem.requiredItem))
+                {
+                    Debug.Log("abriendo puelta");
+                    this.gameObject.SetActive(false);
+                }
+                else
+                {
+                    interacting = false;
+                    interactuable = true;
+
+                    npcVisuals.ShowInteractionIcon(true);
+                }
+                break;
+        }
     }
 }
