@@ -93,13 +93,12 @@ public class CombatController : MonoSingleton<CombatController>
     public void InitializeCharacters()
     {
         int i = 0;
-        foreach(CharacterData charData in GameManager.Instance.playerParty)
+        foreach(PartyMember charData in GameManager.Instance.playerParty)
         {
             if (charData == null) return;
-            Debug.Log("Initializing character: " + charData.characterName);
             CharacterController controller = charactersControllers[i];
             controller.gameObject.SetActive(true);
-            controller.InitializeCharacter(charData);
+            controller.InitializeCharacter(charData.partyMember);
             BoardController.Instance.AddCharacterToCombat(controller);
             i++;
         }

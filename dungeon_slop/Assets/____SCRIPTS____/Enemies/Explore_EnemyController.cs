@@ -23,6 +23,16 @@ public class Explore_EnemyController : MonoBehaviour
     void Update()
     {
         HandleEnemyBehavior();
+        if (enemyInfo.agent.velocity.sqrMagnitude > 0.01f)
+        {
+            enemyVisuals.EnemyRunAnimation();
+            enemyVisuals.enemySpriteRenderer.flipX = enemyInfo.agent.velocity.x > 0.01f;
+
+        }
+        else
+        {
+            enemyVisuals.EnemyIdleAnimation();
+        }
     }
 
     void HandleEnemyBehavior()
