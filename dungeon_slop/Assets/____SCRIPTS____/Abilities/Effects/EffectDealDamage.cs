@@ -26,7 +26,7 @@ public class EffectDealDamage : Effect
             int aliveCount = 0;
             for (int i = 0; i < characters.Length; i++)
             {
-                if (characters[i] != null && characters[i]._info.GetCurrentHealth() > 0)
+                if (characters[i] != null && characters[i].isActiveAndEnabled && characters[i]._info.GetCurrentHealth() > 0)
                     aliveCount++;
             }
 

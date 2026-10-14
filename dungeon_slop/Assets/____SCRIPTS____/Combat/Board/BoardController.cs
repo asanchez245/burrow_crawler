@@ -36,6 +36,7 @@ public class BoardController : MonoSingleton<BoardController>
         }
         foreach (var character in boardInfo.charactersInCombat)
         {
+            if (!character.gameObject.activeSelf) yield return null;
             foreach(var mana in character._info._manaGenerationPerTurn)
             {
                 ManaPoolController.Instance.GenerateMana(mana.manaType,character._info.chartacterPosition.position,mana.manaQuantity);

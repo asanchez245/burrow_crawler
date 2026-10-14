@@ -39,7 +39,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 25187934209
-    m_Localized: Deal 3 damage.\nGain 2 shield.
+    m_Localized: Deal 4 damage.\nGain 2 shield.
     m_Metadata:
       m_Items: []
   - m_Id: 25187934210

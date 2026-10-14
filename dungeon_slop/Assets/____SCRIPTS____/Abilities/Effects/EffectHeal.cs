@@ -32,6 +32,7 @@ public class EffectHeal : Effect
             }
             else
             {
+                if (ctx.sourceEnemy == null) yield return null;
                 ctx.sourceEnemy._info.SetCurrentHealth
                     (Math.Min(ctx.sourceEnemy._info.GetCurrentHealth() + totalHeal, ctx.sourceEnemy._info.GetMaxHealth()));
             }

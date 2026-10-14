@@ -33,6 +33,12 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e03d5a6c5a4d6af488afcfd6bd8169b8
+    m_Address: Assets/____LOCALIZATION____/LocalizationTables/LT_NPC_dialogue/NPC_dialogue
+      Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: c166842862bae6c4b82f089d76f05f58, type: 2}
   m_SchemaSet:

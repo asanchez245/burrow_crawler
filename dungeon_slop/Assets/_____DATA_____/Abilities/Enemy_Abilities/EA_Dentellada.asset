@@ -14,12 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AbilityData
   effects:
   - effects:
-    - {fileID: 11400000, guid: b27422f3848887a49a8eda795b19806e, type: 2}
+    - {fileID: 11400000, guid: fd99aade5fa465b429054fc23d283e0c, type: 2}
     conditions: []
     triggerEvent: 0
   abilityName: Dentellada
   artwork: {fileID: 0}
-  description: 5 dmg
+  description: 3 dmg
   manaCost: []
   enemyAbility: 1
-  playType: 0
