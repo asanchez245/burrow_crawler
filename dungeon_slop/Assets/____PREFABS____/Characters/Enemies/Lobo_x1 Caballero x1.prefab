@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8901459871785688533, guid: ed42669297e649d46a6fb619d5831d71, type: 3}
+      propertyPath: enemyCombatData
+      value: 
+      objectReference: {fileID: 11400000, guid: 62ff29c11130d6541979812158bd1116, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

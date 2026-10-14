@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1012371fe6c222a4ba974a8c4170ee0d, type: 3}
+  m_Name: Caballero x1 Lobos x1
+  m_EditorClassIdentifier: Assembly-CSharp::CombatData
+  combatEnemies:
+  - {fileID: 11400000, guid: 545e765bf203b4b458f1591027b3d6e7, type: 2}
+  - {fileID: 11400000, guid: 6401a6c3964676d4c913073c27f59d15, type: 2}
