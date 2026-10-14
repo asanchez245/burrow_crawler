@@ -152,8 +152,11 @@ public class CombatController : MonoSingleton<CombatController>
         {
             _visuals.ShowDieVisuals(true);
         }
+        StartCoroutine(Scene_Manager.Instance.sceneController.ChangeScene(1, 1.5f));
         Sequencer.Instance.TriggerSequence();
     }
+
+
 
 
     IEnumerator EnemiesResolveActions()

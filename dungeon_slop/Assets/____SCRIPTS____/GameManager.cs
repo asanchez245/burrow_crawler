@@ -9,6 +9,8 @@ public class GameManager : MonoSingleton<GameManager>
 
     public List<EnemyInDungeon> enemiesInDungeon;
     public bool dungeonGenerated = false;
+
+    public bool spawnPointChanged;
     public override void Awake()
     {
         base.Awake();
@@ -19,6 +21,7 @@ public class GameManager : MonoSingleton<GameManager>
         }
         DontDestroyOnLoad(gameObject);
         if (dungeonGenerated) LoadEntites();
+
     }
     public void EnterCombat(CombatData combatData)
     {
