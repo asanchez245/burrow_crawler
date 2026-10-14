@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player_Controller : MonoBehaviour
+public class Player_Controller : MonoSingleton<Player_Controller>
 {
     Player_Info playerInfo;
     Player_Visuals playerVisuals;
     Player_Movement playerMovement;
-    private void Awake()
+    public PlayerInventary_Controller playerInventary;
+    public override void Awake()
     {
         Initialice();
     }
@@ -17,6 +18,7 @@ public class Player_Controller : MonoBehaviour
         playerVisuals = GetComponent<Player_Visuals>();
         if (playerVisuals) playerVisuals.Initialice();
         playerMovement = GetComponent<Player_Movement>();
+        playerInventary = GetComponent<PlayerInventary_Controller>();
     }
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
