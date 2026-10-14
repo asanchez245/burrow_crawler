@@ -11685,6 +11685,7 @@ MonoBehaviour:
   - enemyPrefab: {fileID: 1796812579}
     enemyPosition: {x: 0, y: 0, z: 0}
   dungeonGenerated: 0
+  spawnPointChanged: 0
 --- !u!4 &1065640283
 Transform:
   m_ObjectHideFlags: 0
