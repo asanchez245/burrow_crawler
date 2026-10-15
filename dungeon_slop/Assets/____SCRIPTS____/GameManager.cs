@@ -1,12 +1,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Diagnostics;
 
 public class GameManager : MonoSingleton<GameManager>
 {
+    public Player_Controller playerController;
+
     public CombatData nextCombat;
     public List<PartyMember> playerParty;
 
+    public Vector3 playerPos;
     public List<EnemyInDungeon> enemiesInDungeon;
     public bool dungeonGenerated = false;
 
@@ -23,6 +27,8 @@ public class GameManager : MonoSingleton<GameManager>
         if (dungeonGenerated) LoadEntites();
 
     }
+
+
     public void EnterCombat(CombatData combatData)
     {
         nextCombat = combatData;
@@ -36,7 +42,8 @@ public class GameManager : MonoSingleton<GameManager>
     //}
     void SaveEntitiesPositions()
     {
-        //Guardamos los enemigos en la lista con sus posiciones
+        playerPos = playerController.transform.position;
+
         foreach(EnemyInDungeon enemy in enemiesInDungeon)
         {
             enemy.enemyPosition = enemy.enemyPrefab.transform.position;

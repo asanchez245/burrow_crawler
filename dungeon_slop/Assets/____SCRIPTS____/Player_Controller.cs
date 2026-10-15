@@ -1,4 +1,5 @@
 using Sirenix.OdinInspector;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -30,7 +31,7 @@ public class Player_Controller : MonoSingleton<Player_Controller>
 
     private void Start()
     {
-
+        GameManager.Instance.playerController = this;
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
@@ -59,14 +60,26 @@ public class Player_Controller : MonoSingleton<Player_Controller>
         if (GameManager.Instance.spawnPointChanged)
             ChangeSpawnPosition();
 
-        SpawnCharacter();
+        StartCoroutine(SpawnCharacter());
     }
 
-    public void SpawnCharacter()
+    public IEnumerator SpawnCharacter(bool respawning = false)
     {    
         Debug.Log("spawneando en " + currentSpawnPoint);
-        this.transform.position = new Vector3 (currentSpawnPoint.position.x, currentSpawnPoint.position.y, currentSpawnPoint.position.z);
+        if (respawning)
+        {
+            this.transform.position = new Vector3 (currentSpawnPoint.position.x, currentSpawnPoint.position.y, currentSpawnPoint.position.z);
+        }
+        else
+        {
+            this.transform.position = GameManager.Instance.playerPos;
+        }
+
+            yield return new WaitForSeconds(1.5f);
+        playerMovement.ProccessMovement(true);
     }
+
+    
 
     [Button]
     public void ChangeSpawnPosition()

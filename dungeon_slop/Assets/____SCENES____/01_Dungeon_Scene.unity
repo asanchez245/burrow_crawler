@@ -11278,7 +11278,7 @@ Transform:
   m_GameObject: {fileID: 1045683175}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: -7.5}
+  m_LocalPosition: {x: 0, y: 0, z: -7.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11669,10 +11669,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03c166e358ad14145a536642ed1aad0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  playerController: {fileID: 0}
   nextCombat: {fileID: 0}
   playerParty:
   - partyMember: {fileID: 11400000, guid: 958898638a4ce014095a29663cab1232, type: 2}
     hp: 18
+  playerPos: {x: 0, y: 0, z: -7.5}
   enemiesInDungeon:
   - enemyPrefab: {fileID: 1066849373}
     enemyPosition: {x: 0, y: 0, z: 0}
@@ -14252,7 +14254,7 @@ Transform:
   m_GameObject: {fileID: 1523527705}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 37.5}
+  m_LocalPosition: {x: 0, y: 0, z: 37.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

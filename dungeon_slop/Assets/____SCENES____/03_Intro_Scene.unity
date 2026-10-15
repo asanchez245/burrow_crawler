@@ -765,7 +765,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -50, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1298547570
 MonoBehaviour:
@@ -791,7 +791,7 @@ MonoBehaviour:
     disappearanceOrientation: 0
     triggerShowedAfterEffectsEnd: 0
     triggerDisappearedAfterEffectsEnd: 0
-  sharedSettings: {fileID: 11400000, guid: e5ebec8b825794584aa9434d686fed6f, type: 2}
+  sharedSettings: {fileID: 0}
   onTextShowed:
     m_PersistentCalls:
       m_Calls: []
@@ -862,8 +862,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48
-  m_fontSizeBase: 48
+  m_fontSize: 56
+  m_fontSizeBase: 56
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -929,10 +929,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Febucci.TextAnimatorForUnity.TMP.Runtime::Febucci.TextAnimatorForUnity.TextMeshPro.TextAnimator_TMP
   localSettings:
     isResettingTimeOnNewText: 1
-    defaultEffectsMode: 1
+    defaultEffectsMode: 0
     timeScale: 0
-    defaultBehaviorTags: []
-    defaultAppearanceTags: []
+    defaultBehaviorTags:
+    - 
+    defaultAppearanceTags:
+    - fade
     defaultDisappearanceTags: []
     isAnimatingBehaviors: 1
     isAnimatingAppearances: 1
@@ -1132,7 +1134,7 @@ MonoBehaviour:
   advanceAction: {fileID: -4816668294589770251, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   fadeDuration: 0.25
   dialogueDelay: 0.25
-  dialogueTable: {fileID: 0}
+  cinematicTable: {fileID: 0}
 --- !u!4 &1730251592
 Transform:
   m_ObjectHideFlags: 0
