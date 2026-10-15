@@ -13,7 +13,7 @@ public class InteractableObjectController : MonoBehaviour
     [Header("Input System")]
     [SerializeField] private InputActionReference interactAction;
 
-    bool interactuable;
+    bool interactable;
     bool interacting;
 
     public InteractionType interactionType;
@@ -21,7 +21,9 @@ public class InteractableObjectController : MonoBehaviour
     public enum InteractionType
     {
         item,
-        door
+        door,
+        spwanPoint,
+        demoEnd
     }
 
     private void Start()
@@ -55,7 +57,7 @@ public class InteractableObjectController : MonoBehaviour
 
     private void OnInteractInput(InputAction.CallbackContext context)
     {
-        if (!interactuable || interacting)
+        if (!interactable || interacting)
             return;
 
         npcVisuals.StopIndicator();
@@ -68,7 +70,7 @@ public class InteractableObjectController : MonoBehaviour
         if (!other.CompareTag("Player"))
             return;
 
-        interactuable = true;
+        interactable = true;
 
         if (!interacting && npcVisuals != null)
             npcVisuals.ShowInteractionIcon(true);
@@ -79,7 +81,7 @@ public class InteractableObjectController : MonoBehaviour
         if (!other.CompareTag("Player"))
             return;
 
-        interactuable = false;
+        interactable = false;
 
         if (!interacting && npcVisuals != null)
             npcVisuals.ShowInteractionIcon(false);
@@ -102,10 +104,19 @@ public class InteractableObjectController : MonoBehaviour
                 else
                 {
                     interacting = false;
-                    interactuable = true;
+                    interactable = true;
 
                     npcVisuals.ShowInteractionIcon(true);
                 }
+                break;
+            case InteractionType.spwanPoint:
+                GameManager.Instance.spawnPointChanged = true;
+                this.gameObject.SetActive(false);
+                break;
+            case InteractionType.demoEnd:
+                interactable = false;
+                npcVisuals.ShowInteractionIcon(false);
+                StartCoroutine(Scene_Manager.Instance.sceneController.ChangeScene(4, 1.5f));
                 break;
         }
     }

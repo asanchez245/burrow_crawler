@@ -16,6 +16,9 @@ public class GameManager : MonoSingleton<GameManager>
     public bool dungeonGenerated = false;
 
     public bool spawnPointChanged;
+
+    public bool playerDied;
+
     public override void Awake()
     {
         base.Awake();
