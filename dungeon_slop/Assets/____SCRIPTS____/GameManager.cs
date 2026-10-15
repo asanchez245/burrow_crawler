@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Diagnostics;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoSingleton<GameManager>
 {
@@ -24,15 +25,31 @@ public class GameManager : MonoSingleton<GameManager>
             return;
         }
         DontDestroyOnLoad(gameObject);
-        if (dungeonGenerated) LoadEntites();
 
     }
 
-
-    public void EnterCombat(CombatData combatData)
+    public void OnEnable()
     {
-        nextCombat = combatData;
-        SaveEntitiesPositions();
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    public void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.buildIndex == 1)
+        {
+            LoadEntites();
+            dungeonGenerated = true;
+        }
+    }
+    public void EnterCombat(Explore_EnemyInfo enemyHitted)
+    {
+        nextCombat = enemyHitted.enemyCombatData;
+        SaveEntitiesPositions(enemyHitted.gameObject);
         StartCoroutine(Scene_Controller.Instance.ChangeScene(2, 0.5f));
     }
     //public void testshit()
@@ -40,29 +57,33 @@ public class GameManager : MonoSingleton<GameManager>
     //    SaveEntitiesPositions();
     //    LoadEntites();
     //}
-    void SaveEntitiesPositions()
+    void SaveEntitiesPositions(GameObject enemyToCombat)
     {
         playerPos = playerController.transform.position;
 
-        foreach(EnemyInDungeon enemy in enemiesInDungeon)
+        foreach (EnemyInDungeon enemy in enemiesInDungeon)
         {
             enemy.enemyPosition = enemy.enemyPrefab.transform.position;
-            GameObject enemyCopy = enemy.enemyPrefab;
-            enemy.enemyPrefab = enemyCopy;
+            enemy.activeInCombat = enemy.enemyGameObject == enemyToCombat;
         }
-        dungeonGenerated = true;
     }
     void LoadEntites()
     {
+        if (!dungeonGenerated) return;
         Explore_EnemyController[] oldEnemies = FindObjectsByType<Explore_EnemyController>(FindObjectsSortMode.None);
-        foreach(var enemy in oldEnemies)
+        foreach (var enemy in oldEnemies)
         {
             if (enemy != null) Destroy(enemy.gameObject);
         }
-        foreach(EnemyInDungeon enemy in enemiesInDungeon)
+        foreach (EnemyInDungeon enemy in enemiesInDungeon)
         {
+            if (enemy.defeated)
+            {
+                enemy.activeInCombat = false;
+                continue;
+            }
             GameObject newEnemy = Instantiate(enemy.enemyPrefab, enemy.enemyPosition, Quaternion.identity);
-
+            enemy.enemyGameObject = newEnemy;
             newEnemy.SetActive(true);
 
             var controller = newEnemy.GetComponent<Explore_EnemyController>();
@@ -86,5 +107,8 @@ public class PartyMember
 public class EnemyInDungeon
 {
     public GameObject enemyPrefab;
+    public GameObject enemyGameObject;
     public Vector3 enemyPosition;
+    public bool defeated;
+    public bool activeInCombat;
 }

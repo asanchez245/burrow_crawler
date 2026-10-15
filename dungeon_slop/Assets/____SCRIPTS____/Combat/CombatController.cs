@@ -147,6 +147,10 @@ public class CombatController : MonoSingleton<CombatController>
         if (victory)
         {
             _visuals.ShowWinVisuals(true);
+            foreach(EnemyInDungeon enemy in GameManager.Instance.enemiesInDungeon)
+            {
+                if (enemy.activeInCombat) enemy.defeated = true;
+            }
         }
         else
         {
