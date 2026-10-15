@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db39df2a4e821f84c8c28e2110484551, type: 3}
-  m_Name: DialogoTest3
-  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
-  dialogueText: Cerramos con el 3, CHAO
-  nextNodes: []
+  m_Script: {fileID: 11500000, guid: 5bffd0953b8b9c84ca2f08899ba3f9af, type: 3}
+  m_Name: Outro_Tree
+  m_EditorClassIdentifier: Assembly-CSharp::CinematicDialogueTree
+  dialogues:
+  - {fileID: 11400000, guid: 9d963c5a8581b1143b5f1484c930aa86, type: 2}

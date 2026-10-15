@@ -5,6 +5,7 @@ public class CinematicTrigger : MonoBehaviour
     [SerializeField] private CinematicDialogueController controller;
     [SerializeField] private CinematicDialogueTree dialogueTree;
 
+    public bool outro;
     private void OnEnable()
     {
         if (controller != null)
@@ -31,6 +32,10 @@ public class CinematicTrigger : MonoBehaviour
     }
     public void EndCinematic()
     {
-        StartCoroutine(Scene_Manager.Instance.sceneController.ChangeScene(1, 1.5f));
+        if(!outro)
+            StartCoroutine(Scene_Manager.Instance.sceneController.ChangeScene(1, 1.5f));
+
+        else
+            StartCoroutine(Scene_Manager.Instance.sceneController.ChangeScene(0, 1.5f));
     }
 }

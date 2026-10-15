@@ -31,7 +31,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 89583083522
-    m_Localized: "<shake>\xBFPor qu\xE9?"
+    m_Localized: "\xBFPor qu\xE9?"
     m_Metadata:
       m_Items: []
   - m_Id: 89587277824
@@ -48,6 +48,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 89587277827
     m_Localized: Mandame uno wachap...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1466606036279296
+    m_Localized: muelto
     m_Metadata:
       m_Items: []
   references:

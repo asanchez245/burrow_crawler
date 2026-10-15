@@ -12,7 +12,9 @@ public class Player_Controller : MonoSingleton<Player_Controller>
     Player_Movement playerMovement;
     public PlayerInventary_Controller playerInventary;
 
-    public List<Transform> playerSpawnPoints = new();
+    public Transform playerSpawnPoint01;
+    public Transform playerSpawnPoint02;
+
     public Transform currentSpawnPoint;
 
     public override void Awake()
@@ -60,7 +62,7 @@ public class Player_Controller : MonoSingleton<Player_Controller>
         if (GameManager.Instance.spawnPointChanged)
             ChangeSpawnPosition();
 
-        StartCoroutine(SpawnCharacter());
+        StartCoroutine(SpawnCharacter(GameManager.Instance.playerDied));
     }
 
     public IEnumerator SpawnCharacter(bool respawning = false)
@@ -79,12 +81,9 @@ public class Player_Controller : MonoSingleton<Player_Controller>
         playerMovement.ProccessMovement(true);
     }
 
-    
-
-    [Button]
     public void ChangeSpawnPosition()
     {
         GameManager.Instance.spawnPointChanged = true;
-        currentSpawnPoint = playerSpawnPoints[1];
+        currentSpawnPoint = playerSpawnPoint02;
     }
 }

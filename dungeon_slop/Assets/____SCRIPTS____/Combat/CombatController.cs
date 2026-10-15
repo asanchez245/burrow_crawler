@@ -146,10 +146,12 @@ public class CombatController : MonoSingleton<CombatController>
     {
         if (victory)
         {
+            GameManager.Instance.playerDied = false;
             _visuals.ShowWinVisuals(true);
         }
         else
         {
+            GameManager.Instance.playerDied = true;
             _visuals.ShowDieVisuals(true);
         }
         StartCoroutine(Scene_Manager.Instance.sceneController.ChangeScene(1, 1.5f));
