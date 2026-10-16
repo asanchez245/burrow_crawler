@@ -167,11 +167,14 @@ public class CombatController : MonoSingleton<CombatController>
     {
         foreach (EnemyController enemy in enemyControllers)
         {
-            if (enemy._info._currentHealth > 0)
+            if(enemy!=null && enemy.isActiveAndEnabled)
             {
-                foreach (var play in enemy.chosenPlayTypes)
+                if (enemy._info._currentHealth > 0)
                 {
-                    enemy.ExecuteAction(play);
+                    foreach (var play in enemy.chosenPlayTypes)
+                    {
+                        enemy.ExecuteAction(play);
+                    }
                 }
             }
             yield return null;

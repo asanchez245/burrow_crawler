@@ -14,6 +14,7 @@ public class EnemyController : ObjectWithEffects, IPointerClickHandler, IPointer
     public void InitializeCharacter(EnemyData data)
     {
         base.Initialize(data);
+        enemyData = data;
         _info = GetComponent<EnemyInfo>();
         if (_info != null) _info.InitializeEnemyInfo(data);
         _visuals = GetComponent<EnemyVisuals>();

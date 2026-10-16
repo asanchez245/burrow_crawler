@@ -61,7 +61,7 @@ public class EffectDealAreaDamage : Effect
             int currentIndex = 0;
             for (int i = 0; i < enemies.Length; i++)
             {
-                if (enemies[i] != null && enemies[i]._info.GetCurrentHealth() > 0)
+                if (enemies[i] != null && enemies[i].isActiveAndEnabled && enemies[i]._info.GetCurrentHealth() > 0)
                 {
                     targets.Add(enemies[i]);
                     currentIndex++;

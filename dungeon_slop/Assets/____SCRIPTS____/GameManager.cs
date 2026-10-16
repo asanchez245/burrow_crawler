@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Diagnostics;
@@ -66,6 +67,7 @@ public class GameManager : MonoSingleton<GameManager>
     //}
     void SaveEntitiesPositions(GameObject enemyToCombat)
     {
+        if (playerController == null) return; //Ñapa historica para probar el combate sin la dungeon
         playerPos = playerController.transform.position;
 
         foreach (EnemyInDungeon enemy in enemiesInDungeon)
