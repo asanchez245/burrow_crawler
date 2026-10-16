@@ -1,3 +1,5 @@
+using DG.Tweening;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class Player_Visuals : MonoBehaviour
@@ -6,6 +8,7 @@ public class Player_Visuals : MonoBehaviour
     public Animator playerAnimator;
     public Sprite frontSprite;
     public Sprite backSprite;
+    public CinemachineCamera playerCam;
     public void Initialice()
     {
 
@@ -36,5 +39,15 @@ public class Player_Visuals : MonoBehaviour
     public void IdleAnimation()
     {
         playerAnimator.SetBool("running", false);
+    }
+    public void EnterCombatCam()
+    {
+        float targetSize = 5f;
+        DOTween.To(() => playerCam.Lens.OrthographicSize, x => playerCam.Lens.OrthographicSize = x, targetSize + 2f, 0.25f)
+            .SetEase(Ease.OutQuad)
+            .OnComplete(() => {
+                DOTween.To(() => playerCam.Lens.OrthographicSize, x => playerCam.Lens.OrthographicSize = x, targetSize, 0.2f)
+                    .SetEase(Ease.InQuad);
+            });
     }
 }

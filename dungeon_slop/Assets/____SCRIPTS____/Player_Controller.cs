@@ -40,6 +40,7 @@ public class Player_Controller : MonoSingleton<Player_Controller>
     {
         if (hit.collider.gameObject.CompareTag("Enemy") && !playerInfo.startingCombat)
         {
+            playerVisuals.EnterCombatCam();
             GameManager.Instance.EnterCombat(hit.gameObject.GetComponent<Explore_EnemyInfo>());
             playerInfo.SetStartingCombat(true);
             playerMovement.speed = 0f;
