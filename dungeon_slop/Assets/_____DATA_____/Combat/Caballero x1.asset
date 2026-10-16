@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Caballero x1
   m_EditorClassIdentifier: Assembly-CSharp::CombatData
   combatEnemies:
-  - {fileID: 11400000, guid: 6401a6c3964676d4c913073c27f59d15, type: 2}
+  - {fileID: 11400000, guid: 39c28214a03258649b6bad30e8273c94, type: 2}

@@ -20,9 +20,9 @@ public class EnemyVisuals : MonoBehaviour
     public TextMeshProUGUI defenseIntentionValue;
     internal void InitializeEnemyVisuals(EnemyData enemyData)
     {
+        SetAnimatorController(enemyData.animatorController);
         enemySprite.sprite = enemyData.enemySprite;
         targetedIcon.SetActive(false);
-        SetAnimatorController(enemyData.animatorController);
     }
     public void SetTargetedVisuals(bool isTargeted)
     {

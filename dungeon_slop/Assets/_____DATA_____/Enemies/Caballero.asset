@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fbb24a0e37332045a2e4801cd891a16, type: 3}
+  m_Name: Caballero
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyData
+  effects:
+  - effects:
+    - {fileID: 11400000, guid: fd99aade5fa465b429054fc23d283e0c, type: 2}
+    conditions: []
+    triggerEvent: 1
+  - effects:
+    - {fileID: 11400000, guid: 22675562f096c6444a776a60d784364b, type: 2}
+    conditions: []
+    triggerEvent: 2
+  enemyName: Caballero
+  enemySprite: {fileID: -850638117, guid: 1ce787b1587e4884f8e356b692badf73, type: 3}
+  animatorController: {fileID: 9100000, guid: 3438efbb0e62ce24ca0a59f81f55ba23, type: 2}
+  health: 15
+  shield: 10
+  maxShield: 10
+  maxAbilitiesPerTurn: 1
