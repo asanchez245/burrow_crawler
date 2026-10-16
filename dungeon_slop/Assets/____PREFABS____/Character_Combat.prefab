@@ -948,6 +948,7 @@ GameObject:
   - component: {fileID: 4941900118597624994}
   - component: {fileID: 8726618882784549400}
   - component: {fileID: 4376883045388524695}
+  - component: {fileID: 2101503964949931664}
   - component: {fileID: 6966255777888494377}
   m_Layer: 5
   m_Name: Character_Combat
@@ -1033,6 +1034,19 @@ MonoBehaviour:
   characterAnimator: {fileID: 6966255777888494377}
   healthText: {fileID: 3331546608101393595}
   shieldText: {fileID: 1253724125389580985}
+--- !u!114 &2101503964949931664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6660059007609395198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20f435345b5f480419d78371925e17d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FloatingTextGenerator
+  textFont: {fileID: 11400000, guid: 0117e2e63e56e76458ff5dbd9f57959c, type: 2}
 --- !u!95 &6966255777888494377
 Animator:
   serializedVersion: 7

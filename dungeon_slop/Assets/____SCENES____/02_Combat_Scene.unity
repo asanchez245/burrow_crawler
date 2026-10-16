@@ -847,12 +847,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03c166e358ad14145a536642ed1aad0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  playerController: {fileID: 0}
   nextCombat: {fileID: 11400000, guid: 8daf9b777e877b54b903ccf9ca2bb4a7, type: 2}
   playerParty:
-  - partyMember: {fileID: 0}
-    hp: 0
+  - partyMember: {fileID: 11400000, guid: 958898638a4ce014095a29663cab1232, type: 2}
+    hp: 18
+  playerPos: {x: 0, y: 0, z: 0}
   enemiesInDungeon: []
   dungeonGenerated: 0
+  spawnPointChanged: 0
+  playerDied: 0
 --- !u!4 &429734622
 Transform:
   m_ObjectHideFlags: 0
@@ -3317,7 +3321,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a575a9152d53eb847bae6ac4e67e6d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CombatInfo
-  enemyActionDelay: 0.5
   _combatInfoAbilities:
   - {fileID: 1604099368}
   - {fileID: 1309305539}
@@ -3968,7 +3971,7 @@ PrefabInstance:
     - target: {fileID: 8726618882784549400, guid: 1d11f42827d48a84e8bbd141b976e56f, type: 3}
       propertyPath: chartacterPosition
       value: 
-      objectReference: {fileID: 158669310}
+      objectReference: {fileID: 1215548800}
     - target: {fileID: 8726618882784549400, guid: 1d11f42827d48a84e8bbd141b976e56f, type: 3}
       propertyPath: '_characterAbilities.Array.data[0]'
       value: 

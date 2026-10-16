@@ -35,7 +35,7 @@ public abstract class CharacterController : MonoBehaviour, IPointerClickHandler,
         }
         if (healthAmount < _info.GetCurrentHealth())
         {
-            _visuals.CharGetDamageVisuals(healthAmount);
+            _visuals.CharGetDamageVisuals(amount);
         }
 
         if (CombatController.Instance.GetSelectedCharacter == this)
@@ -68,7 +68,7 @@ public abstract class CharacterController : MonoBehaviour, IPointerClickHandler,
         }
         if (shieldAmount < _info.GetCurrentShield())
         {
-            _visuals.CharGetDamageVisuals(shieldAmount);
+            _visuals.CharGetDamageVisuals(amount);
         }
 
         if (CombatController.Instance.GetSelectedCharacter == this)

@@ -49,6 +49,10 @@ public class GameManager : MonoSingleton<GameManager>
             dungeonGenerated = true;
         }
     }
+    private void Start()
+    {
+        SaveEntitiesPositions(null);
+    }
     public void EnterCombat(Explore_EnemyInfo enemyHitted)
     {
         nextCombat = enemyHitted.enemyCombatData;
@@ -66,7 +70,9 @@ public class GameManager : MonoSingleton<GameManager>
 
         foreach (EnemyInDungeon enemy in enemiesInDungeon)
         {
-            enemy.enemyPosition = enemy.enemyPrefab.transform.position;
+            if(enemy.enemyGameObject!=null)
+            enemy.enemyPosition = enemy.enemyGameObject.transform.position;
+            if(enemyToCombat!=null)
             enemy.activeInCombat = enemy.enemyGameObject == enemyToCombat;
         }
     }

@@ -11,13 +11,14 @@ public class CharacterVisuals : MonoBehaviour
     [SerializeField] Animator characterAnimator;
     [SerializeField] TextMeshProUGUI healthText;
     [SerializeField] TextMeshProUGUI shieldText;
-
+    FloatingTextGenerator textGenerator;
     internal void InitializeCharacterVisuals(CharacterData chData, CharacterController controller)
     {
         SetCharacterPortrait(chData);
         SetAnimatorController(chData.characterAnimationController);
         UpdateHealthText(controller.GetCurrentHealth());
         UpdateShieldText(controller.GetCurrentShield());
+        textGenerator = GetComponent<FloatingTextGenerator>();
     }
     public void TriggerAnim(PlayType playType)
     {
@@ -47,7 +48,7 @@ public class CharacterVisuals : MonoBehaviour
     }
     public void CharGetDamageVisuals(int damageAmount)
     {
-        SpawnFloatingText(damageAmount.ToString(), Color.red);
+        textGenerator.SpawnFloatingText(damageAmount, PlayType.Attack);
         characterAnimator.SetTrigger("Hurt");
     }
     public void UpdateHealthText(int currentHp)
@@ -65,7 +66,6 @@ public class CharacterVisuals : MonoBehaviour
     public void UpdateShieldText(int currentShield)
     {
         shieldText.DOKill();
-
         shieldText.color = Color.red;
         shieldText.text = currentShield.ToString();
         shieldText.transform.DOPunchScale(Vector3.one * 0.2f, 0.2f, 1, 1).OnComplete(() =>
@@ -92,30 +92,6 @@ public class CharacterVisuals : MonoBehaviour
         characterSpriteCombat.DOFade(0, .5f).OnComplete(() => this.gameObject.SetActive(false));
     }
 
-    public void SpawnFloatingText(string text, Color color, float size = 45f, float duration = 0.7f, float offsetY = 40f)
-    {
-        GameObject textObj = new GameObject("FloatingText_" + text);
-        textObj.transform.SetParent(this.transform, false);
-
-        RectTransform rect = textObj.AddComponent<RectTransform>();
-
-        Vector2 initialPos = new Vector2(UnityEngine.Random.Range(-10f, 10f), offsetY);
-        rect.anchoredPosition = initialPos;
-
-        TextMeshProUGUI tmp = textObj.AddComponent<TextMeshProUGUI>();
-        tmp.text = text;
-        tmp.fontSize = size;
-        tmp.color = color;
-        tmp.alignment = TextAlignmentOptions.Center;
-        tmp.raycastTarget = false;
-
-        rect.DOAnchorPosY(initialPos.y + 60f, duration).SetEase(Ease.OutQuad).SetUpdate(true);
-        tmp.DOFade(0f, duration).SetEase(Ease.InQuad).SetUpdate(true).OnComplete(() =>
-        {
-            textObj.transform.DOKill();
-            Destroy(textObj);
-        });
-    }
 
     internal void SelectedVisuals(bool isSelected)
     {
@@ -128,4 +104,5 @@ public class CharacterVisuals : MonoBehaviour
             characterSpriteCombat.transform.DOScale(1f, .2f);
         }
     }
+    
 }

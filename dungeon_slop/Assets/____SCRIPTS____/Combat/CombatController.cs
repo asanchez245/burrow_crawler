@@ -1,15 +1,11 @@
-using Sirenix.OdinInspector;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 using UnityEngine.Localization.Tables;
 using UnityEngine.UI;
-using static UnityEngine.EventSystems.EventTrigger;
 
 public class CombatController : MonoSingleton<CombatController>
 {
@@ -75,7 +71,9 @@ public class CombatController : MonoSingleton<CombatController>
     IEnumerator StartCombat()
     {
         yield return new WaitForSeconds(1);
-        NextTurn();
+        SetRandomEnemyTarget();
+        StartCoroutine(BoardController.Instance.GenerateManaTurn());
+        StartCoroutine(EnemiesPrepareActions());
     }
 
     public void InitializeEnemies()
@@ -169,11 +167,14 @@ public class CombatController : MonoSingleton<CombatController>
     {
         foreach (EnemyController enemy in enemyControllers)
         {
-            foreach (var play in enemy.chosenPlayTypes)
+            if (enemy._info._currentHealth > 0)
             {
-                enemy.ExecuteAction(play);
-                yield return new WaitForSeconds(_info.enemyActionDelay);
+                foreach (var play in enemy.chosenPlayTypes)
+                {
+                    enemy.ExecuteAction(play);
+                }
             }
+            yield return null;
         }
     }
     IEnumerator EnemiesPrepareActions()
@@ -182,7 +183,7 @@ public class CombatController : MonoSingleton<CombatController>
         {
             if(enemy != null && enemy.gameObject.activeSelf)
             enemy.ChooseAction();
-            yield return new WaitForSeconds(_info.enemyActionDelay/2);
+            yield return null;
         }
     }
     public void SetSelectedCharacter(CharacterController character)

@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 public class EnemyController : ObjectWithEffects, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
+    FloatingTextGenerator textGenerator;
     public EnemyInfo _info { get; private set; }
     public EnemyVisuals _visuals { get; private set; }
 
@@ -19,6 +20,7 @@ public class EnemyController : ObjectWithEffects, IPointerClickHandler, IPointer
         if (_visuals != null) _visuals.InitializeEnemyVisuals(data);
 
         BoardController.Instance.AddEnemyToCombat(this);
+        textGenerator = GetComponent<FloatingTextGenerator>();
     }
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -52,6 +54,7 @@ public class EnemyController : ObjectWithEffects, IPointerClickHandler, IPointer
             enemiesOnBoard = BoardController.Instance.GetEnemiesInCombat(),
             alliesOnBoard = BoardController.Instance.GetCharactersInCombat(),
             sourceCharacter = CombatController.Instance.GetSelectedCharacter,
+            sourceEnemy = this
         };
 
         TriggerEvent(eventType, ctxt);
@@ -65,10 +68,9 @@ public class EnemyController : ObjectWithEffects, IPointerClickHandler, IPointer
             PlayType.Heal => GameEventType.OnEnemyHeal,
             _ => throw new System.ArgumentOutOfRangeException(nameof(play), play, null)
         };
-        _visuals.TriggerAnim(play);
+        Sequencer.Instance.InsertSequence(_visuals.TriggerAnim(play));
         OnEvent(gameEvent);
-        Debug.Log($"Enemigo {_info._enemyName} usando acción: {play}");
-        Sequencer.Instance.InsertSequence(_visuals.CleanAllIntentionIcons());
+        Sequencer.Instance.InsertSequence(_visuals.RevealIntention(play));
     }
     public void ChooseAction()
     {
@@ -136,6 +138,11 @@ public class EnemyController : ObjectWithEffects, IPointerClickHandler, IPointer
         if(amount < 0)
         {
             _visuals.enemyAnimator.SetTrigger("Hurt");
+            textGenerator.SpawnFloatingText(amount,PlayType.Attack);
+        }
+        else
+        {
+            textGenerator.SpawnFloatingText(amount,PlayType.Heal);
         }
         if (!isFixed)
         {
@@ -157,6 +164,11 @@ public class EnemyController : ObjectWithEffects, IPointerClickHandler, IPointer
     public void ModifyEnemyShield(int amount, bool isFixed = false)
     {
         int shieldAmount;
+        if (amount < 0)
+        {
+            _visuals.enemyAnimator.SetTrigger("Hurt");
+            textGenerator.SpawnFloatingText(amount, PlayType.Defense);
+        }
         if (!isFixed)
         {
             shieldAmount = _info.GetCurrentShield() + amount;

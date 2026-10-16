@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System.Collections;
+using TMPro;
 using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,8 +13,11 @@ public class EnemyVisuals : MonoBehaviour
     public Animator enemyAnimator;
     public GameObject targetedIcon;
     public GameObject attackIntentionIcon;
+    public TextMeshProUGUI attackIntentionValue;
     public GameObject healIntentionIcon;
-    public GameObject deffenseIntentionIcon;
+    public TextMeshProUGUI healIntentionValue;
+    public GameObject defenseIntentionIcon;
+    public TextMeshProUGUI defenseIntentionValue;
     internal void InitializeEnemyVisuals(EnemyData enemyData)
     {
         enemySprite.sprite = enemyData.enemySprite;
@@ -43,34 +47,64 @@ public class EnemyVisuals : MonoBehaviour
                 healIntentionIcon.SetActive(true);
                 break;
             case PlayType.Defense:
-                deffenseIntentionIcon.SetActive(true);
+                defenseIntentionIcon.SetActive(true);
                 break;
         }
     }
-    public IEnumerator CleanAllIntentionIcons()
+    public void CleanAllIntentionIcons()
     {
         attackIntentionIcon.SetActive(false);
+        attackIntentionValue.alpha = 0;
         healIntentionIcon.SetActive(false);
-        deffenseIntentionIcon.SetActive(false);
-        yield return new WaitForSeconds(0.5f);
+        healIntentionValue.alpha = 0;
+        defenseIntentionIcon.SetActive(false);
+        defenseIntentionValue.alpha = 0;
     }
-    public void TriggerAnim(PlayType playType)
+    public IEnumerator TriggerAnim(PlayType playType)
     {
+        string animation = playType.ToString();
+
+        if (!string.IsNullOrEmpty(animation))
+        {
+            enemyAnimator.SetTrigger(animation);
+        }
+
+        yield return null;
+    }
+
+    public IEnumerator RevealIntention(PlayType playType)
+    {
+        GameObject actionSelected = null;
+        TextMeshProUGUI actionValue = null;
+
         switch (playType)
         {
             case PlayType.Attack:
-                enemyAnimator.SetTrigger("Attack");
+                actionSelected = attackIntentionIcon;
+                actionValue = attackIntentionValue;
                 break;
             case PlayType.Defense:
-                enemyAnimator.SetTrigger("Defense");
+                actionSelected = defenseIntentionIcon;
+                actionValue = defenseIntentionValue;
                 break;
             case PlayType.Heal:
-                enemyAnimator.SetTrigger("Heal");
+                actionSelected = healIntentionIcon;
+                actionValue = healIntentionValue;
                 break;
             case PlayType.Utility:
-                enemyAnimator.SetTrigger("Utility");
-                break;
+                yield break;
         }
+
+        if (actionSelected != null && actionValue != null)
+        {
+            Sequence revealIntentionTween = DOTween.Sequence();
+            revealIntentionTween.Append(actionSelected.transform.DOScaleX(0, .25f));
+            revealIntentionTween.Append(actionSelected.transform.DOScaleX(1, .25f));
+            revealIntentionTween.Join(actionValue.DOFade(1, .25f).From(0));
+
+            yield return revealIntentionTween.WaitForCompletion();
+        }
+        CleanAllIntentionIcons();
     }
     public void SetAnimatorController(AnimatorController animatorController)
     {
