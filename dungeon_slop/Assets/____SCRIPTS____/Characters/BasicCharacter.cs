@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BasicCharacter : CharacterController
+public class BasicCharacter : Character_Controller
 {
 
 }

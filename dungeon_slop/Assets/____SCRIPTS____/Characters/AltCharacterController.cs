@@ -2,7 +2,7 @@ using Sirenix.OdinInspector;
 using Unity.Cinemachine;
 using UnityEngine;
 
-public class AltCharacterController : CharacterController
+public class AltCharacterController : Character_Controller
 {
     public bool altCharacter;
     public CharacterData altCharacterData;

@@ -12,7 +12,7 @@ public class CharacterVisuals : MonoBehaviour
     [SerializeField] TextMeshProUGUI healthText;
     [SerializeField] TextMeshProUGUI shieldText;
     FloatingTextGenerator textGenerator;
-    internal void InitializeCharacterVisuals(CharacterData chData, CharacterController controller)
+    internal void InitializeCharacterVisuals(CharacterData chData, Character_Controller controller)
     {
         SetCharacterPortrait(chData);
         SetAnimatorController(chData.characterAnimationController);

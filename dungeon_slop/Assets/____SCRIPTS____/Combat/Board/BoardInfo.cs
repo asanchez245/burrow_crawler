@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BoardInfo : MonoBehaviour
 {
-    public List<CharacterController> charactersInCombat = new();
+    public List<Character_Controller> charactersInCombat = new();
     public List<EnemyController> enemiesInCombat = new();
 
     public List<Transform> characterPositionMap = new();
@@ -17,7 +17,7 @@ public class BoardInfo : MonoBehaviour
             }
         }
     }
-    public void AddCharacter(CharacterController character)
+    public void AddCharacter(Character_Controller character)
     {
         if (!charactersInCombat.Contains(character))
         {

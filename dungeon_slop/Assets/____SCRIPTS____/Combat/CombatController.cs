@@ -14,7 +14,7 @@ public class CombatController : MonoSingleton<CombatController>
 
 
     public EnemyController[] enemyControllers;
-    public CharacterController[] charactersControllers;
+    public Character_Controller[] charactersControllers;
     [SerializeField] CombatData _combatData;
 
     [SerializeField] Button endTurnButton;
@@ -94,7 +94,7 @@ public class CombatController : MonoSingleton<CombatController>
         foreach(PartyMember charData in GameManager.Instance.playerParty)
         {
             if (charData == null) return;
-            CharacterController controller = charactersControllers[i];
+            Character_Controller controller = charactersControllers[i];
             controller.gameObject.SetActive(true);
             controller.InitializeCharacter(charData.partyMember);
             BoardController.Instance.AddCharacterToCombat(controller);
@@ -189,7 +189,7 @@ public class CombatController : MonoSingleton<CombatController>
             yield return null;
         }
     }
-    public void SetSelectedCharacter(CharacterController character)
+    public void SetSelectedCharacter(Character_Controller character)
     {
         if (_info._charSelected != null)
             _info._charSelected._visuals.SelectedVisuals(false);
@@ -207,7 +207,7 @@ public class CombatController : MonoSingleton<CombatController>
         _visuals.UpdateShieldText(newShield);
     }
 
-    public CharacterController GetSelectedCharacter => _info._charSelected;
+    public Character_Controller GetSelectedCharacter => _info._charSelected;
 
     #region Info Desc.
     public TextMeshProUGUI GetInfoName() { return _visuals.infoName; }

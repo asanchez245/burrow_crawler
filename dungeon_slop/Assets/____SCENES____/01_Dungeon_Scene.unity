@@ -1350,6 +1350,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Caballero_x1
       objectReference: {fileID: 0}
+    - target: {fileID: 1947961957534913844, guid: 41e2bd732d75602418fb841b4c27393f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2182518045519622051, guid: 41e2bd732d75602418fb841b4c27393f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -37.6
@@ -1415,6 +1419,10 @@ PrefabInstance:
     - target: {fileID: 1947961957534913844, guid: 760538ef331bd55458eff87a9708022c, type: 3}
       propertyPath: m_Name
       value: Lobo_x3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1947961957534913844, guid: 760538ef331bd55458eff87a9708022c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2182518045519622051, guid: 760538ef331bd55458eff87a9708022c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15421,6 +15429,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lobo_x1 Caballero x1
       objectReference: {fileID: 0}
+    - target: {fileID: 1947961957534913844, guid: e69f2626673d0b446ab2337c0df379ea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2182518045519622051, guid: e69f2626673d0b446ab2337c0df379ea, type: 3}
       propertyPath: m_LocalPosition.x
       value: -40.74
@@ -18444,6 +18456,10 @@ PrefabInstance:
     - target: {fileID: 1947961957534913844, guid: 0710e3d35bd465c478789175a9ce8859, type: 3}
       propertyPath: m_Name
       value: Lobo_x2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1947961957534913844, guid: 0710e3d35bd465c478789175a9ce8859, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2182518045519622051, guid: 0710e3d35bd465c478789175a9ce8859, type: 3}
       propertyPath: m_LocalPosition.x

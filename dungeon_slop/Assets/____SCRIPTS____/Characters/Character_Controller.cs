@@ -4,7 +4,7 @@ using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public abstract class CharacterController : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
+public abstract class Character_Controller : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public CharacterInfo _info { get; private set; }
     public CharacterVisuals _visuals { get; private set; }

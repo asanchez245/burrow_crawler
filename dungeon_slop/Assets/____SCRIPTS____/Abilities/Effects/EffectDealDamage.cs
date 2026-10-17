@@ -33,7 +33,7 @@ public class EffectDealDamage : Effect
             if (aliveCount > 0)
             {
                 int targetIndex = UnityEngine.Random.Range(0, aliveCount);
-                CharacterController target = null;
+                Character_Controller target = null;
 
                 int currentIndex = 0;
                 for (int i = 0; i < characters.Length; i++)

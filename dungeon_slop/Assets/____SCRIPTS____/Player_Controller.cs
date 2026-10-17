@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class Player_Controller : MonoSingleton<Player_Controller>
 {
-    Player_Info playerInfo;
-    Player_Visuals playerVisuals;
+    public Player_Info playerInfo { get; private set; }
+    public Player_Visuals playerVisuals { get; private set; }
     Player_Movement playerMovement;
     public PlayerInventary_Controller playerInventary;
 
@@ -19,6 +19,7 @@ public class Player_Controller : MonoSingleton<Player_Controller>
 
     public override void Awake()
     {
+        base.Awake();
         Initialice();
     }
     public void Initialice()
@@ -34,18 +35,6 @@ public class Player_Controller : MonoSingleton<Player_Controller>
     private void Start()
     {
         GameManager.Instance.playerController = this;
-    }
-
-    private void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        if (hit.collider.gameObject.CompareTag("Enemy") && !playerInfo.startingCombat)
-        {
-            playerVisuals.EnterCombatCam();
-            GameManager.Instance.EnterCombat(hit.gameObject.GetComponent<Explore_EnemyInfo>());
-            playerInfo.SetStartingCombat(true);
-            playerMovement.speed = 0f;
-            hit.gameObject.GetComponent<Explore_EnemyInfo>().SetPlayerReached(true);
-        }
     }
 
     public void OnEnable()

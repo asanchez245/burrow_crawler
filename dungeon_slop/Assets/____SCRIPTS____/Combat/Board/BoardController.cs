@@ -23,7 +23,7 @@ public class BoardController : MonoSingleton<BoardController>
         if (boardVisuals != null) boardVisuals.Initialize();
     }
 
-    public CharacterController GetCharacter()
+    public Character_Controller GetCharacter()
     {
         return boardInfo.charactersInCombat[0];
     }
@@ -65,7 +65,7 @@ public class BoardController : MonoSingleton<BoardController>
     }
 
 
-    public void RemoveCharacterFromCombat(CharacterController characterController)
+    public void RemoveCharacterFromCombat(Character_Controller characterController)
     {
         if (boardInfo.charactersInCombat.Contains(characterController))
         {
@@ -73,11 +73,11 @@ public class BoardController : MonoSingleton<BoardController>
         }
         CombatController.Instance.CheckCombatEnd(false);
     }
-    public void AddCharacterToCombat(CharacterController characterController)
+    public void AddCharacterToCombat(Character_Controller characterController)
     {
         boardInfo.AddCharacter(characterController);
     }
-    public List<CharacterController> GetCharactersInCombat()
+    public List<Character_Controller> GetCharactersInCombat()
     {
         return boardInfo.charactersInCombat;
     }

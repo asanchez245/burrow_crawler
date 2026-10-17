@@ -6,9 +6,9 @@ public class EffectContext
     public EnemyController enemyTargeted;
     public List<EnemyController> enemiesOnBoard;
 
-    public CharacterController sourceCharacter;
-    public CharacterController characterTargeted;
-    public List<CharacterController> alliesOnBoard;
+    public Character_Controller sourceCharacter;
+    public Character_Controller characterTargeted;
+    public List<Character_Controller> alliesOnBoard;
 
     public ManaPoolController poolController;
 }

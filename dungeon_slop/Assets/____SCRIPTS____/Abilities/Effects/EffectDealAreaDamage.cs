@@ -21,7 +21,7 @@ public class EffectDealAreaDamage : Effect
         {
             var characters = CombatController.Instance.charactersControllers;
 
-            List<CharacterController> targets = new();
+            List<Character_Controller> targets = new();
 
             int currentIndex = 0;
             for (int i = 0; i < characters.Length; i++)
@@ -35,7 +35,7 @@ public class EffectDealAreaDamage : Effect
 
             if (targets != null)
             {
-                foreach(CharacterController target in targets)
+                foreach(Character_Controller target in targets)
                 {
                     int shield = target.GetCurrentShield();
 

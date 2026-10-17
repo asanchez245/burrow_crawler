@@ -22,6 +22,7 @@ public class Explore_EnemyController : MonoBehaviour
 
     void Update()
     {
+        if (Player_Controller.Instance.playerInfo.startingCombat) return;
         HandleEnemyBehavior();
         if (enemyInfo.agent.velocity.sqrMagnitude > 0.01f)
         {
@@ -32,6 +33,13 @@ public class Explore_EnemyController : MonoBehaviour
         else
         {
             enemyVisuals.EnemyIdleAnimation();
+        }
+        if(Vector3.Distance(transform.position, Player_Controller.Instance.transform.position)<0.5f)
+        {
+            Player_Controller.Instance.playerVisuals.EnterCombatCam();
+            Player_Controller.Instance.playerInfo.SetStartingCombat(true);
+            enemyInfo.SetPlayerReached(true);
+            GameManager.Instance.EnterCombat(enemyInfo);
         }
     }
 
@@ -87,7 +95,7 @@ public class Explore_EnemyController : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            enemyInfo.SetPlayerReached(false);
+            //enemyInfo.SetPlayerReached(false);
             enemyInfo.SetIsPlayerOutOfRange(true);
             enemyInfo.loseAgroTimer = 0f;
         }
