@@ -21,7 +21,7 @@ MonoBehaviour:
   shield: 6
   manaGenerationPerTurn:
   - manaType: 0
-    manaQuantity: 2
+    manaQuantity: 1
   - manaType: 3
     manaQuantity: 1
   characterAbilities:
