@@ -14,3 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CinematicDialogueTree
   dialogues:
   - {fileID: 11400000, guid: 9d963c5a8581b1143b5f1484c930aa86, type: 2}
+  - {fileID: 11400000, guid: 62582a3f82528b24bb9f86fadabc86c9, type: 2}
+  - {fileID: 11400000, guid: b2f75b305e727dc4b9a3b0c398839556, type: 2}
+  - {fileID: 11400000, guid: bd6ad3f17fb2f0e4d85da478f8c2f168, type: 2}
+  - {fileID: 11400000, guid: 45f7dd69fe68ecb4a908b9116f07ae9a, type: 2}
+  - {fileID: 11400000, guid: 95596d324c3b7bb4c8400091c9c66bc2, type: 2}

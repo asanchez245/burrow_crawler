@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CombatData
   combatEnemies:
   - {fileID: 11400000, guid: 545e765bf203b4b458f1591027b3d6e7, type: 2}
+  isTutorial: 1

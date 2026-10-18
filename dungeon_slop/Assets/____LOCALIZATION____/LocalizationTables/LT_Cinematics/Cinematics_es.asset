@@ -18,40 +18,94 @@ MonoBehaviour:
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 89499197440
+  - m_Id: 2418756421771264
     m_Localized: ...
     m_Metadata:
       m_Items: []
-  - m_Id: 89583083520
-    m_Localized: Hola...
+  - m_Id: 2418756480491520
+    m_Localized: 'Instrucciones enviadas por la Hermandad para el Conejo:'
     m_Metadata:
       m_Items: []
-  - m_Id: 89583083521
+  - m_Id: 2418756480491521
+    m_Localized: <i>"Valiente Conejo, carne de nuestra carne,
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2418756480491522
+    m_Localized: "<i>Conf\xEDo en que est\xE9s al tanto de la situaci\xF3n en el
+      Norte."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2418756480491523
+    m_Localized: "<i>Nada queda por salvar ah\xED, hace mucho que dejaron de ser
+      tierras prol\xEDferas para nadie."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2418756480491524
+    m_Localized: "<i>Ahora <shake>\"Eso\"</shake> est\xE1 sacudiendo la meseta, retorciendose
+      desde las profundidades."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2418756480491525
+    m_Localized: "<i>Viaja al este desde la Madriguera, el pozo abandonado ser\xE1
+      tu v\xEDa de entrada."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2418756480491526
+    m_Localized: "<i>Ve a lo m\xE1s profundo y comunica todo lo que descubras a la
+      Hermandad."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2418756480491527
+    m_Localized: "<i>El consejo decidir\xE1 el destino de la meseta."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2418756480491528
+    m_Localized: <i>Cumple con tu cometido, Conejo, y no te amedrentes ante nada,
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2418756480491529
+    m_Localized: <i>pues cuando todos caigan, las Liebres seguiremos danzando."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2418756480491530
     m_Localized: ...
     m_Metadata:
       m_Items: []
-  - m_Id: 89583083522
-    m_Localized: "\xBFPor qu\xE9?"
+  - m_Id: 2449864316248064
+    m_Localized: Recoges del suelo un sobre con instrucciones de la Hermandad.
     m_Metadata:
       m_Items: []
-  - m_Id: 89587277824
-    m_Localized: "\xBFPor qu\xE9 no me has mandado uno wachap?"
+  - m_Id: 2449864316248065
+    m_Localized: Va dirigido a otra liebre pero reconoces su contenido,
     m_Metadata:
       m_Items: []
-  - m_Id: 89587277825
-    m_Localized: "Que ya no me quieres o qu\xE9."
+  - m_Id: 2449864316248066
+    m_Localized: son las mismas instrucciones que recibiste, letra por letra.
     m_Metadata:
       m_Items: []
-  - m_Id: 89587277826
-    m_Localized: "Te extra\xF1o muuuucho..."
+  - m_Id: 2449864316248067
+    m_Localized: 'En el reverso del sobre distingues varias palabras escritas con
+      sangre:'
     m_Metadata:
       m_Items: []
-  - m_Id: 89587277827
-    m_Localized: Mandame uno wachap...
+  - m_Id: 2449864316248068
+    m_Localized: ....Oculto.......
     m_Metadata:
       m_Items: []
-  - m_Id: 1466606036279296
-    m_Localized: muelto
+  - m_Id: 2449864316248069
+    m_Localized: ........la Hermandad...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2449864316248070
+    m_Localized: .............
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2449864316248071
+    m_Localized: ...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2449864316248072
+    m_Localized: <shake>"ESO"</shake>
     m_Metadata:
       m_Items: []
   references:

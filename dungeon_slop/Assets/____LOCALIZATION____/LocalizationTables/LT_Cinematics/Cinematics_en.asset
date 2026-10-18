@@ -18,40 +18,94 @@ MonoBehaviour:
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 89499197440
+  - m_Id: 2418756421771264
     m_Localized: ...
     m_Metadata:
       m_Items: []
-  - m_Id: 89583083520
-    m_Localized: Hello...
+  - m_Id: 2418756480491520
+    m_Localized: 'Instructions sent by the Brotherhood to the Rabbit:'
     m_Metadata:
       m_Items: []
-  - m_Id: 89583083521
+  - m_Id: 2418756480491521
+    m_Localized: <i>Rabbit, flesh of our flesh,</i>
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2418756480491522
+    m_Localized: <i>I trust you are aware of the situation in the North.</i>
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2418756480491523
+    m_Localized: <i>There is nothing left to save there; those lands have long since
+      ceased to be fruitful to anyone.</i>
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2418756480491524
+    m_Localized: <i>Now <shake>"That"</shake> is shaking the plateau, twisting beneath
+      its depths.</i>
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2418756480491525
+    m_Localized: <i>Travel east from the Warren; the abandoned well will be your
+      way in.</i>
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2418756480491526
+    m_Localized: <i>Go as deep as you can and report everything you discover to the
+      Brotherhood.</i>
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2418756480491527
+    m_Localized: <i>The Council will decide the fate of the plateau.</i>
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2418756480491528
+    m_Localized: <i>Do your part, Rabbit, and do not let anything frighten you,</i>
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2418756480491529
+    m_Localized: <i>for when all have fallen, the Hares will still be dancing.</i>
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2418756480491530
     m_Localized: ...
     m_Metadata:
       m_Items: []
-  - m_Id: 89583083522
-    m_Localized: Why?
+  - m_Id: 2449864316248064
+    m_Localized: You pick up an envelope with instructions from the Brotherhood off
+      the ground.
     m_Metadata:
       m_Items: []
-  - m_Id: 89587277824
-    m_Localized: Why u didn't sent me som' wachap?
+  - m_Id: 2449864316248065
+    m_Localized: It is addressed to another hare, but you recognize its contents,
     m_Metadata:
       m_Items: []
-  - m_Id: 89587277825
-    m_Localized: U don't like me or what.
+  - m_Id: 2449864316248066
+    m_Localized: they are the same instructions you received, letter for letter.
     m_Metadata:
       m_Items: []
-  - m_Id: 89587277826
-    m_Localized: I miss you sooooooo much...
+  - m_Id: 2449864316248067
+    m_Localized: 'On the back of the envelope, you make out several words written
+      in blood:'
     m_Metadata:
       m_Items: []
-  - m_Id: 89587277827
-    m_Localized: Sent me som' wachap...
+  - m_Id: 2449864316248068
+    m_Localized: ....Hidden.......
     m_Metadata:
       m_Items: []
-  - m_Id: 1466606036279296
-    m_Localized: ded
+  - m_Id: 2449864316248069
+    m_Localized: ........the Brotherhood...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2449864316248070
+    m_Localized: .............
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2449864316248071
+    m_Localized: ...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2449864316248072
+    m_Localized: <shake>"THAT"</shake>
     m_Metadata:
       m_Items: []
   references:

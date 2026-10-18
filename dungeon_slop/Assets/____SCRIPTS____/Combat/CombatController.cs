@@ -11,7 +11,7 @@ public class CombatController : MonoSingleton<CombatController>
 {
     CombatInfo _info;
     CombatVisuals _visuals;
-
+    [SerializeField] TutorialController tutorialController;
 
     public EnemyController[] enemyControllers;
     public Character_Controller[] charactersControllers;
@@ -59,6 +59,11 @@ public class CombatController : MonoSingleton<CombatController>
         if (_info != null) _info.InitializeCombatInfo(_combatData);
         _visuals = GetComponent<CombatVisuals>();
         if (_visuals != null) _visuals.InitializeCombatVisuals(_combatData);
+
+        if (_combatData.isTutorial)
+        {
+            tutorialController.SetTutorial();
+        }
     }
     private void Start()
     {

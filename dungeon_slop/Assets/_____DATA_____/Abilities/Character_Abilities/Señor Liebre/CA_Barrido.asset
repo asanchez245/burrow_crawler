@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AbilityData
   effects:
   - effects:
-    - {fileID: 11400000, guid: 98cd75b2cf76a114f995f74b234f59b2, type: 2}
+    - {fileID: 11400000, guid: 4c2466463b342a04dbf54228f6e338ae, type: 2}
     conditions:
-    - {fileID: 11400000, guid: 1ad44ae27d970754d9648bf1d42e5058, type: 2}
-    - {fileID: 11400000, guid: 2ed596ac34a22d44ba26c0c68aff9cf4, type: 2}
+    - {fileID: 11400000, guid: 9c20caa250a123c48adc256991d71c18, type: 2}
+    - {fileID: 11400000, guid: 86548899a20e45c449a4f0ed450a4d30, type: 2}
     triggerEvent: 0
   abilityName: conejo_abilities_03_name
   artwork: {fileID: 21300000, guid: 585c878e13bb9cb48b305ad50700214e, type: 3}
   description: conejo_abilities_03_desc
   manaCost:
-  - amount: 2
+  - amount: 1
     manaType: 3
-  - amount: 2
+  - amount: 1
     manaType: 0
   enemyAbility: 0
