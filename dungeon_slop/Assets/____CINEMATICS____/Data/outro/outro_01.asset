@@ -15,6 +15,6 @@ MonoBehaviour:
   changeBackground: 0
   background: {fileID: 0}
   lines:
-  - text: cinematics_outro_00
+  - text: cinematics_outro_01
     changeSprite: 0
     sprite: {fileID: 0}

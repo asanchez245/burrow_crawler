@@ -27,7 +27,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2418756480491521
-    m_Localized: <i>Conejo, carne de nuestra carne,
+    m_Localized: <i>"Valiente Conejo, carne de nuestra carne,
     m_Metadata:
       m_Items: []
   - m_Id: 2418756480491522
@@ -64,11 +64,48 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2418756480491529
-    m_Localized: <i>pues cuando todos caigan, las Liebres seguiremos danzando.
+    m_Localized: <i>pues cuando todos caigan, las Liebres seguiremos danzando."
     m_Metadata:
       m_Items: []
   - m_Id: 2418756480491530
     m_Localized: ...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2449864316248064
+    m_Localized: Recoges del suelo un sobre con instrucciones de la Hermandad.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2449864316248065
+    m_Localized: Va dirigido a otra liebre pero reconoces su contenido,
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2449864316248066
+    m_Localized: son las mismas instrucciones que recibiste, letra por letra.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2449864316248067
+    m_Localized: 'En el reverso del sobre distingues varias palabras escritas con
+      sangre:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2449864316248068
+    m_Localized: ....Oculto.......
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2449864316248069
+    m_Localized: ........la Hermandad...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2449864316248070
+    m_Localized: .............
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2449864316248071
+    m_Localized: ...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2449864316248072
+    m_Localized: <shake>"ESO"</shake>
     m_Metadata:
       m_Items: []
   references:

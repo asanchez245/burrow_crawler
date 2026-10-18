@@ -36,6 +36,6 @@ public class CinematicTrigger : MonoBehaviour
             StartCoroutine(Scene_Manager.Instance.sceneController.ChangeScene(1, 1.5f));
 
         else
-            StartCoroutine(Scene_Manager.Instance.sceneController.ChangeScene(0, 1.5f));
+            StartCoroutine(Scene_Manager.Instance.sceneController.ChangeScene(0, 2f));
     }
 }

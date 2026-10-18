@@ -70,6 +70,44 @@ MonoBehaviour:
     m_Localized: ...
     m_Metadata:
       m_Items: []
+  - m_Id: 2449864316248064
+    m_Localized: You pick up an envelope with instructions from the Brotherhood off
+      the ground.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2449864316248065
+    m_Localized: It is addressed to another hare, but you recognize its contents,
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2449864316248066
+    m_Localized: they are the same instructions you received, letter for letter.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2449864316248067
+    m_Localized: 'On the back of the envelope, you make out several words written
+      in blood:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2449864316248068
+    m_Localized: ....Hidden.......
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2449864316248069
+    m_Localized: ........the Brotherhood...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2449864316248070
+    m_Localized: .............
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2449864316248071
+    m_Localized: ...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2449864316248072
+    m_Localized: <shake>"THAT"</shake>
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
