@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AbilityData
   effects:
   - effects:
-    - {fileID: 11400000, guid: 98cd75b2cf76a114f995f74b234f59b2, type: 2}
+    - {fileID: 11400000, guid: 4c2466463b342a04dbf54228f6e338ae, type: 2}
     conditions:
     - {fileID: 11400000, guid: 9c20caa250a123c48adc256991d71c18, type: 2}
     - {fileID: 11400000, guid: 86548899a20e45c449a4f0ed450a4d30, type: 2}
