@@ -17,13 +17,14 @@ public class InteractableObjectController : MonoBehaviour
     bool interacting;
 
     public InteractionType interactionType;
-
+    [SerializeField] GameObject objectToHide;
     public enum InteractionType
     {
         item,
         door,
         spwanPoint,
-        demoEnd
+        demoEnd,
+        specialItem,
     }
 
     private void Start()
@@ -93,6 +94,11 @@ public class InteractableObjectController : MonoBehaviour
         {
             case InteractionType.item:
                 playerInventary.PickUpItem(item);
+                this.gameObject.SetActive(false);
+                break;
+            case InteractionType.specialItem:
+                playerInventary.PickUpItem(item);
+                objectToHide.SetActive(false);
                 this.gameObject.SetActive(false);
                 break;
             case InteractionType.door:
