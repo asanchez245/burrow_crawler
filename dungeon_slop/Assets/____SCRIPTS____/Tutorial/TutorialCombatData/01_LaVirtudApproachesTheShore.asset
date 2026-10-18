@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fb9b8107dadbd14a906cd0b116c8e6a, type: 3}
+  m_Name: 01_LaVirtudApproachesTheShore
+  m_EditorClassIdentifier: 
+  combatID: 1
+  combatName: La Virtud approaches the Shore
+  winCondition: 1
+  combatMusicType: 1
+  combatDifficulty: 2
+  roundsToSurivive: 5
+  tutorialType: 2
+  enemies:
+  - creaturePosition: 99
+    creature: {fileID: 11400000, guid: 39155ed59733ffb41821f8d285f02e05, type: 2}
+  - creaturePosition: 0
+    creature: {fileID: 0}
+  - creaturePosition: 1
+    creature: {fileID: 11400000, guid: 2b7537b11250d0b429e9fb3cf831b49b, type: 2}
+  - creaturePosition: 2
+    creature: {fileID: 0}
+  - creaturePosition: 3
+    creature: {fileID: 11400000, guid: 2b7537b11250d0b429e9fb3cf831b49b, type: 2}
+  - creaturePosition: 4
+    creature: {fileID: 11400000, guid: 2b7537b11250d0b429e9fb3cf831b49b, type: 2}
+  - creaturePosition: 5
+    creature: {fileID: 0}
+  playerZones: []
+  enemyZones: []
+  scenary: {fileID: 3547720811237920351, guid: 69418b8446a656e49adf011c29e035e5, type: 3}
+  combatPostProcessing: {fileID: 0}
+  currencyRewards: []
+  cardsToDraw: 0
+  cardsToChoose: 0

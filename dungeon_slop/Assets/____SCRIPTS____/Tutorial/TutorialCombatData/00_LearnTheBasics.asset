@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fb9b8107dadbd14a906cd0b116c8e6a, type: 3}
+  m_Name: 00_LearnTheBasics
+  m_EditorClassIdentifier: 
+  combatID: 0
+  combatName: Learn the basics
+  winCondition: 0
+  combatMusicType: 0
+  combatDifficulty: 0
+  roundsToSurivive: 0
+  tutorialType: 1
+  enemies:
+  - creaturePosition: 0
+    creature: {fileID: 0}
+  - creaturePosition: 1
+    creature: {fileID: 0}
+  - creaturePosition: 2
+    creature: {fileID: 11400000, guid: 87d075550a964f445b5e72f12f779a22, type: 2}
+  - creaturePosition: 3
+    creature: {fileID: 0}
+  - creaturePosition: 4
+    creature: {fileID: 0}
+  - creaturePosition: 5
+    creature: {fileID: 0}
+  playerZones:
+  - zonePosition: 0
+    effect: 0
+    turns: 0
+  - zonePosition: 1
+    effect: 0
+    turns: 0
+  - zonePosition: 2
+    effect: 0
+    turns: 0
+  - zonePosition: 3
+    effect: 0
+    turns: 0
+  - zonePosition: 4
+    effect: 0
+    turns: 0
+  - zonePosition: 5
+    effect: 0
+    turns: 0
+  enemyZones:
+  - zonePosition: 0
+    effect: 6
+    turns: 99
+  - zonePosition: 1
+    effect: 6
+    turns: 99
+  - zonePosition: 2
+    effect: 0
+    turns: 0
+  - zonePosition: 3
+    effect: 0
+    turns: 0
+  - zonePosition: 4
+    effect: 6
+    turns: 99
+  - zonePosition: 5
+    effect: 6
+    turns: 99
+  scenary: {fileID: 4205097342008405892, guid: d328750ac40a26540a27fd9a8bc71c00, type: 3}
+  combatPostProcessing: {fileID: 0}
+  currencyRewards:
+  - currencyType: 0
+    amount: 3
+  cardsToDraw: 3
+  cardsToChoose: 1
