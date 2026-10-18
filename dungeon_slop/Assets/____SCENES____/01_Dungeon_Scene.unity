@@ -3293,8 +3293,8 @@ GameObject:
   - component: {fileID: 400723906}
   - component: {fileID: 400723905}
   - component: {fileID: 400723907}
-  - component: {fileID: 400723908}
   - component: {fileID: 400723909}
+  - component: {fileID: 400723908}
   m_Layer: 0
   m_Name: Player_Camera
   m_TagString: Untagged
@@ -3327,8 +3327,8 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 60.000004
-    OrthographicSize: 5
-    NearClipPlane: 0.3
+    OrthographicSize: 7
+    NearClipPlane: -3
     FarClipPlane: 1000
     Dutch: 0
     ModeOverride: 0
@@ -12221,13 +12221,13 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize2D: {x: 0.5, y: 0.5}
   m_Shadows:
-    m_Type: 1
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 0.717
+    m_Strength: 1
     m_Bias: 0.05
     m_NormalBias: 0.4
-    m_NearPlane: 0.93
+    m_NearPlane: 4
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -16220,11 +16220,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: -3
   far clip plane: 1000
   field of view: 60.000004
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
