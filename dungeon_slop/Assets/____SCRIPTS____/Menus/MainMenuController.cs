@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MainMenuController : MonoBehaviour
+public class MainMenuController : TweenUtilities
 {
     [SerializeField] Scene_Controller sceneController;
     public void StartGame()
@@ -11,5 +11,14 @@ public class MainMenuController : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void IncreaseButtonSize(GameObject button)
+    {
+        ScaleObject(button);
+    }
+    public void DecreaseButtonSize(GameObject button)
+    {
+        ScaleObject(button, 1);
     }
 }

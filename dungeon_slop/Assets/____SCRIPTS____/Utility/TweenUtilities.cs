@@ -17,7 +17,7 @@ public abstract class TweenUtilities : MonoBehaviour
     #region Object Scale
     public Tween ScaleObject(GameObject imagen, float scaleFactor = 1.15f, float scaleTime = .2f)
     {
-        Tween scaleObject = imagen.transform.DOScale(new Vector3(scaleFactor, scaleFactor, 1f), scaleFactor);
+        Tween scaleObject = imagen.transform.DOScale(new Vector3(scaleFactor, scaleFactor, 1f), scaleTime);
         return scaleObject;
     }
     #endregion

@@ -15,6 +15,30 @@ MonoBehaviour:
   changeBackground: 0
   background: {fileID: 0}
   lines:
-  - text: cinematics_intro_01
+  - text: cinematics_intro_01_a
+    changeSprite: 0
+    sprite: {fileID: 0}
+  - text: cinematics_intro_01_b
+    changeSprite: 0
+    sprite: {fileID: 0}
+  - text: cinematics_intro_01_c
+    changeSprite: 0
+    sprite: {fileID: 0}
+  - text: cinematics_intro_01_d
+    changeSprite: 0
+    sprite: {fileID: 0}
+  - text: cinematics_intro_01_e
+    changeSprite: 0
+    sprite: {fileID: 0}
+  - text: cinematics_intro_01_f
+    changeSprite: 0
+    sprite: {fileID: 0}
+  - text: cinematics_intro_01_g
+    changeSprite: 0
+    sprite: {fileID: 0}
+  - text: cinematics_intro_01_h
+    changeSprite: 0
+    sprite: {fileID: 0}
+  - text: cinematics_intro_01_i
     changeSprite: 0
     sprite: {fileID: 0}
