@@ -38,7 +38,7 @@ public class CharacterInfo : MonoBehaviour
         SetCurrentShield(chData.shield);
         //habra que sacar la info de health actual del controlador
         //que gestione la party fuera de combate, mientras que se la max
-        SetCurrentHealth(chData.health);
+        SetCurrentHealth(GameManager.Instance.playerParty[0].hp);
     }
 
 

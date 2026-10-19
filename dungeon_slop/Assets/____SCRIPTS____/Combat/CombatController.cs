@@ -150,6 +150,7 @@ public class CombatController : MonoSingleton<CombatController>
         if (victory)
         {
             GameManager.Instance.playerDied = false;
+            GameManager.Instance.playerParty[0].hp = charactersControllers[0].GetCurrentHealth();
             _visuals.ShowWinVisuals(true);
             foreach(EnemyInDungeon enemy in GameManager.Instance.enemiesInDungeon)
             {
@@ -159,6 +160,7 @@ public class CombatController : MonoSingleton<CombatController>
         else
         {
             GameManager.Instance.playerDied = true;
+            GameManager.Instance.playerParty[0].hp = charactersControllers[0]._info.GetMaxHealth(); ;
             _visuals.ShowDieVisuals(true);
         }
         StartCoroutine(Scene_Manager.Instance.sceneController.ChangeScene(1, 1.5f));

@@ -15,12 +15,12 @@ public class AbilityController : ObjectWithEffects, IPointerEnterHandler, IPoint
         base.Initialize(data);
         abilityInfo = GetComponent<AbilityInfo>();
         if (abilityInfo) abilityInfo.Initialize(abilityData);
-        else Debug.LogError($"Trying to initialize the card <b>{gameObject.name}</b> without ability info");
+        else Debug.LogError($"Trying to initialize ability {gameObject.name} without ability info");
 
 
         abilityVisual = GetComponent<AbilityVisuals>();
         if (abilityVisual) abilityVisual.Initialize(abilityData);
-        else Debug.LogError($"Trying to initialize the card <b>{gameObject.name}</b> without ability visuals");
+        else Debug.LogError($"Trying to initialize ability {gameObject.name} without ability visuals");
     }
 
     public override void OnEvent(GameEventType eventType)
@@ -42,18 +42,12 @@ public class AbilityController : ObjectWithEffects, IPointerEnterHandler, IPoint
         OnEvent(GameEventType.OnTriggerAbility);
     }
 
-    //*********** CARD INFO MANAGEMENT *******************
     public string GetAbilityName() { return abilityInfo._abilityName; }
-    public string GetAbilityDesc() { return abilityInfo._description; }
-    public int GetCardBaseDamage() { return abilityInfo.GetHealthDamage(); }
-    public bool IsCardBaseDamageBuffed() { return abilityInfo._healthDmg < abilityInfo.GetHealthDamage(); }
-    public bool IsCardBaseDamageDebuffed() { return abilityInfo._healthDmg > abilityInfo.GetHealthDamage(); }
+    public string GetAbilityDesc() { return abilityInfo._description; }   
 
 
-    public bool IsEnemyCard() { return abilityInfo._enemyAbility; }
-    //public bool IsPreviewCard() { return abilityInfo._isPreviewCard; }
-    //public bool IsRewardCard() { return abilityInfo._isRewardCard; }
-  
+    public bool IsEnemyAbility() { return abilityInfo._enemyAbility; }
+
 
     public int GetCost(ManaType manaType)
     {

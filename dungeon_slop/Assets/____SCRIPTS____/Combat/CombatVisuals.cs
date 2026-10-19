@@ -62,7 +62,7 @@ public class CombatVisuals : MonoBehaviour
     {
         this.characterName.text = chData.characterName.ToString();
         this.characterPortrait.sprite = chData.characterPortrait;
-        this.characterHealth.text = chData.health.ToString();
+        this.characterHealth.text = GameManager.Instance.playerParty[0].hp.ToString();
         this.characterShield.text = chData.shield.ToString();
     }
 
