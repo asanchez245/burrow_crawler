@@ -13,11 +13,15 @@ public class InteractableObjectController : MonoBehaviour
     [Header("Input System")]
     [SerializeField] private InputActionReference interactAction;
 
+    bool neverInteractable;
     bool interactable;
     bool interacting;
 
     public InteractionType interactionType;
     [SerializeField] GameObject objectToHide;
+
+    public InteractableData interactableData;
+
     public enum InteractionType
     {
         item,
@@ -25,6 +29,7 @@ public class InteractableObjectController : MonoBehaviour
         spwanPoint,
         demoEnd,
         specialItem,
+        button,
     }
 
     private void Start()
@@ -34,11 +39,24 @@ public class InteractableObjectController : MonoBehaviour
 
     void Initialize()
     {
+
         item = GetComponent<ItemController>();
         requiredItem = GetComponent<RequiredItem>();
         npcVisuals = GetComponent<NPC_Visuals>();
         if (npcVisuals) npcVisuals.Initialize();
-
+        
+        if(interactableData != null)
+        {
+            if (!interactableData.activeInScene)
+            {
+                if (interactableData.inInventory)
+                {
+                    playerInventary.PickUpItem(item);
+                }
+                Destroy(this.gameObject);
+                return;
+            }
+        }
     }
 
     private void OnEnable()
@@ -58,7 +76,7 @@ public class InteractableObjectController : MonoBehaviour
 
     private void OnInteractInput(InputAction.CallbackContext context)
     {
-        if (!interactable || interacting)
+        if (!interactable || interacting || neverInteractable)
             return;
 
         npcVisuals.StopIndicator();
@@ -94,17 +112,22 @@ public class InteractableObjectController : MonoBehaviour
         {
             case InteractionType.item:
                 playerInventary.PickUpItem(item);
+                interactableData.activeInScene = false;
+                interactableData.inInventory = true;
                 this.gameObject.SetActive(false);
                 break;
             case InteractionType.specialItem:
                 playerInventary.PickUpItem(item);
                 objectToHide.SetActive(false);
+                interactableData.activeInScene = false;
+                interactableData.inInventory = true;
                 this.gameObject.SetActive(false);
                 break;
             case InteractionType.door:
                 if (playerInventary.CheckItemRequired(requiredItem.requiredItem))
                 {
                     Debug.Log("abriendo puelta");
+                    interactableData.activeInScene = false;
                     this.gameObject.SetActive(false);
                 }
                 else
@@ -114,6 +137,16 @@ public class InteractableObjectController : MonoBehaviour
 
                     npcVisuals.ShowInteractionIcon(true);
                 }
+                break;
+            case InteractionType.button:
+                neverInteractable = true;
+                if (objectToHide != null)
+                {
+                    objectToHide.GetComponent<InteractableObjectController>().interactableData.activeInScene = false;
+                    objectToHide.SetActive(false);
+                }
+                interactable = false;               
+                //this.gameObject.SetActive(false);
                 break;
             case InteractionType.spwanPoint:
                 GameManager.Instance.spawnPointChanged = true;

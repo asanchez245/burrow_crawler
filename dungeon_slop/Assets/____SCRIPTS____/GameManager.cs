@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Net;
 using UnityEngine;
@@ -72,10 +73,10 @@ public class GameManager : MonoSingleton<GameManager>
 
         foreach (EnemyInDungeon enemy in enemiesInDungeon)
         {
-            if(enemy.enemyGameObject!=null)
-            enemy.enemyPosition = enemy.enemyGameObject.transform.position;
-            if(enemyToCombat!=null)
-            enemy.activeInCombat = enemy.enemyGameObject == enemyToCombat;
+            if (enemy.enemyGameObject != null)
+                enemy.enemyPosition = enemy.enemyGameObject.transform.position;
+            if (enemyToCombat != null)
+                enemy.activeInCombat = enemy.enemyGameObject == enemyToCombat;
         }
     }
     void LoadEntites()
@@ -107,7 +108,9 @@ public class GameManager : MonoSingleton<GameManager>
             if (navmesh != null) navmesh.enabled = true;
         }
     }
+
 }
+
 [System.Serializable]
 public class PartyMember
 {

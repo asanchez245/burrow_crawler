@@ -31,7 +31,7 @@ public class PlayerInventary_Controller : MonoBehaviour
         {
             if(item == requiredItem)
             {
-                QuitItem(item);
+                //QuitItem(item);
                 return true;
             }
         }
