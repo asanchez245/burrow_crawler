@@ -1,12 +1,12 @@
 Key,English(en),Spanish(es)
-conejo_abilities_00_name,Slash,Tajo
+conejo_abilities_00_name,bash,Golpe
 conejo_abilities_00_desc,Deal 6 damage.,Inflinje 6 de daño.
 conejo_abilities_01_name,Block,Bloqueo
 conejo_abilities_01_desc,Gain 4 shield.,Gana 4 de escudo.
 conejo_abilities_02_name,Parry,Contraataque
-conejo_abilities_02_desc,Deal 3 damage.\nGain 2 shield.,Inflinje 3 de daño.\nGana 2 de escudo.
+conejo_abilities_02_desc,Deal 4 damage.\nGain 2 shield.,Inflinje 4 de daño.\nGana 2 de escudo.
 conejo_abilities_03_name,Sweep,Barrido
-conejo_abilities_03_desc,Deal 5 damage to all enemies.,Inflinje 5 de daño a todos los enemigos.
+conejo_abilities_03_desc,Deal 10 damage to all enemies.,Inflinje 10 de daño a todos los enemigos.
 luna_abilities_00_name,Sunrise,Amanecer
 luna_abilities_00_desc,Change to Solar state.,Cambia a estado Solar.
 luna_abilities_01_name,,

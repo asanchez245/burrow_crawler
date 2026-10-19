@@ -27,6 +27,34 @@ MonoBehaviour:
     m_Key: npc_sol_dialogue_intro_03
     m_Metadata:
       m_Items: []
+  - m_Id: 2179349584371712
+    m_Key: npc_sol_dialogue_intro_04
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2179349622120448
+    m_Key: npc_sol_dialogue_intro_05
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2179349622120452
+    m_Key: npc_luna_dialogue_intro_01
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2179349622120453
+    m_Key: npc_luna_dialogue_intro_02
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2179349622120454
+    m_Key: npc_luna_dialogue_intro_03
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2179349622120455
+    m_Key: npc_luna_dialogue_intro_04
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2179349622120456
+    m_Key: npc_luna_dialogue_intro_05
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

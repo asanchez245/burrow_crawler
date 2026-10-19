@@ -19,15 +19,43 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 112928579584
-    m_Localized: Hola quetal
+    m_Localized: "\xBF\xBF\xA1\xA1Otra Liebre!!??"
     m_Metadata:
       m_Items: []
   - m_Id: 113050214400
-    m_Localized: soy Trakatra
+    m_Localized: Y como <shake>SIEMPRE</shake> llegando tarde.
     m_Metadata:
       m_Items: []
   - m_Id: 113054408704
-    m_Localized: la mas odiada del mundo de dungeon slop
+    m_Localized: "No hay <shake>NADA</shake> que hacer aqu\xED."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2179349584371712
+    m_Localized: <shake>N A D A
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2179349622120448
+    m_Localized: <shake>LARGO!!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2179349622120452
+    m_Localized: hola Liebre...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2179349622120453
+    m_Localized: justo a tiempo.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2179349622120454
+    m_Localized: "me alegro de que estes aqu\xED."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2179349622120455
+    m_Localized: <wiggle>gra...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2179349622120456
+    m_Localized: <wiggle>gacias...
     m_Metadata:
       m_Items: []
   references:

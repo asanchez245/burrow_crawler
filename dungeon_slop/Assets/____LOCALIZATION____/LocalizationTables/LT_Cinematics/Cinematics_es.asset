@@ -23,11 +23,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2418756480491520
-    m_Localized: 'Instrucciones enviadas por la Hermandad para el Conejo:'
+    m_Localized: 'Instrucciones enviadas por la Hermandad para la Liebre:'
     m_Metadata:
       m_Items: []
   - m_Id: 2418756480491521
-    m_Localized: <i>"Valiente Conejo, carne de nuestra carne,
+    m_Localized: <i>"Valiente Liebre, carne de nuestra carne,
     m_Metadata:
       m_Items: []
   - m_Id: 2418756480491522
@@ -60,7 +60,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2418756480491528
-    m_Localized: <i>Cumple con tu cometido, Conejo, y no te amedrentes ante nada,
+    m_Localized: <i>Cumple con tu cometido, Liebre, y no te amedrentes ante nada,
     m_Metadata:
       m_Items: []
   - m_Id: 2418756480491529

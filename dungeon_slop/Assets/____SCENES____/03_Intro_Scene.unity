@@ -150,6 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CinematicTrigger
   controller: {fileID: 1730251591}
   dialogueTree: {fileID: 11400000, guid: d4d09d340cefc5f4dadf265611dbc153, type: 2}
+  outro: 0
 --- !u!4 &198517860
 Transform:
   m_ObjectHideFlags: 0
@@ -838,7 +839,7 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f9c3fbf32c0a5894e8ba4b6ace0eb857, type: 2}
-  m_sharedMaterial: {fileID: -5317211955636054095, guid: f9c3fbf32c0a5894e8ba4b6ace0eb857, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: cd973d1a15e280641b767c867e4bb858, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

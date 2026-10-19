@@ -23,11 +23,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2418756480491520
-    m_Localized: 'Instructions sent by the Brotherhood to the Rabbit:'
+    m_Localized: 'Instructions sent by the Brotherhood to the Hare:'
     m_Metadata:
       m_Items: []
   - m_Id: 2418756480491521
-    m_Localized: <i>Rabbit, flesh of our flesh,</i>
+    m_Localized: <i>Hare, flesh of our flesh,</i>
     m_Metadata:
       m_Items: []
   - m_Id: 2418756480491522
@@ -59,7 +59,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2418756480491528
-    m_Localized: <i>Do your part, Rabbit, and do not let anything frighten you,</i>
+    m_Localized: <i>Do your part, Hare, and do not let anything frighten you,</i>
     m_Metadata:
       m_Items: []
   - m_Id: 2418756480491529

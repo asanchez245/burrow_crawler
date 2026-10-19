@@ -24,3 +24,9 @@ MonoBehaviour:
   - text: npc_sol_dialogue_intro_03
     changeSprite: 0
     sprite: {fileID: 0}
+  - text: npc_sol_dialogue_intro_04
+    changeSprite: 0
+    sprite: {fileID: 0}
+  - text: npc_sol_dialogue_intro_05
+    changeSprite: 0
+    sprite: {fileID: 0}

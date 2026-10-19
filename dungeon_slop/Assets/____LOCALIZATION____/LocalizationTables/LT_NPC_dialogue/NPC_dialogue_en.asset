@@ -19,15 +19,43 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 112928579584
-    m_Localized: hello wassap
+    m_Localized: Another Hare!!??
     m_Metadata:
       m_Items: []
   - m_Id: 113050214400
-    m_Localized: im Trakatra
+    m_Localized: As <shake>ALWAYS</shake> beign late.
     m_Metadata:
       m_Items: []
   - m_Id: 113054408704
-    m_Localized: the most hated one in the dungeon slop world
+    m_Localized: There is <shake>NOTHING</shake> left to do in here.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2179349584371712
+    m_Localized: <shake>N O T H I N G
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2179349622120448
+    m_Localized: <shake>OUT!!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2179349622120452
+    m_Localized: hello Hare...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2179349622120453
+    m_Localized: just in time.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2179349622120454
+    m_Localized: glad you are here.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2179349622120455
+    m_Localized: <wiggle>th...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2179349622120456
+    m_Localized: <wiggle>thanks...
     m_Metadata:
       m_Items: []
   references:
