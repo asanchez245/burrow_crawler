@@ -139,6 +139,7 @@ MonoBehaviour:
   timeBetweenPatrols: 5
   patrolRadius: 10
   patrolTimer: 0
+  actionRadius: 1.5
 --- !u!114 &7005550339717110994
 MonoBehaviour:
   m_ObjectHideFlags: 0

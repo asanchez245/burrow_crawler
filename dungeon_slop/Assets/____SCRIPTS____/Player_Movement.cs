@@ -31,7 +31,9 @@ public class Player_Movement : MonoBehaviour
         Vector3 moveDirection = Vector3.zero;
         moveDirection.x = input.x;
         moveDirection.z = input.y;
-        if (moveDirection != Vector3.zero)
+        //moveDirection.y = -1;
+
+        if (moveDirection.x != 0 || moveDirection.z != 0)
         {
             visuals.RunAnimation();
         }
@@ -48,5 +50,9 @@ public class Player_Movement : MonoBehaviour
             playerVelocity.y = -2f;
         }
         controller.Move(playerVelocity * Time.deltaTime);
+
+        Vector3 position = transform.position;
+        position.y = 0f;
+        transform.position = position;
     }
 }

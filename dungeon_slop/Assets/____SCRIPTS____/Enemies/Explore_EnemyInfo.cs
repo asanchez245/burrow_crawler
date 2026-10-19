@@ -16,6 +16,8 @@ public class Explore_EnemyInfo : MonoBehaviour
     public float timeBetweenPatrols = 5f;
     public float patrolRadius = 10f;
     public float patrolTimer;
+    public float actionRadius;
+
     public void Initialize()
     {
         agent = GetComponent<NavMeshAgent>();

@@ -6,6 +6,7 @@ public class Explore_EnemyController : MonoBehaviour
     Explore_EnemyInfo enemyInfo;
     Explore_EnemyVisuals enemyVisuals;
 
+
     void Awake()
     {
         Initialize();
@@ -34,7 +35,8 @@ public class Explore_EnemyController : MonoBehaviour
         {
             enemyVisuals.EnemyIdleAnimation();
         }
-        if(Vector3.Distance(transform.position, Player_Controller.Instance.transform.position)<0.5f)
+        float distanceToPlayer = Vector3.Distance(transform.position, Player_Controller.Instance.transform.position);
+        if(distanceToPlayer < enemyInfo.actionRadius)
         {
             Player_Controller.Instance.playerVisuals.EnterCombatCam();
             Player_Controller.Instance.playerInfo.SetStartingCombat(true);
