@@ -155,6 +155,7 @@ public class InteractableObjectController : MonoBehaviour
             case InteractionType.demoEnd:
                 interactable = false;
                 npcVisuals.ShowInteractionIcon(false);
+                Destroy(GameManager.Instance.gameObject);
                 StartCoroutine(Scene_Manager.Instance.sceneController.ChangeScene(4, 1.5f));
                 break;
         }

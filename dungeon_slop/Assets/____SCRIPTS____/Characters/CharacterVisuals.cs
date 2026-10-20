@@ -1,7 +1,6 @@
 using System;
 using DG.Tweening;
 using TMPro;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +14,7 @@ public class CharacterVisuals : MonoBehaviour
     internal void InitializeCharacterVisuals(CharacterData chData, Character_Controller controller)
     {
         SetCharacterPortrait(chData);
-        SetAnimatorController(chData.characterAnimationController);
+        //SetAnimatorController(chData.characterAnimationController);
         UpdateHealthText(controller.GetCurrentHealth());
         UpdateShieldText(controller.GetCurrentShield());
         textGenerator = GetComponent<FloatingTextGenerator>();
@@ -42,9 +41,9 @@ public class CharacterVisuals : MonoBehaviour
     {
         characterSpriteCombat.sprite = chData.characterSpriteCombatIdle;
     }
-    public void SetAnimatorController(AnimatorController animatorController)
+    public void SetAnimatorController(Animator animatorController)
     {
-        characterAnimator.runtimeAnimatorController = animatorController;
+        //characterAnimator = animatorController;
     }
     public void CharGetDamageVisuals(int damageAmount)
     {

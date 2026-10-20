@@ -1,6 +1,5 @@
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "CharacterData", menuName = "Character/CharacterData")]
@@ -13,7 +12,7 @@ public class CharacterData : ScriptableObject
     [PreviewField]
     public Sprite characterPortrait;
 
-    public AnimatorController characterAnimationController;
+    public Animator characterAnimationController;
 
     [TextArea(3, 10)]
     public string characterDescription;

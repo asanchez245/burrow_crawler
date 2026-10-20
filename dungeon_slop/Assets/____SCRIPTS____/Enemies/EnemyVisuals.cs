@@ -1,7 +1,6 @@
 using DG.Tweening;
 using System.Collections;
 using TMPro;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,7 +19,7 @@ public class EnemyVisuals : MonoBehaviour
     public TextMeshProUGUI defenseIntentionValue;
     internal void InitializeEnemyVisuals(EnemyData enemyData)
     {
-        SetAnimatorController(enemyData.animatorController);
+        //SetAnimatorController(enemyData.animatorController);
         enemySprite.sprite = enemyData.enemySprite;
         targetedIcon.SetActive(false);
         SetIntentionsValues(enemyData);
@@ -115,9 +114,9 @@ public class EnemyVisuals : MonoBehaviour
         }
         CleanAllIntentionIcons();
     }
-    public void SetAnimatorController(AnimatorController animatorController)
+    public void SetAnimatorController(Animator animatorController)
     {
-        enemyAnimator.runtimeAnimatorController = animatorController;
+        enemyAnimator = animatorController;
     }
     public void EnemyDieVisuals()
     {
