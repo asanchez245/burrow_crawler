@@ -1,3 +1,6 @@
+using DG.Tweening;
+using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static InteractableObjectController;
@@ -16,7 +19,10 @@ public class InteractableObjectController : MonoBehaviour
     bool neverInteractable;
     bool interactable;
     bool interacting;
-
+    public AudioSource audioSource;
+    public AudioClip sound;
+    public CanvasGroup msgContainer;
+    public TextMeshProUGUI msg;
     public InteractionType interactionType;
     [SerializeField] GameObject objectToHide;
 
@@ -43,9 +49,10 @@ public class InteractableObjectController : MonoBehaviour
         item = GetComponent<ItemController>();
         requiredItem = GetComponent<RequiredItem>();
         npcVisuals = GetComponent<NPC_Visuals>();
+        audioSource = GetComponent<AudioSource>();
         if (npcVisuals) npcVisuals.Initialize();
-        
-        if(interactableData != null)
+
+        if (interactableData != null)
         {
             if (!interactableData.activeInScene)
             {
@@ -105,9 +112,20 @@ public class InteractableObjectController : MonoBehaviour
         if (!interacting && npcVisuals != null)
             npcVisuals.ShowInteractionIcon(false);
     }
-
+    IEnumerator ShowMessage(string text)
+    {
+        msg.text = text;
+        msgContainer.DOFade(1, .75f).From(0);
+        yield return new WaitForSeconds(2f);
+        msgContainer.DOFade(0, .75f);
+    }
     public void Interaction(InteractionType interactionType)
     {
+        if (interactionType != InteractionType.door || playerInventary.CheckItemRequired(requiredItem.requiredItem))
+        {
+            if (audioSource != null && sound != null)
+                audioSource.PlayOneShot(sound);
+        }
         switch (interactionType)
         {
             case InteractionType.item:
@@ -140,17 +158,19 @@ public class InteractableObjectController : MonoBehaviour
                 break;
             case InteractionType.button:
                 neverInteractable = true;
+                StartCoroutine(ShowMessage("Algo se ha abierto en la mazmorra..."));
                 if (objectToHide != null)
                 {
                     objectToHide.GetComponent<InteractableObjectController>().interactableData.activeInScene = false;
                     objectToHide.SetActive(false);
                 }
-                interactable = false;               
+                interactable = false;
                 //this.gameObject.SetActive(false);
                 break;
             case InteractionType.spwanPoint:
+                StartCoroutine(ShowMessage("Tomas un sorbo.\n <wiggle>(Reaparición reestablecida)"));
                 GameManager.Instance.spawnPointChanged = true;
-                this.gameObject.SetActive(false);
+                interactable = false;
                 break;
             case InteractionType.demoEnd:
                 interactable = false;
