@@ -20,7 +20,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 86548899a20e45c449a4f0ed450a4d30, type: 2}
     triggerEvent: 0
   abilityName: conejo_abilities_03_name
-  artwork: {fileID: 21300000, guid: 585c878e13bb9cb48b305ad50700214e, type: 3}
+  artwork: {fileID: 21300000, guid: ee579ddd0734bdd41ae55d310a38feee, type: 3}
   description: conejo_abilities_03_desc
   manaCost:
   - amount: 1

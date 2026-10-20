@@ -16,7 +16,6 @@ public class AbilityVisuals : MonoBehaviour
 
     [Header("UI References")]
     [SerializeField] Image abilityArtwork;
-    Outline abilityArtworkOutline;
 
     //[Header("Particles")]
     //public ParticleSystem cardParticles;
@@ -31,7 +30,6 @@ public class AbilityVisuals : MonoBehaviour
         //abilityDescriptionText = CombatController.Instance.GetInfoDesc();
 
         abilityArtwork.sprite = data.artwork;
-        abilityArtworkOutline = GetComponentInChildren<Outline>();
 
         SetArtworkColor();
 
@@ -104,11 +102,9 @@ public class AbilityVisuals : MonoBehaviour
     public void PointerEnterVisuals()
     {
         IncreaseImageSize(gameObject);
-        abilityArtworkOutline.effectColor = Color.yellow;
     }
     public void PointerExitVisuals()
     {
         DecreaseImageSize(gameObject);
-        abilityArtworkOutline.effectColor = Color.black;
     }
 }

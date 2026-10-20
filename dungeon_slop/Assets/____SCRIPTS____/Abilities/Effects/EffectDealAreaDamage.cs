@@ -57,6 +57,7 @@ public class EffectDealAreaDamage : Effect
             var enemies = CombatController.Instance.enemyControllers;
 
             List<EnemyController> targets = new();
+            ctx.sourceCharacter._visuals.TriggerAnim(PlayType.Attack);
 
             int currentIndex = 0;
             for (int i = 0; i < enemies.Length; i++)
