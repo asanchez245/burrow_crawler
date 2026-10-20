@@ -82,7 +82,7 @@ public class ManaPoolVisuals : MonoBehaviour
         SortOrbsInContainer();
     }
 
-    public void RemoveMana(ManaType type)
+    public void RemoveMana(ManaType type, PlayType playType)
     {
         Sprite sprite = GetSpriteForType(type);
         if (sprite == null) return;
@@ -117,10 +117,43 @@ public class ManaPoolVisuals : MonoBehaviour
                 Destroy(lastOrb);
             }
         }
-
+        int soundSelected = -1;
+        switch (playType)
+        {
+            case PlayType.Attack:
+                soundSelected = 0;
+                break;
+            case PlayType.Heal:
+                soundSelected = 1;
+                break;
+            case PlayType.Defense:
+                soundSelected = 2;
+                break;
+        }
+        if (soundSelected != -1)
+        {
+            PlaySound(sounds[soundSelected]);
+        }
         SortOrbsInContainer();
     }
+    public AudioClip[] sounds;
+    void PlaySound(AudioClip sound)
+    {
+        if (sound != null)
+        {
+            Vector3 spawnPosition = transform.position;
+            GameObject objectSound = new GameObject("TemporaryAudioObject");
+            objectSound.transform.position = spawnPosition;
 
+            AudioSource audioSource = objectSound.AddComponent<AudioSource>();
+            audioSource.clip = sound;
+            audioSource.pitch = Random.Range(0.8f, 1.2f);
+            audioSource.volume = 0.2f;
+            audioSource.Play();
+
+            Destroy(objectSound, sound.length);
+        }
+    }
     private void RemoveAllOrbsOfSprite(Sprite sprite)
     {
         for (int i = manaHorizontalContainer.childCount - 1; i >= 0; i--)

@@ -26,25 +26,25 @@ public class TESTZONE : MonoBehaviour
         ManaPoolController.Instance.GenerateMana(ManaType.YellowMana, spawnPoint.position, amount);
     }
 
-    public void UseNeutralMana(int amount)
-    {
-        ManaPoolController.Instance.OnOrbUsed(ManaType.NeutralMana, amount);
-    }
+    //public void UseNeutralMana(int amount)
+    //{
+    //    ManaPoolController.Instance.OnOrbUsed(ManaType.NeutralMana, amount);
+    //}
 
-    public void UseRedMana(int amount)
-    {
-        ManaPoolController.Instance.OnOrbUsed(ManaType.RedMana, amount);
-    }
+    //public void UseRedMana(int amount)
+    //{
+    //    ManaPoolController.Instance.OnOrbUsed(ManaType.RedMana, amount);
+    //}
 
-    public void UseBlueMana(int amount)
-    {
-        ManaPoolController.Instance.OnOrbUsed(ManaType.BlueMana, amount);
-    }
+    //public void UseBlueMana(int amount)
+    //{
+    //    ManaPoolController.Instance.OnOrbUsed(ManaType.BlueMana, amount);
+    //}
 
-    public void UseYellowMana(int amount)
-    {
-        ManaPoolController.Instance.OnOrbUsed(ManaType.YellowMana, amount);
-    }
+    //public void UseYellowMana(int amount)
+    //{
+    //    ManaPoolController.Instance.OnOrbUsed(ManaType.YellowMana, amount);
+    //}
 
     #region ____________________TEST ZONE CONTROLS____________________
     public GameObject testPanel;
