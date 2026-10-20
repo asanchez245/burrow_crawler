@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3701a41c95a0691439885d46faf44da6, type: 3}
   m_Name: PuertaGris
   m_EditorClassIdentifier: Assembly-CSharp::InteractableData
+  itemID: PuertaGris
   activeInScene: 1
   inInventory: 0

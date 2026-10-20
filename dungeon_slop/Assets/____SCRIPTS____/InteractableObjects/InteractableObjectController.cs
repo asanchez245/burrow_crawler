@@ -3,7 +3,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static InteractableObjectController;
+
 
 public class InteractableObjectController : MonoBehaviour
 {
@@ -26,6 +26,9 @@ public class InteractableObjectController : MonoBehaviour
     [SerializeField] GameObject objectToHide;
 
     public InteractableData interactableData;
+    private string ActiveKey => $"Item_{interactableData.itemID}_Active";
+    private string InventoryKey => $"Item_{interactableData.itemID}_Inventory";
+
 
     public enum InteractionType
     {
@@ -50,11 +53,14 @@ public class InteractableObjectController : MonoBehaviour
         npcVisuals = GetComponent<NPC_Visuals>();
         if (npcVisuals) npcVisuals.Initialize();
 
+        bool isActive = PlayerPrefs.GetInt(ActiveKey, interactableData.activeInScene ? 1 : 0) == 1;
+        bool isInInventory = PlayerPrefs.GetInt(InventoryKey, interactableData.inInventory ? 1 : 0) == 1;
+
         if (interactableData != null)
         {
-            if (!interactableData.activeInScene)
+            if (!interactableData.activeInScene || !isActive)
             {
-                if (interactableData.inInventory)
+                if (interactableData.inInventory || isInInventory)
                 {
                     playerInventary.PickUpItem(item);
                 }
@@ -145,6 +151,9 @@ public class InteractableObjectController : MonoBehaviour
                 playerInventary.PickUpItem(item);
                 interactableData.activeInScene = false;
                 interactableData.inInventory = true;
+                PlayerPrefs.SetInt(ActiveKey, 0);
+                PlayerPrefs.SetInt(InventoryKey, 1);
+                PlayerPrefs.Save();
                 this.gameObject.SetActive(false);
                 break;
             case InteractionType.specialItem:
@@ -152,6 +161,9 @@ public class InteractableObjectController : MonoBehaviour
                 objectToHide.SetActive(false);
                 interactableData.activeInScene = false;
                 interactableData.inInventory = true;
+                PlayerPrefs.SetInt(ActiveKey, 0);
+                PlayerPrefs.SetInt(InventoryKey, 1);
+                PlayerPrefs.Save();
                 this.gameObject.SetActive(false);
                 break;
             case InteractionType.door:
@@ -159,6 +171,8 @@ public class InteractableObjectController : MonoBehaviour
                 {
                     Debug.Log("abriendo puelta");
                     interactableData.activeInScene = false;
+                    PlayerPrefs.SetInt(ActiveKey, 1);
+                    PlayerPrefs.Save();
                     this.gameObject.SetActive(false);
                 }
                 else
@@ -172,9 +186,14 @@ public class InteractableObjectController : MonoBehaviour
             case InteractionType.button:
                 neverInteractable = true;
                 StartCoroutine(ShowMessage("Algo se ha abierto en la mazmorra..."));
+
+
                 if (objectToHide != null)
                 {
-                    objectToHide.GetComponent<InteractableObjectController>().interactableData.activeInScene = false;
+                    InteractableObjectController controller = objectToHide.GetComponent<InteractableObjectController>();
+                    controller.interactableData.activeInScene = false;
+                    PlayerPrefs.SetInt($"Item_{controller.interactableData.itemID}_Active", 0);
+                    PlayerPrefs.Save();
                     objectToHide.SetActive(false);
                 }
                 interactable = false;
