@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da815bf575076d8469aae1801e4eaba2, type: 3}
   m_Name: Conejo_Character
   m_EditorClassIdentifier: Assembly-CSharp::CharacterData
-  characterName: CONEJO
+  characterName: LIEBRE
   characterSpriteCombatIdle: {fileID: -1709618375, guid: 1ce787b1587e4884f8e356b692badf73, type: 3}
   characterPortrait: {fileID: -747932199, guid: 1ce787b1587e4884f8e356b692badf73, type: 3}
   characterAnimationController: {fileID: 9100000, guid: 7b20dc3af8f23814ebfa678f5e53bfd4, type: 2}
-  characterDescription: Conejo
+  characterDescription: Liebre
   health: 18
   shield: 10
   manaGenerationPerTurn:

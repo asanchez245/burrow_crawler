@@ -635,7 +635,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 14
   m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -6166,7 +6166,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Los enemigos muestran sus intenciones, pero estas est\xE1n ocultas hasta
     que llegue el turno enemigo, en ese momento se revelar\xE1n \ny a continuaci\xF3n
-    se ejecutar\xE1n en orden.\n\nTrata de sobrevivir, Conejo, acaba con tus enemigos
+    se ejecutar\xE1n en orden.\n\nTrata de sobrevivir, Liebre, acaba con tus enemigos
     y podr\xE1s seguir tu camino. "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f9c3fbf32c0a5894e8ba4b6ace0eb857, type: 2}
@@ -7017,7 +7017,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 10
   m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -7275,7 +7275,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 14
   m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
