@@ -69,6 +69,7 @@ public class EnemyController : ObjectWithEffects, IPointerClickHandler, IPointer
             PlayType.Heal => GameEventType.OnEnemyHeal,
             _ => throw new System.ArgumentOutOfRangeException(nameof(play), play, null)
         };
+        
         Sequencer.Instance.InsertSequence(_visuals.TriggerAnim(play));
         OnEvent(gameEvent);
         Sequencer.Instance.InsertSequence(_visuals.RevealIntention(play));
@@ -131,6 +132,7 @@ public class EnemyController : ObjectWithEffects, IPointerClickHandler, IPointer
     }
 
     #endregion
+
     #region Character Stats Management
     public int GetCurrentHealth() { return _info.GetCurrentHealth(); }
     public void ModifyEnemyHealth(int amount, bool isFixed = false)

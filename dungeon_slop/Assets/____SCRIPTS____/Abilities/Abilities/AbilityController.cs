@@ -9,6 +9,7 @@ public class AbilityController : ObjectWithEffects, IPointerEnterHandler, IPoint
     public AbilityVisuals Visual => abilityVisual;
     public AbilityInfo Info => abilityInfo;
     public AbilityData abilityData => objectWithEffectsData as AbilityData;
+    public PlayType _playType;
 
     public override void Initialize(ObjectWithEffectsData data)
     {
@@ -33,6 +34,7 @@ public class AbilityController : ObjectWithEffects, IPointerEnterHandler, IPoint
             enemiesOnBoard = BoardController.Instance.GetEnemiesInCombat(),
             alliesOnBoard = BoardController.Instance.GetCharactersInCombat(),
             sourceCharacter = CombatController.Instance.GetSelectedCharacter,
+            playType = _playType
         };
 
         TriggerEvent(eventType, ctxt);
@@ -41,7 +43,6 @@ public class AbilityController : ObjectWithEffects, IPointerEnterHandler, IPoint
     {
         OnEvent(GameEventType.OnTriggerAbility);
     }
-
     public string GetAbilityName() { return abilityInfo._abilityName; }
     public string GetAbilityDesc() { return abilityInfo._description; }   
 

@@ -40,16 +40,16 @@ public class ConditionPayMana : Condition
         }
 
         if (neutralManaCost > 0)
-            ctx.poolController.OnOrbUsed(ManaType.NeutralMana, neutralManaCost);
+            ctx.poolController.OnOrbUsed(ManaType.NeutralMana,ctx.playType, neutralManaCost);
 
         if (redManaCost > 0)
-            ctx.poolController.OnOrbUsed(ManaType.RedMana, redManaCost);
+            ctx.poolController.OnOrbUsed(ManaType.RedMana, ctx.playType, redManaCost);
 
         if (yellowManaCost > 0)
-            ctx.poolController.OnOrbUsed(ManaType.YellowMana, yellowManaCost);
+            ctx.poolController.OnOrbUsed(ManaType.YellowMana, ctx.playType, yellowManaCost);
 
         if (blueManaCost > 0)
-            ctx.poolController.OnOrbUsed(ManaType.BlueMana, blueManaCost);
+            ctx.poolController.OnOrbUsed(ManaType.BlueMana, ctx.playType, blueManaCost);
         return true;
     }
 }

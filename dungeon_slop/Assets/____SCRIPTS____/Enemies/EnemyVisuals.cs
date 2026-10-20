@@ -2,12 +2,14 @@ using DG.Tweening;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.ProBuilder.Shapes;
 using UnityEngine.UI;
 
 public class EnemyVisuals : MonoBehaviour
 {
     public GameObject enemyVisuals;
 
+    public Image[] enemySpritesList;
     public Image enemySprite;
     public Animator enemyAnimator;
     public GameObject targetedIcon;
@@ -20,7 +22,17 @@ public class EnemyVisuals : MonoBehaviour
     internal void InitializeEnemyVisuals(EnemyData enemyData)
     {
         //SetAnimatorController(enemyData.animatorController);
-        enemySprite.sprite = enemyData.enemySprite;
+        int spriteChosed = enemyData.enemyName == "Lobo" ? 0 : 1;
+        if (spriteChosed == 0)
+        {
+            enemySpritesList[1].gameObject.SetActive(false);
+        }
+        else
+        {
+            enemySpritesList[0].gameObject.SetActive(false);
+        }
+        enemySprite = enemySpritesList[spriteChosed];
+        enemyAnimator = enemySprite.GetComponent<Animator>();
         targetedIcon.SetActive(false);
         SetIntentionsValues(enemyData);
     }
@@ -76,10 +88,43 @@ public class EnemyVisuals : MonoBehaviour
         {
             enemyAnimator.SetTrigger(animation);
         }
-
+        int soundSelected = -1;
+        switch (playType)
+        {
+            case PlayType.Attack:
+                soundSelected = 0;
+                break;
+            case PlayType.Heal:
+                soundSelected = 1;
+                break;
+            case PlayType.Defense:
+                soundSelected = 2;
+                break;
+        }
+        if (soundSelected != -1)
+        {
+            PlaySound(sounds[soundSelected]);
+        }
         yield return null;
     }
+    public AudioClip[] sounds;
+    void PlaySound(AudioClip sound)
+    {
+        if (sound != null)
+        {
+            Vector3 spawnPosition = transform.position;
+            GameObject objectSound = new GameObject("TemporaryAudioObject");
+            objectSound.transform.position = spawnPosition;
 
+            AudioSource audioSource = objectSound.AddComponent<AudioSource>();
+            audioSource.clip = sound;
+            audioSource.pitch = Random.Range(0.8f, 1.2f);
+            audioSource.volume = 0.2f;
+            audioSource.Play();
+
+            Destroy(objectSound, sound.length);
+        }
+    }
     public IEnumerator RevealIntention(PlayType playType)
     {
         GameObject actionSelected = null;
@@ -109,6 +154,7 @@ public class EnemyVisuals : MonoBehaviour
             revealIntentionTween.Append(actionSelected.transform.DOScaleX(0, .25f));
             revealIntentionTween.Append(actionSelected.transform.DOScaleX(1, .25f));
             revealIntentionTween.Join(actionValue.DOFade(1, .25f).From(0));
+            revealIntentionTween.AppendInterval(.5f);
 
             yield return revealIntentionTween.WaitForCompletion();
         }

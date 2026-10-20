@@ -33,14 +33,14 @@ public class ManaPoolController : MonoSingleton<ManaPoolController>
         poolInfo.AddMana(type, 1);
         visuals.AddMana(type);
     }
-    public bool OnOrbUsed(ManaType type, int amount)
+    public bool OnOrbUsed(ManaType type,PlayType playType, int amount)
     {
         if (poolInfo.GetCurrentManaCount(type) < amount)
         {
             return false;
         }
         poolInfo.RemoveMana(type, amount);
-        visuals.RemoveMana(type);
+        visuals.RemoveMana(type,playType);
         return true;
     }
     public int ManaCount(ManaType manaType) { return poolInfo.GetCurrentManaCount(manaType); }

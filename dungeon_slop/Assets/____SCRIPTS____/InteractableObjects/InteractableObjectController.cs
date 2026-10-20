@@ -19,8 +19,7 @@ public class InteractableObjectController : MonoBehaviour
     bool neverInteractable;
     bool interactable;
     bool interacting;
-    public AudioSource audioSource;
-    public AudioClip sound;
+
     public CanvasGroup msgContainer;
     public TextMeshProUGUI msg;
     public InteractionType interactionType;
@@ -49,7 +48,6 @@ public class InteractableObjectController : MonoBehaviour
         item = GetComponent<ItemController>();
         requiredItem = GetComponent<RequiredItem>();
         npcVisuals = GetComponent<NPC_Visuals>();
-        audioSource = GetComponent<AudioSource>();
         if (npcVisuals) npcVisuals.Initialize();
 
         if (interactableData != null)
@@ -119,11 +117,10 @@ public class InteractableObjectController : MonoBehaviour
         yield return new WaitForSeconds(2f);
         msgContainer.DOFade(0, .75f);
     }
-    public void Interaction(InteractionType interactionType)
+    public AudioClip sound;
+    void PlaySound()
     {
-        if (interactionType != InteractionType.door || playerInventary.CheckItemRequired(requiredItem.requiredItem))
-        {
-            if (audioSource != null && sound != null)
+            if (sound != null)
             {
                 Vector3 spawnPosition = transform.position;
                 GameObject objectSound = new GameObject("TemporaryAudioObject");
@@ -135,6 +132,12 @@ public class InteractableObjectController : MonoBehaviour
 
                 Destroy(objectSound, sound.length);
             }
+    }
+    public void Interaction(InteractionType interactionType)
+    {
+        if (interactionType != InteractionType.door || playerInventary.CheckItemRequired(requiredItem.requiredItem))
+        {
+            PlaySound();
         }
         switch (interactionType)
         {
