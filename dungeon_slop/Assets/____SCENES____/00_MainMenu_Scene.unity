@@ -1674,7 +1674,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hare Quest
+  m_text: Burrow Crawler
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f9c3fbf32c0a5894e8ba4b6ace0eb857, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 0a605f21b14ec334fb17746b0ae59982, type: 2}

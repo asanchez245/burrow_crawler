@@ -24,6 +24,9 @@ MonoBehaviour:
   enemyName: Caballero
   enemySprite: {fileID: -850638117, guid: 1ce787b1587e4884f8e356b692badf73, type: 3}
   animatorController: {fileID: 9100000, guid: 3438efbb0e62ce24ca0a59f81f55ba23, type: 2}
+  damageAmount: 3
+  healingAmount: 0
+  shieldingAmount: 5
   health: 15
   shield: 10
   maxShield: 10

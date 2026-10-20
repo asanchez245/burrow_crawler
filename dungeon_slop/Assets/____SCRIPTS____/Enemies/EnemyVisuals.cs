@@ -23,7 +23,16 @@ public class EnemyVisuals : MonoBehaviour
         SetAnimatorController(enemyData.animatorController);
         enemySprite.sprite = enemyData.enemySprite;
         targetedIcon.SetActive(false);
+        SetIntentionsValues(enemyData);
     }
+
+    void SetIntentionsValues(EnemyData enemyData)
+    {
+        attackIntentionValue.text = enemyData.damageAmount.ToString();
+        healIntentionValue.text = enemyData.healingAmount.ToString();
+        defenseIntentionValue.text = enemyData.shieldingAmount.ToString();
+    }
+
     public void SetTargetedVisuals(bool isTargeted)
     {
         targetedIcon.SetActive(isTargeted);

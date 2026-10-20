@@ -12,6 +12,11 @@ public class EnemyData : ObjectWithEffectsData
     public Sprite enemySprite;
     public AnimatorController animatorController;
 
+    [Header("Enemy Abilities Amounts")]
+    public int damageAmount;
+    public int healingAmount;
+    public int shieldingAmount;
+
     [Header("Enemy Stats")]
     public int health;
     public int shield;

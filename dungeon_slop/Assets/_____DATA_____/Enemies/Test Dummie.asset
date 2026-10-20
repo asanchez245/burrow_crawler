@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fbb24a0e37332045a2e4801cd891a16, type: 3}
   m_Name: Test Dummie
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
+  effects: []
   enemyName: Test Dummie
   enemySprite: {fileID: 21300000, guid: e82cd080cd54187409f68a2625caa94c, type: 3}
+  animatorController: {fileID: 0}
+  damageAmount: 1
+  healingAmount: 2
+  shieldingAmount: 3
   health: 6
   shield: 0
   maxShield: 0
-  abilities:
-  - {fileID: 11400000, guid: 8c5b2b511a8893f49b41c1807b619d83, type: 2}
+  maxAbilitiesPerTurn: 1
