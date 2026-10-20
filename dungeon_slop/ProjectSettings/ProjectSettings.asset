@@ -14,10 +14,10 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: CrimsonBirdsStudio
   productName: Burrow Crawler
-  defaultCursor: {fileID: 0}
+  defaultCursor: {fileID: 2800000, guid: 9808d6f5032e93c459194408c67e0e37, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.08235294, g: 0.08235294, b: 0.08627451, a: 1}
-  m_ShowUnitySplashScreen: 1
+  m_ShowUnitySplashScreen: 0
   m_ShowUnitySplashLogo: 0
   m_SplashScreenOverlayOpacity: 1
   m_SplashScreenAnimation: 2
