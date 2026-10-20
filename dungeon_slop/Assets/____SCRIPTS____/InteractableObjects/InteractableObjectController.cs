@@ -124,7 +124,17 @@ public class InteractableObjectController : MonoBehaviour
         if (interactionType != InteractionType.door || playerInventary.CheckItemRequired(requiredItem.requiredItem))
         {
             if (audioSource != null && sound != null)
-                audioSource.PlayOneShot(sound);
+            {
+                Vector3 spawnPosition = transform.position;
+                GameObject objectSound = new GameObject("TemporaryAudioObject");
+                objectSound.transform.position = spawnPosition;
+
+                AudioSource audioSource = objectSound.AddComponent<AudioSource>();
+                audioSource.clip = sound;
+                audioSource.Play();
+
+                Destroy(objectSound, sound.length);
+            }
         }
         switch (interactionType)
         {
