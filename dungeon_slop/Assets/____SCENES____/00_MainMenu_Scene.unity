@@ -262,7 +262,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Exit
+  m_text: Salir
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f9c3fbf32c0a5894e8ba4b6ace0eb857, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: cd973d1a15e280641b767c867e4bb858, type: 2}
@@ -667,9 +667,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Start
-
-'
+  m_text: Comenzar
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f9c3fbf32c0a5894e8ba4b6ace0eb857, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: cd973d1a15e280641b767c867e4bb858, type: 2}
